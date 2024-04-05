@@ -1,0 +1,35 @@
+{
+  "2e2d7a63-e36c-454e-a946-7ebde9cd7e10": {
+    "appActions": [
+      "providers/PowerPlatform.Governance/Operations/Read",
+      "providers/PowerPlatform.Governance/Operations/Write"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1670/1.0.1670.3526/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://powerrockscombr.sharepoint.com/sites/QA-ENG": {
+        "dataSources": {
+          "Lista_App_Katlyn": {
+            "tableName": "391894f1-b652-4cc8-b1ed-4ca512e8809c"
+          },
+          "ListaPontuação-Katlyn": {
+            "tableName": "c3fdf815-a019-428a-84d8-0e075c8b1cd8"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "Lista_App_Katlyn",
+      "ListaPontuação-Katlyn"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "2e2d7a63-e36c-454e-a946-7ebde9cd7e10"
+  }
+}

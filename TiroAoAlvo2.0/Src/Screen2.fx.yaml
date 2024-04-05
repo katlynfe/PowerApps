@@ -1,0 +1,188 @@
+Screen2 As screen:
+    Fill: =RGBA(209, 232, 178, 1)
+
+    Container15_10 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =768
+        LayoutMode: =LayoutMode.Auto
+        Width: =1366
+        ZIndex: =1
+
+        Container18_10 As groupContainer.verticalAutoLayoutContainer:
+            FillPortions: =0
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            Visible: =conteiner
+            Width: =150
+            ZIndex: =1
+
+            Container28_10 As groupContainer.manualLayoutContainer:
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                ZIndex: =1
+
+                Icon2_22 As icon.Waffle:
+                    Color: =RGBA(127, 178, 57, 1)
+                    Icon: =Icon.Home
+                    OnSelect: |-
+                        =Navigate(Screen5);
+                        Set(conteiner,false)
+                    X: =42
+                    Y: =142
+                    ZIndex: =1
+
+                Label2_16 As label:
+                    Color: =RGBA(127, 178, 57, 1)
+                    Size: =20
+                    Text: ="Início"
+                    X: =42
+                    Y: =206
+                    ZIndex: =2
+
+                Label9_10 As label:
+                    Align: =Align.Center
+                    Fill: =RGBA(127, 178, 57, 1)
+                    Height: =127
+                    Size: =25
+                    Text: ="Menu"
+                    ZIndex: =3
+
+                Arrow2_8 As arrow.backArrow:
+                    Fill: =RGBA(127, 178, 57, 1)
+                    Height: =64
+                    OnSelect: |-
+                        =Navigate(Screen1);
+                        Set(conteiner,false)
+                    Width: =64
+                    X: =42
+                    Y: =664
+                    ZIndex: =4
+
+                Label8_22 As label:
+                    Color: =RGBA(127, 178, 57, 1)
+                    Size: =20
+                    Text: ="Voltar"
+                    X: =42
+                    Y: =728
+                    ZIndex: =5
+
+        Container20_10 As groupContainer.horizontalAutoLayoutContainer:
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =2
+
+            Container29_6 As groupContainer.manualLayoutContainer:
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                ZIndex: =1
+
+                Image1_23 As image:
+                    Height: =85
+                    Image: =d46a3cdcea87af6
+                    Width: =166
+                    X: =1050
+                    ZIndex: =3
+
+                Label1_39 As label:
+                    Font: =Font.'Open Sans Condensed'
+                    Size: =25
+                    Text: ="Game Lifer"
+                    X: =1066
+                    Y: =45
+                    ZIndex: =4
+
+                Icon1_22 As icon.Hamburger:
+                    Color: =RGBA(127, 178, 57, 1)
+                    Icon: =Icon.Hamburger
+                    OnSelect: |-
+                        =If(conteiner = true,
+                        Set(conteiner,false),
+                        Set(conteiner,true)
+                        )
+                    ZIndex: =6
+
+                Label24_1 As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(101, 128, 187, 1)
+                    Color: =RGBA(47,41,43,1)
+                    Font: =Font.'Lato Light'
+                    Height: =188
+                    Size: =30
+                    Text: |-
+                        ="Muito obrigada por jogar nosso jogo!
+                        
+                        Caso deseje ir para o início, aperte em ""Inicio""; aperte em ""Menu"", caso deseje ir para o menu navegação ou feche o aplicativo em ""Sair""."
+                    Width: =1216
+                    Y: =177
+                    ZIndex: =7
+
+                Icon3_1 As icon.Home:
+                    Color: =RGBA(127, 178, 57, 1)
+                    Height: =93
+                    Icon: =Icon.Home
+                    OnSelect: =Navigate(Screen5)
+                    Width: =94
+                    X: =421
+                    Y: =675
+                    ZIndex: =8
+
+                Icon1_23 As icon.Waffle:
+                    BorderColor: =RGBA(101, 128, 187, 1)
+                    Color: =RGBA(141, 198, 63, 1)
+                    Height: =81
+                    Icon: =Icon.Waffle
+                    OnSelect: =Navigate(Screen7)
+                    Width: =112
+                    X: =552
+                    Y: =687
+                    ZIndex: =9
+
+                Icon2_23 As icon.Leave:
+                    BorderColor: =RGBA(101, 128, 187, 1)
+                    Color: =RGBA(141, 198, 63, 1)
+                    Height: =81
+                    Icon: =Icon.Leave
+                    OnSelect: =Exit()
+                    Width: =101
+                    X: =697
+                    Y: =687
+                    ZIndex: =10
+
+                Label5_2 As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(101, 128, 187, 1)
+                    Color: =RGBA(47,41,43,1)
+                    Font: =Font.'Lato Light'
+                    FontWeight: =FontWeight.Bold
+                    Size: =20
+                    Text: ="Início"
+                    X: =393
+                    Y: =647
+                    ZIndex: =11
+
+                Label5_3 As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(101, 128, 187, 1)
+                    Color: =RGBA(47,41,43,1)
+                    Font: =Font.'Lato Light'
+                    FontWeight: =FontWeight.Bold
+                    Size: =20
+                    Text: ="Menu"
+                    X: =533
+                    Y: =647
+                    ZIndex: =12
+
+                Label6_1 As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(101, 128, 187, 1)
+                    Color: =RGBA(47,41,43,1)
+                    Font: =Font.'Lato Light'
+                    FontWeight: =FontWeight.Bold
+                    Size: =20
+                    Text: ="Sair"
+                    X: =648
+                    Y: =647
+                    ZIndex: =13
+
