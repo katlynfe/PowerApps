@@ -1,0 +1,12 @@
+{
+  "Content": "Image",
+  "FileName": "/ctrllib/icon/images/Basel_CameraSettingsApertureFocus.svg",
+  "IsSampleData": true,
+  "IsWritable": false,
+  "Name": "Basel_CameraSettingsApertureFocus",
+  "Path": "/ctrllib/icon/images/Basel_CameraSettingsApertureFocus.svg",
+  "ResourceKind": "Uri",
+  "RootPath": "ms-appx:///ctrllib/icon/images/Basel_CameraSettingsApertureFocus.svg",
+  "Schema": "i",
+  "Type": "ResourceInfo"
+}

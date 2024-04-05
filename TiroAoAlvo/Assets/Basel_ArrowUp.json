@@ -1,0 +1,12 @@
+{
+  "Content": "Image",
+  "FileName": "/ctrllib/icon/images/Basel_ArrowUp.svg",
+  "IsSampleData": true,
+  "IsWritable": false,
+  "Name": "Basel_ArrowUp",
+  "Path": "/ctrllib/icon/images/Basel_ArrowUp.svg",
+  "ResourceKind": "Uri",
+  "RootPath": "ms-appx:///ctrllib/icon/images/Basel_ArrowUp.svg",
+  "Schema": "i",
+  "Type": "ResourceInfo"
+}

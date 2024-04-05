@@ -1,0 +1,17 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+    "CdpRevision": {
+      "BaseUrl": "/",
+      "LastChangedTimeString": "2023-12-21T18:40:18.0790000Z",
+      "RevisionNumber": 1
+    },
+    "ConnectedDataSourceInfoNameMapping": {},
+    "DatasetName": "https://powerrockscombr.sharepoint.com/sites/QA-ENG",
+    "EncodeDataset": true,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "Name": "ListaPontuação-Katlyn",
+    "Type": "ConnectedDataSourceInfo"
+  }
+]

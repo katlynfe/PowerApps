@@ -1,0 +1,39 @@
+App As appinfo:
+    BackEnabled: =true
+    OnError: =
+    OnStart: |
+        =ClearCollect(Lessons,
+        {num:1, icon: Basel_Home, name:"Welcome", screen: L01_Welcome, screen_name:"L01_Welcome"}, 
+        {num:2, icon: Basel_Compose, name: "About", screen: L02_About, screen_name: "L02_About"},
+        {num:3, icon: Basel_draw, name: "Basics", screen: L03_Basics, screen_name: "L03_Basics"},
+        {num:4, icon: Basel_NextArrow, name: "Navigation", screen: L04_Navigation, screen_name: "L04_Navigation"},
+        {num:5, icon: Basel_Currency, name: "Formulas", screen: L05_Formulas, screen_name: "L05_Formulas"},
+        {num:6, icon: Basel_Computer, name: "Rules (If)", screen: L06_Rules, screen_name: "L06_Rules"},
+        {num:7, icon: Basel_Attachment, name: "Variables", screen: L07_Variables, screen_name: "L07_Variables"},
+        {num:8, icon: Basel_CameraSettingsApertureFocus, name: "Camera", screen: L08_Camera, screen_name: "L08_Camera"},
+        {num:9, icon: Basel_People, name: "Publish", screen: L09_Publish, screen_name: "L09_Publish"},
+        {num:10, icon: Basel_Mobile, name: "Mobile", screen: L10_Mobile, screen_name: "L10_Mobile"},
+        {num:11, icon: Basel_detail_list, name: "Gallery basics", screen: L11_GalleryBasics, screen_name: "L11_GalleryBasics"},
+        {num:12, icon: Basel_Compose, name: "Gallery templates", screen: L12_GalleryTemplates, screen_name: "L12_GalleryTemplates"},
+        {num:13, icon: Basel_Post, name: "Selected record", screen: L13_SelectedRecord, screen_name: "L13_SelectedRecord"},
+        {num:14, icon: Basel_filter, name: "Filtering", screen: L14_Filtering, screen_name: "L14_Filtering"},
+        {num:15, icon: Basel_ArrowsUpDown, name: "Sorting and nesting", screen: L15_SortingAndNesting, screen_name: "L15_SortingAndNesting"},
+        {num:16, icon: Basel_OptionsList, name: "Drop downs", screen: L16_Dropdowns, screen_name: "L16_Dropdowns"},
+        {num:17, icon: Basel_ArrowRight, name: "Linking controls", screen: L17_LinkingControls, screen_name: "L17_LinkingControls"},
+        {num:18, icon: Basel_Search, name: "Searching", screen: L18_Searching, screen_name: "L18_Searching"},
+        {num:19, icon: Basel_Folder, name: "Collections", screen: L19_Collections, screen_name: "L19_Collections"},
+        {num:20, icon: Basel_Database, name: "Data tables", screen: L20_DataTables, screen_name: "L20_DataTables"}
+        );
+        Set(_CurrentLesson, 1);
+        Set(_ThisScreen,1);
+        If(CheckboxUnlock.Value, Set(_CurrentLesson, Max(Lessons,num))); // unlock all exercises
+        Set(_Separator,If(Left(Text(0.1,"[$-en-us]#.0"),1)=".",",",";")) // auto detect ; or ,
+    Theme: =PowerAppsTheme
+
+    Host As hostControl.DefaultHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+

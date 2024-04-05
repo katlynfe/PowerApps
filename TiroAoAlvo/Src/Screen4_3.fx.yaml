@@ -1,0 +1,32 @@
+Screen4_3 As screen:
+    Fill: =RGBA(209, 232, 178, 1)
+
+    Image7_4 As image:
+        Height: =303
+        Image: ='Captura de tela de 2023-12-28 12-57-46_2'
+        Width: =326
+        X: =537
+        Y: =45
+        ZIndex: =1
+
+    Button4_3 As button:
+        Fill: =RGBA(141, 198, 63, 1)
+        OnSelect: =Navigate(Screen9)
+        Text: ="Iniciar"
+        X: =620
+        Y: =368
+        ZIndex: =2
+
+    Label1_5 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(141, 198, 63, 1)
+        Height: =45
+        OnSelect: =Navigate(Screen4_3)
+        Size: =25
+        Text: ="Snake"
+        Width: =326
+        X: =537
+        Y: =45
+        ZIndex: =3
+
