@@ -1,0 +1,172 @@
+Screen17 As screen:
+
+    Container1_16 As groupContainer.verticalAutoLayoutContainer:
+        Height: =660
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =114
+        Y: =108
+        ZIndex: =1
+
+        Icon1_16 As icon.Hamburger:
+            Color: =RGBA(116, 116, 116, 1)
+            Icon: =Icon.Hamburger
+            OnSelect: |-
+                =Set(barra,true);
+                Set(voltar,true);
+            Y: =108
+            ZIndex: =1
+
+        Arrow2_16 As arrow.backArrow:
+            Fill: =RGBA(116, 116, 116, 1)
+            OnSelect: =Navigate(Screen16)
+            Visible: =voltar
+            ZIndex: =2
+
+    Container3_16 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =108
+        LayoutMode: =LayoutMode.Auto
+        Width: =1362
+        ZIndex: =2
+
+        Image2_16 As image:
+            Image: ='Captura de tela de 2024-01-05 11-51-45'
+            ZIndex: =1
+
+    Container5_16 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =660
+        LayoutMode: =LayoutMode.Auto
+        Width: =1252
+        X: =114
+        Y: =108
+        ZIndex: =3
+
+    Label6_16 As label:
+        Font: =Font.'Lato Black'
+        Height: =108
+        Size: =35
+        Text: |-
+            ="BEE 1110
+            "
+        X: =125
+        ZIndex: =8
+
+    Arrow3_16 As arrow:
+        Fill: =RGBA(116, 116, 116, 1)
+        OnSelect: =Navigate(Screen18)
+        X: =1316
+        Y: =718
+        ZIndex: =9
+
+    Label8_14 As label:
+        Font: =Font.Lato
+        Height: =334
+        Size: =25
+        Text: ="Dada uma pilha de n cartas enumeradas de 1 até n com a carta 1 no topo e a carta n na base.  A seguinte operação é ralizada enquanto tiver 2 ou mais cartas na pilha.Jogue fora a carta do topo e mova a próxima carta (a que ficou no topo) para a base da pilha.Sua tarefa é encontrar a sequência de cartas descartadas e a última carta remanescente.Cada linha de entrada (com exceção da última) contém um número n ≤ 50. A última linha contém 0 e não deve ser processada. Cada número de entrada produz duas linhas de saída. A primeira linha apresenta a sequência de cartas descartadas e a segunda linha apresenta a carta remanescente."
+        Width: =1253
+        X: =113
+        Y: =108
+        ZIndex: =10
+
+    TextInput1_64 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =69
+        HintText: ="Digite a expressão desejada"
+        OnChange: =
+        Size: =25
+        Width: =466
+        X: =125
+        Y: =609
+        ZIndex: =24
+
+    Label4_58 As label:
+        Height: =74
+        Size: =20
+        Text: |-
+            ="Valor de 1 a 50:"
+        Width: =249
+        X: =148
+        Y: =527
+        ZIndex: =25
+
+    TextInput1_65 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =Label_DiscardedCards
+        Height: =69
+        HintText: ="Digite a expressão desejada"
+        Size: =25
+        Width: =466
+        X: =837
+        Y: =545
+        ZIndex: =26
+
+    Label4_59 As label:
+        Height: =74
+        Size: =20
+        Text: |-
+            ="Cartas descartadas:"
+        Width: =447
+        X: =837
+        Y: =481
+        ZIndex: =27
+
+    Button4_6 As button:
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =61
+        OnSelect: |-
+            =ClearCollect(Deck, Sequence(Value(TextInput1_64.Text), 1, 1));
+            ClearCollect(DiscardedCards, Blank());
+            Set(LastRemainingCard, Blank());
+            
+            UpdateContext({
+                DiscardCards: If(
+                    CountRows(Deck) >= 2,
+                    Collect(DiscardedCards, First(Deck));
+                    Remove(Deck,First(Deck));
+                    Collect(Deck, First(DiscardedCards));
+                    UpdateContext({ DiscardCards: DiscardCards })
+                )
+            });
+            
+            Set(Label_DiscardedCards, Concatenate(Value(DiscardCards), ", "));
+            
+            Set(Label_LastRemainingCard, First(Deck).Value)
+        Text: ="Resultado"
+        Width: =122
+        X: =654
+        Y: =599
+        ZIndex: =28
+
+    Label7_15 As label:
+        Font: =Font.Lato
+        Height: =62
+        Size: =35
+        Text: ="Avançados"
+        Width: =247
+        X: =1119
+        Y: =46
+        ZIndex: =29
+
+    Label4_60 As label:
+        Height: =74
+        Size: =20
+        Text: |-
+            ="Carta restante:"
+        Width: =447
+        X: =837
+        Y: =624
+        ZIndex: =30
+
+    TextInput1_66 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =Label_LastRemainingCard
+        Height: =69
+        HintText: ="Digite a expressão desejada"
+        Size: =25
+        Width: =466
+        X: =837
+        Y: =687
+        ZIndex: =31
+

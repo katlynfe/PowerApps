@@ -1,0 +1,20 @@
+App As appinfo:
+    BackEnabled: =true
+    OnStart: |
+        =ClearCollect(Assassinatos,
+            { Assassino: "Arya", Vitima: "Meryn" },
+            { Assassino: "Meryn", Vitima: "Syrio" },
+            { Assassino: "Brienne", Vitima: "Stannis" },
+            { Assassino: "Ellaria", Vitima: "Myrcella" },
+            { Assassino: "Jaime", Vitima: "Aerys" },
+            { Assassino: "Brienne", Vitima: "Jaime" }
+        )
+    Theme: =PowerAppsTheme
+
+    Host As hostControl.DefaultHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+

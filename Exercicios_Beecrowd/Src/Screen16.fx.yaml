@@ -1,0 +1,137 @@
+Screen16 As screen:
+
+    Container1_15 As groupContainer.verticalAutoLayoutContainer:
+        Height: =660
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =114
+        Y: =108
+        ZIndex: =1
+
+        Icon1_15 As icon.Hamburger:
+            Color: =RGBA(116, 116, 116, 1)
+            Icon: =Icon.Hamburger
+            OnSelect: |-
+                =Set(barra,true);
+                Set(voltar,true);
+            Y: =108
+            ZIndex: =1
+
+        Arrow2_15 As arrow.backArrow:
+            Fill: =RGBA(116, 116, 116, 1)
+            OnSelect: =Navigate(Screen15)
+            Visible: =voltar
+            ZIndex: =2
+
+    Container3_15 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =108
+        LayoutMode: =LayoutMode.Auto
+        Width: =1362
+        ZIndex: =2
+
+        Image2_15 As image:
+            Image: ='Captura de tela de 2024-01-05 11-51-45'
+            ZIndex: =1
+
+    Container5_15 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =660
+        LayoutMode: =LayoutMode.Auto
+        Width: =1252
+        X: =114
+        Y: =108
+        ZIndex: =3
+
+    Label6_15 As label:
+        Font: =Font.'Lato Black'
+        Height: =108
+        Size: =35
+        Text: |-
+            ="BEE 1069
+            "
+        X: =125
+        ZIndex: =8
+
+    Arrow3_15 As arrow:
+        Fill: =RGBA(116, 116, 116, 1)
+        OnSelect: =Navigate(Screen17)
+        X: =1316
+        Y: =718
+        ZIndex: =9
+
+    Label8_13 As label:
+        Font: =Font.Lato
+        Height: =299
+        Size: =25
+        Text: ="João está trabalhando em uma mina, tentando retirar o máximo que consegue de diamantes ""<>"". Ele deve excluir todas as particulas de areia ""."" do processo e a cada retirada de diamante, novos diamantes poderão se formar. Se ele tem como uma entrada .<...<<..>>....>....>>>., três diamantes são formados. O primeiro é retirado de <..>, resultando  .<...<>....>....>>>. Em seguida o segundo diamante é retirado, restando .<.......>....>>>. O terceiro diamante é então retirado, restando no final .....>>>., sem possibilidade de extração de novo diamante."
+        Width: =1253
+        X: =113
+        Y: =108
+        ZIndex: =10
+
+    TextInput1_62 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =69
+        HintText: ="Digite a expressão desejada"
+        OnChange: =
+        Size: =25
+        Width: =466
+        X: =148
+        Y: =624
+        ZIndex: =24
+
+    Label4_56 As label:
+        Height: =74
+        Size: =20
+        Text: |-
+            ="Expressão:"
+        Width: =162
+        X: =148
+        Y: =550
+        ZIndex: =25
+
+    TextInput1_63 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =(resultado2+1)
+        Height: =69
+        HintText: ="Digite a expressão desejada"
+        Size: =25
+        Width: =466
+        X: =818
+        Y: =624
+        ZIndex: =26
+
+    Label4_57 As label:
+        Height: =74
+        Size: =20
+        Text: |-
+            ="Quantidade de diamantes:"
+        Width: =447
+        X: =818
+        Y: =550
+        ZIndex: =27
+
+    Button4_5 As button:
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =61
+        OnSelect: |-
+            =Find("<",TextInput1_62.Text,1);
+            Find(">",TextInput1_62.Text,-1);
+        Text: ="Resultado"
+        Width: =122
+        X: =658
+        Y: =624
+        ZIndex: =28
+
+    Label7_3 As label:
+        Font: =Font.Lato
+        Height: =62
+        Size: =35
+        Text: ="Avançados"
+        Width: =247
+        X: =1119
+        Y: =46
+        ZIndex: =29
+

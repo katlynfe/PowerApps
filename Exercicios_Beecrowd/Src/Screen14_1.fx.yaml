@@ -1,0 +1,628 @@
+Screen14_1 As screen:
+
+    Container1_13 As groupContainer.verticalAutoLayoutContainer:
+        Height: =660
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =114
+        Y: =108
+        ZIndex: =1
+
+        Icon1_13 As icon.Hamburger:
+            Color: =RGBA(116, 116, 116, 1)
+            Icon: =Icon.Hamburger
+            OnSelect: |-
+                =Set(barra,true);
+                Set(voltar,true);
+            Y: =108
+            ZIndex: =1
+
+        Arrow2_13 As arrow.backArrow:
+            Fill: =RGBA(116, 116, 116, 1)
+            OnSelect: =Navigate(Screen14)
+            Visible: =voltar
+            ZIndex: =2
+
+    Container3_13 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =108
+        LayoutMode: =LayoutMode.Auto
+        Width: =1362
+        ZIndex: =2
+
+        Image2_13 As image:
+            Image: ='Captura de tela de 2024-01-05 11-51-45'
+            ZIndex: =1
+
+    Container5_13 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =660
+        LayoutMode: =LayoutMode.Auto
+        Width: =1252
+        X: =114
+        Y: =108
+        ZIndex: =3
+
+    Label6_13 As label:
+        Font: =Font.'Lato Black'
+        Height: =108
+        Size: =35
+        Text: |-
+            ="BEE 1022
+            "
+        X: =125
+        ZIndex: =8
+
+    Arrow3_13 As arrow:
+        Fill: =RGBA(116, 116, 116, 1)
+        OnSelect: =Navigate(Screen15)
+        X: =1316
+        Y: =718
+        ZIndex: =9
+
+    TextInput1_36 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =82
+        HintText: ="Digite o numero desejado"
+        Size: =25
+        Width: =127
+        X: =114
+        Y: =232
+        ZIndex: =24
+
+    Label10 As label:
+        Height: =82
+        Size: =35
+        Text: ="/"
+        Width: =37
+        X: =257
+        Y: =232
+        ZIndex: =25
+
+    TextInput1_37 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =82
+        HintText: ="Digite o numero desejado"
+        Size: =25
+        Width: =127
+        X: =294
+        Y: =232
+        ZIndex: =26
+
+    Label10_1 As label:
+        Height: =82
+        Size: =35
+        Text: ="+"
+        Width: =37
+        X: =442
+        Y: =232
+        ZIndex: =27
+
+    TextInput1_38 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =82
+        HintText: ="Digite o numero desejado"
+        Size: =25
+        Width: =127
+        X: =501
+        Y: =232
+        ZIndex: =28
+
+    Label10_2 As label:
+        Height: =82
+        Size: =35
+        Text: ="/"
+        Width: =37
+        X: =647
+        Y: =232
+        ZIndex: =29
+
+    TextInput1_39 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =82
+        HintText: ="Digite o numero desejado"
+        Size: =25
+        Width: =127
+        X: =684
+        Y: =232
+        ZIndex: =30
+
+    TextInput1_40 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =Concatenate(Text(soma1), "/", Text(soma2))
+        Height: =82
+        HintText: ="Digite o numero desejado"
+        OnChange: |
+            =Set(a, soma1);
+            Set(b, soma2);
+            
+            // Algoritmo de Euclides para calcular o MDC
+            While(b <> 0,
+                Set(temp, b),
+                Set(b, Mod(a, b)),
+                Set(a, temp)
+            );
+            
+            Set(MDC, a)
+        Size: =25
+        Width: =127
+        X: =1021
+        Y: =232
+        ZIndex: =31
+
+    TextInput1_41 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =Concatenate(Text(numeradorSimplificado), "/", Text(denominadorSimplificado))
+        Height: =82
+        HintText: ="Digite o numero desejado"
+        Size: =25
+        Width: =127
+        X: =1221
+        Y: =232
+        ZIndex: =32
+
+    Label10_3 As label:
+        Height: =82
+        Size: =35
+        Text: ="="
+        Width: =37
+        X: =1171
+        Y: =232
+        ZIndex: =33
+
+    Button4 As button:
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =61
+        OnSelect: |-
+            =Set(n1,Value(TextInput1_36.Text));
+            Set(d1,Value(TextInput1_37.Text));
+            Set(n2,Value(TextInput1_38.Text));
+            Set(d2,Value(TextInput1_39.Text));
+            Set(soma1, (n1*d2+n2*d1));
+            Set(soma2, (d1*d2));
+        Text: ="Resultado"
+        Width: =122
+        X: =855
+        Y: =242
+        ZIndex: =34
+
+    Label4_51 As label:
+        Height: =74
+        Size: =20
+        Text: ="Denominador 1"
+        Width: =184
+        X: =280
+        Y: =158
+        ZIndex: =36
+
+    Label4_52 As label:
+        Height: =74
+        Size: =20
+        Text: ="Numerador 2"
+        Width: =162
+        X: =493
+        Y: =158
+        ZIndex: =37
+
+    Label4_53 As label:
+        Height: =74
+        Size: =20
+        Text: ="Denominador 2"
+        Width: =184
+        X: =671
+        Y: =158
+        ZIndex: =38
+
+    TextInput1_42 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =82
+        HintText: ="Digite o numero desejado"
+        Size: =25
+        Width: =127
+        X: =114
+        Y: =372
+        ZIndex: =39
+
+    TextInput1_43 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =82
+        HintText: ="Digite o numero desejado"
+        Size: =25
+        Width: =127
+        X: =114
+        Y: =504
+        ZIndex: =40
+
+    TextInput1_44 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =82
+        HintText: ="Digite o numero desejado"
+        Size: =25
+        Width: =127
+        X: =114
+        Y: =636
+        ZIndex: =41
+
+    TextInput1_45 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =82
+        HintText: ="Digite o numero desejado"
+        Size: =25
+        Width: =127
+        X: =294
+        Y: =372
+        ZIndex: =42
+
+    TextInput1_46 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =82
+        HintText: ="Digite o numero desejado"
+        Size: =25
+        Width: =127
+        X: =501
+        Y: =372
+        ZIndex: =43
+
+    TextInput1_47 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =82
+        HintText: ="Digite o numero desejado"
+        Size: =25
+        Width: =127
+        X: =679
+        Y: =372
+        ZIndex: =44
+
+    TextInput1_48 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =82
+        HintText: ="Digite o numero desejado"
+        Size: =25
+        Width: =127
+        X: =294
+        Y: =504
+        ZIndex: =45
+
+    TextInput1_49 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =82
+        HintText: ="Digite o numero desejado"
+        Size: =25
+        Width: =127
+        X: =294
+        Y: =636
+        ZIndex: =46
+
+    TextInput1_50 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =82
+        HintText: ="Digite o numero desejado"
+        Size: =25
+        Width: =127
+        X: =501
+        Y: =504
+        ZIndex: =47
+
+    TextInput1_51 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =82
+        HintText: ="Digite o numero desejado"
+        Size: =25
+        Width: =127
+        X: =499
+        Y: =636
+        ZIndex: =48
+
+    TextInput1_52 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =82
+        HintText: ="Digite o numero desejado"
+        Size: =25
+        Width: =127
+        X: =676
+        Y: =504
+        ZIndex: =49
+
+    TextInput1_53 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =82
+        HintText: ="Digite o numero desejado"
+        Size: =25
+        Width: =127
+        X: =667
+        Y: =636
+        ZIndex: =50
+
+    Label10_4 As label:
+        Height: =82
+        Size: =35
+        Text: ="/"
+        Width: =37
+        X: =249
+        Y: =372
+        ZIndex: =51
+
+    Label10_5 As label:
+        Height: =82
+        Size: =35
+        Text: ="/"
+        Width: =37
+        X: =249
+        Y: =504
+        ZIndex: =52
+
+    Label10_6 As label:
+        Height: =82
+        Size: =35
+        Text: ="/"
+        Width: =37
+        X: =249
+        Y: =636
+        ZIndex: =53
+
+    Label10_7 As label:
+        Height: =82
+        Size: =35
+        Text: ="/"
+        Width: =37
+        X: =642
+        Y: =372
+        ZIndex: =54
+
+    Label10_8 As label:
+        Height: =82
+        Size: =35
+        Text: ="/"
+        Width: =37
+        X: =639
+        Y: =504
+        ZIndex: =55
+
+    Label10_9 As label:
+        Height: =82
+        Size: =35
+        Text: ="/"
+        Width: =37
+        X: =628
+        Y: =636
+        ZIndex: =56
+
+    Label10_10 As label:
+        Height: =82
+        Size: =35
+        Text: ="/"
+        Width: =37
+        X: =442
+        Y: =636
+        ZIndex: =57
+
+    Label10_11 As label:
+        Height: =82
+        Size: =35
+        Text: ="-"
+        Width: =37
+        X: =442
+        Y: =372
+        ZIndex: =58
+
+    Label10_12 As label:
+        Height: =82
+        Size: =35
+        Text: ="*"
+        Width: =37
+        X: =442
+        Y: =504
+        ZIndex: =59
+
+    Button4_1 As button:
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =61
+        OnSelect: |-
+            =Set(n1,Value(TextInput1_42.Text));
+            Set(d1,Value(TextInput1_45.Text));
+            Set(n2,Value(TextInput1_46.Text));
+            Set(d2,Value(TextInput1_47.Text));
+            Set(numerador, (n1*d2-n2*d1));
+            Set(denominador, (d1*d2));
+        Text: ="Resultado"
+        Width: =122
+        X: =857
+        Y: =378
+        ZIndex: =60
+
+    Button4_2 As button:
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =61
+        OnSelect: |-
+            =Set(n1,Value(TextInput1_43.Text));
+            Set(d1,Value(TextInput1_48.Text));
+            Set(n2,Value(TextInput1_50.Text));
+            Set(d2,Value(TextInput1_52.Text));
+            Set(numerador2, (n1*n2));
+            Set(denominador2, (d1*d2));
+        Text: ="Resultado"
+        Width: =122
+        X: =855
+        Y: =525
+        ZIndex: =61
+
+    Button4_3 As button:
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =61
+        OnSelect: |-
+            =Set(n1,Value(TextInput1_44.Text));
+            Set(d1,Value(TextInput1_49.Text));
+            Set(n2,Value(TextInput1_51.Text));
+            Set(d2,Value(TextInput1_53.Text));
+            Set(numerador3, (n1*d2));
+            Set(denominador3, (n2*d1));
+        Text: ="Resultado"
+        Width: =122
+        X: =855
+        Y: =646
+        ZIndex: =62
+
+    TextInput1_54 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =Concatenate(Text(numerador), "/", Text(denominador))
+        Height: =82
+        HintText: ="Digite o numero desejado"
+        OnChange: |-
+            =Set(CalcularMDC,
+                If(soma2 = 0, soma1, CalcularMDC(denominador, Mod(numerador, denominador)))
+            );
+            
+            Set(MDC, CalcularMDC(soma1, soma2));
+            
+            If(MDC <> 1,
+                Set(numeradorSimplificado, soma1 / MDC),
+                Set(denominadorSimplificado, soma2 / MDC),
+            )
+        Size: =25
+        Width: =127
+        X: =1021
+        Y: =378
+        ZIndex: =63
+
+    TextInput1_55 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =Concatenate(Text(numerador2), "/", Text(denominador2))
+        Height: =82
+        HintText: ="Digite o numero desejado"
+        OnChange: |-
+            =Set(CalcularMDC,
+                If(soma2 = 0, soma1, CalcularMDC(denominador, Mod(numerador, denominador)))
+            );
+            
+            Set(MDC, CalcularMDC(soma1, soma2));
+            
+            If(MDC <> 1,
+                Set(numeradorSimplificado, soma1 / MDC),
+                Set(denominadorSimplificado, soma2 / MDC),
+            )
+        Size: =25
+        Width: =127
+        X: =1021
+        Y: =504
+        ZIndex: =64
+
+    TextInput1_56 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =Concatenate(Text(numerador3), "/", Text(denominador3))
+        Height: =82
+        HintText: ="Digite o numero desejado"
+        OnChange: |-
+            =Set(CalcularMDC,
+                If(soma2 = 0, soma1, CalcularMDC(denominador, Mod(numerador, denominador)))
+            );
+            
+            Set(MDC, CalcularMDC(soma1, soma2));
+            
+            If(MDC <> 1,
+                Set(numeradorSimplificado, soma1 / MDC),
+                Set(denominadorSimplificado, soma2 / MDC),
+            )
+        Size: =25
+        Width: =127
+        X: =1022
+        Y: =636
+        ZIndex: =65
+
+    TextInput1_57 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =Concatenate(Text(numeradorSimplificado2), "/", Text(denominadorSimplificado2))
+        Height: =82
+        HintText: ="Digite o numero desejado"
+        Size: =25
+        Width: =127
+        X: =1221
+        Y: =378
+        ZIndex: =66
+
+    TextInput1_58 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =Concatenate(Text(numeradorSimplificado3), "/", Text(denominadorSimplificado3))
+        Height: =82
+        HintText: ="Digite o numero desejado"
+        Size: =25
+        Width: =127
+        X: =1221
+        Y: =507
+        ZIndex: =67
+
+    TextInput1_59 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =Concatenate(Text(numeradorSimplificado4), "/", Text(denominadorSimplificado4))
+        Height: =82
+        HintText: ="Digite o numero desejado"
+        Size: =25
+        Width: =127
+        X: =1221
+        Y: =635
+        ZIndex: =68
+
+    Label10_13 As label:
+        Height: =82
+        Size: =35
+        Text: ="="
+        Width: =37
+        X: =1166
+        Y: =378
+        ZIndex: =69
+
+    Label10_14 As label:
+        Height: =82
+        Size: =35
+        Text: ="="
+        Width: =37
+        X: =1166
+        Y: =504
+        ZIndex: =70
+
+    Label10_15 As label:
+        Height: =82
+        Size: =35
+        Text: ="="
+        Width: =37
+        X: =1166
+        Y: =635
+        ZIndex: =71
+
+    Label4_50 As label:
+        Height: =74
+        Size: =20
+        Text: ="Numerador 1"
+        Width: =162
+        X: =113
+        Y: =158
+        ZIndex: =72
+
+    Label7_1 As label:
+        Font: =Font.Lato
+        Height: =62
+        Size: =35
+        Text: ="Avançados"
+        Width: =247
+        X: =1119
+        Y: =46
+        ZIndex: =73
+

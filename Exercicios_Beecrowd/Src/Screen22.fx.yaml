@@ -1,0 +1,144 @@
+Screen22 As screen:
+
+    Container1_23 As groupContainer.verticalAutoLayoutContainer:
+        Height: =660
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =114
+        Y: =108
+        ZIndex: =1
+
+        Icon1_23 As icon.Hamburger:
+            Color: =RGBA(116, 116, 116, 1)
+            Icon: =Icon.Hamburger
+            OnSelect: |-
+                =Set(barra,true);
+                Set(voltar,true);
+            Y: =108
+            ZIndex: =1
+
+        Arrow2_23 As arrow.backArrow:
+            Fill: =RGBA(116, 116, 116, 1)
+            OnSelect: =Navigate(Screen21_1)
+            Visible: =voltar
+            ZIndex: =2
+
+    Container3_23 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =108
+        LayoutMode: =LayoutMode.Auto
+        Width: =1362
+        ZIndex: =2
+
+        Image2_23 As image:
+            Image: ='Captura de tela de 2024-01-05 11-51-45'
+            ZIndex: =1
+
+    Container5_23 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =660
+        LayoutMode: =LayoutMode.Auto
+        Width: =1252
+        X: =114
+        Y: =108
+        ZIndex: =3
+
+    Label6_23 As label:
+        Font: =Font.'Lato Black'
+        Height: =108
+        Size: =35
+        Text: |-
+            ="BEE 1763
+            "
+        X: =125
+        ZIndex: =8
+
+    Arrow3_23 As arrow:
+        Fill: =RGBA(116, 116, 116, 1)
+        OnSelect: =Navigate(Screen23)
+        X: =1316
+        Y: =718
+        ZIndex: =9
+
+    Label8_19 As label:
+        Font: =Font.Lato
+        Height: =266
+        Size: =25
+        Text: ="Nicolau já está bastante cansado e sua memória não é mais a mesma. Você, como navegador, deverá auxiliar o Papai Noel a gritar a frase ""Feliz Natal"" no idioma correto de cada país de que trenó está sobrevoando.Como você é um elfo muito esperto, você já criou um pequeno app no seu celular (sim, elfos tem celular) que irá lhe informar a frase no idioma correto dado o nome do país. Como o trenó é moderno (foi atualizado no ano 2000) ele exibe no painel de navegação o nome do país atual."
+        Width: =1253
+        X: =113
+        Y: =108
+        ZIndex: =10
+
+    TextInput1_73 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =246
+        HintText: ="Digite o texto desejado"
+        Mode: =TextMode.MultiLine
+        OnChange: =
+        Size: =25
+        Width: =466
+        X: =125
+        Y: =468
+        ZIndex: =24
+
+    Label4_71 As label:
+        Height: =56
+        Size: =20
+        Text: |-
+            ="Texto a traduzir:"
+        Width: =466
+        X: =125
+        Y: =412
+        ZIndex: =25
+
+    TextInput1_74 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =MicrosoftTranslator.Translate(TextInput1_73.Text,Dropdown1.Selected.Value)
+        DisplayMode: =DisplayMode.View
+        Height: =246
+        HintText: ="Texto traduzido"
+        Mode: =TextMode.MultiLine
+        Size: =25
+        Width: =508
+        X: =858
+        Y: =468
+        ZIndex: =26
+
+    Label4_70 As label:
+        Height: =61
+        Size: =20
+        Text: |-
+            ="Texto traduzido:"
+        Width: =234
+        X: =873
+        Y: =402
+        ZIndex: =27
+
+    Label7_22 As label:
+        Font: =Font.Lato
+        Height: =62
+        Size: =35
+        Text: ="Avançados"
+        Width: =247
+        X: =1119
+        Y: =46
+        ZIndex: =29
+
+    Dropdown1 As dropdown:
+        Height: =56
+        Items: =["Brasil","Alemanha","Áustria","Coreia","Espanha","Grécia","Estados Unidos","Inglaterra","Austrália","Portugual","Suécia","Turquia","Argentina","Chile","México","Antárdida","Canadá","Irlanda","Bélgica","Itália","Líbia","Síria","Marrocos","Japão"]
+        Width: =190
+        X: =620
+        Y: =468
+        ZIndex: =30
+
+    Label4_74 As label:
+        Height: =61
+        Size: =20
+        Text: |-
+            ="Idioma:"
+        Width: =234
+        X: =624
+        Y: =402
+        ZIndex: =31
+

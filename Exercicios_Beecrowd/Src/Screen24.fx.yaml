@@ -1,0 +1,146 @@
+Screen24 As screen:
+
+    Container1_26 As groupContainer.verticalAutoLayoutContainer:
+        Height: =660
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =114
+        Y: =108
+        ZIndex: =1
+
+        Icon1_26 As icon.Hamburger:
+            Color: =RGBA(116, 116, 116, 1)
+            Icon: =Icon.Hamburger
+            OnSelect: |-
+                =Set(barra,true);
+                Set(voltar,true);
+            Y: =108
+            ZIndex: =1
+
+        Arrow2_26 As arrow.backArrow:
+            Fill: =RGBA(116, 116, 116, 1)
+            OnSelect: =Navigate(Screen23_1)
+            Visible: =voltar
+            ZIndex: =2
+
+    Container3_26 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =108
+        LayoutMode: =LayoutMode.Auto
+        Width: =1362
+        ZIndex: =2
+
+        Image2_26 As image:
+            Image: ='Captura de tela de 2024-01-05 11-51-45'
+            ZIndex: =1
+
+    Container5_26 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =660
+        LayoutMode: =LayoutMode.Auto
+        Width: =1252
+        X: =114
+        Y: =108
+        ZIndex: =3
+
+    Label6_26 As label:
+        Font: =Font.'Lato Black'
+        Height: =108
+        Size: =35
+        Text: |-
+            ="BEE 1861
+            "
+        X: =125
+        ZIndex: =8
+
+    Arrow3_26 As arrow:
+        Fill: =RGBA(116, 116, 116, 1)
+        OnSelect: =Navigate(Screen25)
+        X: =1316
+        Y: =718
+        ZIndex: =9
+
+    Label8_21 As label:
+        Font: =Font.Lato
+        Height: =383
+        Size: =25
+        Text: ="Quem matou Meryn Trant? Quem matou Syrio Forel, se é que ele de fato morreu? Quem matou Stannis Baratheon? Quem matou Myrcella Baratheon? Quem matou Aerys II Targaryen? Quem vai matar (alerta de spoiler!) Jaime Lannister? Para algumas destas perguntas já sabíamos a resposta. Para outras, tínhamos apenas especulações. No entanto, recebemos de um correspondente anônimo uma lista descrevendo vários assassinatos, que já aconteceram ou que estão para acontecer, revelando tanto o nome dos assassinos quanto dos assassinados. Mas os assassinatos não estão em ordem lexicográfica, nem mesmo em ordem cronológica, e fica difícil contar quantas pessoas cada assassino matou. Você pode nos ajudar?"
+        Width: =1253
+        X: =113
+        Y: =108
+        ZIndex: =10
+
+    Label7_25 As label:
+        Font: =Font.Lato
+        Height: =62
+        Size: =35
+        Text: ="Avançados"
+        Width: =247
+        X: =1119
+        Y: =46
+        ZIndex: =29
+
+    Dropdown2 As dropdown:
+        Height: =45
+        Items: |
+            =Distinct(Assassinatos, Assassino)
+        Size: =25
+        Width: =177
+        X: =302
+        Y: =584
+        ZIndex: =30
+
+    Label11 As label:
+        Font: =Font.Lato
+        Size: =25
+        Text: ="Assassino"
+        Width: =177
+        X: =302
+        Y: =544
+        ZIndex: =31
+
+    Label11_1 As label:
+        Font: =Font.Lato
+        Size: =25
+        Text: ="Vítimas"
+        Width: =177
+        X: =710
+        Y: =544
+        ZIndex: =35
+
+    Label14 As label:
+        Font: =Font.Lato
+        Height: =140
+        Size: =25
+        Text: |
+            =If(
+                IsBlank(Dropdown2.Selected.Value),
+                Set(
+                    VítimasTemporárias,
+                    Filter(Assassinatos, Assassino = Dropdown2.Selected.Value).Vitima & ", "
+                ),
+                Set(
+                    VítimasTemporárias,
+                    Concat(
+                        Filter(Assassinatos, Assassino = Dropdown2.Selected.Value).Vitima,
+                        Concatenate(", ")
+                    )
+                )
+            );
+            
+            If(
+                Len(VítimasTemporárias) = 0,
+                "O assassino " & Dropdown2.Selected.Value & " não possui vítimas.",
+                "O assassino " & Dropdown2.Selected.Value & " matou " &
+                CountRows(
+                    Filter(
+                        Assassinatos,
+                        Assassino = Dropdown2.Selected.Value
+                    )
+                ) &
+                " vezes. Vítimas: " &
+                Left(VítimasTemporárias, Len(VítimasTemporárias) - 2)
+            )
+        Width: =437
+        X: =720
+        Y: =589
+        ZIndex: =36
+

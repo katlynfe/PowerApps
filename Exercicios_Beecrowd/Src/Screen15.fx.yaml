@@ -1,0 +1,159 @@
+Screen15 As screen:
+
+    Container1_14 As groupContainer.verticalAutoLayoutContainer:
+        Height: =660
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =114
+        Y: =108
+        ZIndex: =1
+
+        Icon1_14 As icon.Hamburger:
+            Color: =RGBA(116, 116, 116, 1)
+            Icon: =Icon.Hamburger
+            OnSelect: |-
+                =Set(barra,true);
+                Set(voltar,true);
+            Y: =108
+            ZIndex: =1
+
+        Arrow2_14 As arrow.backArrow:
+            Fill: =RGBA(116, 116, 116, 1)
+            OnSelect: =Navigate(Screen14_1)
+            Visible: =voltar
+            ZIndex: =2
+
+    Container3_14 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =108
+        LayoutMode: =LayoutMode.Auto
+        Width: =1362
+        ZIndex: =2
+
+        Image2_14 As image:
+            Image: ='Captura de tela de 2024-01-05 11-51-45'
+            ZIndex: =1
+
+    Container5_14 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =660
+        LayoutMode: =LayoutMode.Auto
+        Width: =1252
+        X: =114
+        Y: =108
+        ZIndex: =3
+
+    Label6_14 As label:
+        Font: =Font.'Lato Black'
+        Height: =108
+        Size: =35
+        Text: |-
+            ="BEE 1068
+            "
+        X: =125
+        ZIndex: =8
+
+    Arrow3_14 As arrow:
+        Fill: =RGBA(116, 116, 116, 1)
+        OnSelect: =Navigate(Screen16)
+        X: =1316
+        Y: =718
+        ZIndex: =9
+
+    Label8_12 As label:
+        Font: =Font.Lato
+        Height: =397
+        Size: =25
+        Text: |-
+            ="Dada uma expressão qualquer com parênteses, indique se a quantidade de parênteses está correta ou não, sem levar em conta o restante da expressão. Por exemplo:
+            a+(b*c)-2-a        está correto;
+            (a+b*(2-c)-2+a)*2  está correto;
+            enquanto a*b-(2+c)         está incorreto;
+            2*(3-a))           está incorreto;
+            )3+b*(2-c)(        está incorreto.
+            Ou seja, todo parênteses que fecha deve ter um outro parênteses que abre correspondente e não pode haver parênteses que fecha sem um previo parenteses que abre e a quantidade total de parenteses que abre e fecha deve ser igual."
+        Width: =1253
+        X: =113
+        Y: =108
+        ZIndex: =10
+
+    TextInput1_60 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =69
+        HintText: ="Digite a expressão desejada"
+        OnChange: =
+        Size: =25
+        Width: =466
+        X: =148
+        Y: =624
+        ZIndex: =24
+
+    Label4_54 As label:
+        Height: =74
+        Size: =20
+        Text: |-
+            ="Expressão:"
+        Width: =162
+        X: =148
+        Y: =550
+        ZIndex: =25
+
+    TextInput1_61 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =variavelResultado
+        Height: =69
+        HintText: ="Digite a expressão desejada"
+        Size: =25
+        Width: =466
+        X: =818
+        Y: =624
+        ZIndex: =26
+
+    Label4_55 As label:
+        Height: =74
+        Size: =20
+        Text: |-
+            ="Expressão correta ou incorreta:"
+        Width: =447
+        X: =818
+        Y: =550
+        ZIndex: =27
+
+    Button4_4 As button:
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =61
+        OnSelect: |-
+            =Set(texto,Lower(TextInput1_60.Text));
+            
+            ClearCollect(ColecaoSplitAbreP,
+                Split(texto,"(")
+            );
+            
+            ClearCollect(ColecaoSplitFechaP,
+                Split(texto,")")
+            );
+            
+            Set(contagem2,
+                Max(CountRows(ColecaoSplitAbreP),CountRows(ColecaoSplitFechaP))
+            );
+            
+            Set(resultado3,contagem2);
+            
+            Set(variavelResultado,
+                If(Mod(resultado3, 2) = 0, "correct","incorrect"))
+        Text: ="Resultado"
+        Width: =122
+        X: =658
+        Y: =624
+        ZIndex: =28
+
+    Label7_2 As label:
+        Font: =Font.Lato
+        Height: =62
+        Size: =35
+        Text: ="Avançados"
+        Width: =247
+        X: =1119
+        Y: =46
+        ZIndex: =29
+

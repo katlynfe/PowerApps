@@ -1,0 +1,171 @@
+Screen11 As screen:
+
+    Container1_9 As groupContainer.verticalAutoLayoutContainer:
+        Height: =660
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =114
+        Y: =108
+        ZIndex: =1
+
+        Icon1_9 As icon.Hamburger:
+            Color: =RGBA(116, 116, 116, 1)
+            Icon: =Icon.Hamburger
+            OnSelect: |-
+                =Set(barra,true);
+                Set(voltar,true);
+            Y: =108
+            ZIndex: =1
+
+        Arrow2_9 As arrow.backArrow:
+            Fill: =RGBA(116, 116, 116, 1)
+            OnSelect: =Navigate(Screen10)
+            Visible: =voltar
+            ZIndex: =2
+
+    Container3_9 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =108
+        LayoutMode: =LayoutMode.Auto
+        Width: =1362
+        ZIndex: =2
+
+        Image2_9 As image:
+            Image: ='Captura de tela de 2024-01-05 11-51-45'
+            ZIndex: =1
+
+    Container5_9 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =660
+        LayoutMode: =LayoutMode.Auto
+        Width: =1252
+        X: =114
+        Y: =108
+        ZIndex: =3
+
+    TextInput1_21 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =82
+        HintText: ="Digite o numero desejado"
+        Size: =25
+        Width: =127
+        X: =113
+        Y: =472
+        ZIndex: =4
+
+    ResultadoMedia_5 As label:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        BorderThickness: =2
+        Height: =82
+        Size: =25
+        Text: ="Total = " & Text(Round(salarioCorrigido/100,2), "[$-en-US]0.00")
+        Width: =397
+        X: =950
+        Y: =472
+        ZIndex: =5
+
+    Label4_34 As label:
+        Height: =39
+        Size: =20
+        Text: ="Nome"
+        Width: =162
+        X: =113
+        Y: =418
+        ZIndex: =6
+
+    Label4_35 As label:
+        Height: =36
+        Size: =20
+        Text: ="Total de recebimento"
+        Width: =315
+        X: =950
+        Y: =427
+        ZIndex: =7
+
+    Label6_9 As label:
+        Font: =Font.'Lato Black'
+        Height: =108
+        Size: =35
+        Text: ="BEE 1009"
+        X: =125
+        ZIndex: =8
+
+    Arrow3_9 As arrow:
+        Fill: =RGBA(116, 116, 116, 1)
+        OnSelect: =Navigate(Screen12)
+        X: =1316
+        Y: =718
+        ZIndex: =9
+
+    Label8_8 As label:
+        Font: =Font.Lato
+        Height: =159
+        Size: =25
+        Text: ="Faça um programa que leia o nome de um vendedor, o seu salário fixo e o total de vendas efetuadas por ele no mês (em dinheiro). Sabendo que este vendedor ganha 15% de comissão sobre suas vendas efetuadas, informar o total a receber no final do mês, com duas casas decimais."
+        Width: =1253
+        X: =113
+        Y: =108
+        ZIndex: =10
+
+    TextInput1_22 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =82
+        HintText: ="Digite o numero desejado"
+        Size: =25
+        Width: =127
+        X: =275
+        Y: =472
+        ZIndex: =11
+
+    Label4_32 As label:
+        Height: =54
+        Size: =20
+        Text: ="Salário"
+        Width: =164
+        X: =275
+        Y: =418
+        ZIndex: =12
+
+    Button2_4 As button:
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        OnSelect: |-
+            =Set(nome, TextInput1_21.Text);
+            Set(salario, Value(TextInput1_22.Text));
+            Set(vendas, Value(TextInput1_23.Text));
+            Set(salarioCorrigido, (vendas*0.15 + salario))
+        Text: ="Calcular"
+        X: =659
+        Y: =489
+        ZIndex: =14
+
+    Label4_33 As label:
+        Height: =54
+        Size: =20
+        Text: ="Vendas"
+        Width: =117
+        X: =434
+        Y: =418
+        ZIndex: =15
+
+    TextInput1_23 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =82
+        HintText: ="Digite o numero desejado"
+        Size: =25
+        Width: =174
+        X: =434
+        Y: =472
+        ZIndex: =16
+
+    Label7_13 As label:
+        Font: =Font.Lato
+        Height: =62
+        Size: =35
+        Text: ="Básicos"
+        Width: =177
+        X: =1185
+        Y: =46
+        ZIndex: =17
+

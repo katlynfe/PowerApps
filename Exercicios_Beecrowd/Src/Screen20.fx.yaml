@@ -1,0 +1,196 @@
+Screen20 As screen:
+
+    Container1_20 As groupContainer.verticalAutoLayoutContainer:
+        Height: =660
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =114
+        Y: =108
+        ZIndex: =1
+
+        Icon1_20 As icon.Hamburger:
+            Color: =RGBA(116, 116, 116, 1)
+            Icon: =Icon.Hamburger
+            OnSelect: |-
+                =Set(barra,true);
+                Set(voltar,true);
+            Y: =108
+            ZIndex: =1
+
+        Arrow2_20 As arrow.backArrow:
+            Fill: =RGBA(116, 116, 116, 1)
+            OnSelect: =Navigate(Screen19)
+            Visible: =voltar
+            ZIndex: =2
+
+    Container3_20 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =108
+        LayoutMode: =LayoutMode.Auto
+        Width: =1362
+        ZIndex: =2
+
+        Image2_20 As image:
+            Image: ='Captura de tela de 2024-01-05 11-51-45'
+            ZIndex: =1
+
+    Container5_20 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =660
+        LayoutMode: =LayoutMode.Auto
+        Width: =1252
+        X: =114
+        Y: =108
+        ZIndex: =3
+
+    Label6_20 As label:
+        Font: =Font.'Lato Black'
+        Height: =108
+        Size: =35
+        Text: |-
+            ="BEE 1259
+            "
+        X: =125
+        ZIndex: =8
+
+    Arrow3_20 As arrow:
+        Fill: =RGBA(116, 116, 116, 1)
+        OnSelect: =Navigate(Screen21)
+        X: =1316
+        Y: =718
+        ZIndex: =9
+
+    Label8_17 As label:
+        Font: =Font.Lato
+        Height: =179
+        Size: =25
+        Text: |-
+            ="Considerando a entrada de valores inteiros não negativos, ordene estes valores segundo o seguinte critério:Primeiro os ParesDepois os ÍmparesSendo que deverão ser apresentados os pares em ordem crescente e depois os ímpares em ordem decrescente."
+        Width: =1253
+        X: =113
+        Y: =108
+        ZIndex: =10
+
+    TextInput1_72 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =104
+        HintText: ="Digite os numeros (usar ,)"
+        OnChange: =
+        Size: =25
+        Width: =466
+        X: =125
+        Y: =356
+        ZIndex: =24
+
+    Label4_69 As label:
+        Height: =51
+        Size: =20
+        Text: |-
+            ="Números:"
+        X: =125
+        Y: =305
+        ZIndex: =25
+
+    TextInput1_71 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =Concat(ResultadoOrdenado, Value & Text(Char(10)))
+        DisplayMode: =DisplayMode.View
+        Height: =362
+        HintText: ="Pares e ímpares"
+        Mode: =TextMode.MultiLine
+        Size: =25
+        Width: =508
+        X: =837
+        Y: =356
+        ZIndex: =26
+
+    Label4_66 As label:
+        Height: =61
+        Size: =20
+        Text: |-
+            ="Pares e Ímpares:"
+        Width: =234
+        X: =917
+        Y: =295
+        ZIndex: =27
+
+    Button4_9 As button:
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =61
+        OnSelect: |-
+            =UpdateContext({
+                Numero: TextInput1_72.Text
+            });
+            
+            ClearCollect(
+                Numeros,
+                Split(
+                    TextInput1_72.Text,
+                    ", "
+                )
+            );
+            
+            ClearCollect(
+                NumerosPares,
+                Filter(
+                    Numeros,
+                    Mod(Value, 2) = 0
+                )
+            );
+            
+            ClearCollect(
+                NumerosParesOrdenados,
+                Sort(
+                    NumerosPares,
+                    Value
+                )
+            );
+            
+            ClearCollect(
+                NumerosImpares,
+                Filter(
+                    Numeros,
+                    Mod(Value, 2) <> 0
+                )
+            );
+            
+            ClearCollect(
+                NumerosImparesOrdenados,
+                Sort(
+                    NumerosImpares,
+                    Value
+                )
+            );
+            
+            
+            ForAll(
+                NumerosParesOrdenados,
+                Collect(
+                    ResultadoOrdenado,
+                    Value & Text(Char(10))
+                )
+            );
+            
+            ForAll(
+                NumerosImparesOrdenados,
+                Collect(
+                    ResultadoOrdenado,
+                    Value & Text(Char(10))
+                )
+            );
+        Text: ="Resultado"
+        Width: =122
+        X: =636
+        Y: =382
+        ZIndex: =28
+
+    Label7_19 As label:
+        Font: =Font.Lato
+        Height: =62
+        Size: =35
+        Text: ="Avançados"
+        Width: =247
+        X: =1119
+        Y: =46
+        ZIndex: =29
+
