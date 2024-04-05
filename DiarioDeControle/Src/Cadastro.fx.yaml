@@ -1,0 +1,476 @@
+Cadastro As screen:
+    Fill: =RGBA(214, 221, 224, 1)
+
+    Container10 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =768
+        LayoutMode: =LayoutMode.Auto
+        Width: =1366
+        ZIndex: =1
+
+        Container12 As groupContainer.verticalAutoLayoutContainer:
+            FillPortions: =0
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =150
+            LayoutMode: =LayoutMode.Auto
+            Visible: =conteiner1
+            Width: =150
+            ZIndex: =1
+
+            Container13 As groupContainer.manualLayoutContainer:
+                LayoutMinHeight: =100
+                LayoutMinWidth: =150
+                ZIndex: =1
+
+                Label14 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(255, 255, 255, 1)
+                    Fill: =RGBA(106, 122, 127, 1)
+                    Font: =Font.'Patrick Hand'
+                    Height: =75
+                    Size: =25
+                    Text: ="Menu"
+                    Y: =63
+                    ZIndex: =1
+
+                Icon3 As icon.Home:
+                    BorderColor: =RGBA(53, 61, 63, 1)
+                    BorderThickness: =2
+                    Color: =RGBA(53, 61, 63, 1)
+                    Fill: =RGBA(214, 221, 224, 1)
+                    Icon: =Icon.Home
+                    OnSelect: =Navigate(Tela_inicial)
+                    Width: =150
+                    Y: =139
+                    ZIndex: =2
+
+                Rectangle1 As rectangle:
+                    Fill: =RGBA(106, 122, 127, 1)
+                    Height: =76
+                    ZIndex: =3
+
+        Container11 As groupContainer.manualLayoutContainer:
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            ZIndex: =2
+
+            Form1 As form.PowerApps_CoreControls_Form:
+                DataSource: =Cadastro_MeuDiario
+                DefaultMode: =FormMode.New
+                Height: =343
+                UseFluentV9Cards: =true
+                Width: =1157
+                X: =27
+                Y: =237
+                ZIndex: =1
+
+                Senha_DataCard1 As typedDataCard.fluentV9TextualEditCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="Senha"
+                    Default: =ThisItem.Senha
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@Cadastro_MeuDiario],DataSourceInfo.DisplayName,"Senha")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =121
+                    MaxLength: =DataSourceInfo([@Cadastro_MeuDiario], DataSourceInfo.MaxLength, "Senha")
+                    Required: =true
+                    Update: =DataCardValue1.Value
+                    Width: =385
+                    X: =1
+                    Y: =1
+                    ZIndex: =1
+
+                    DataCardKey1 As Texto:
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: =
+                        Height: =22
+                        Text: =Parent.DisplayName
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =Parent.Width - 48
+                        Wrap: =false
+                        X: =24
+                        Y: =10
+                        ZIndex: =1
+
+                    "DataCardValue1 As 'Entrada de texto'":
+                        AccessibleLabel: =Parent.DisplayName
+                        BasePaletteColor: =
+                        DisplayMode: =Parent.DisplayMode
+                        FontColor: =
+                        Height: =32
+                        Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
+                        Required: =Parent.Required
+                        ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                        Value: =Parent.Default
+                        Width: =Parent.Width - 48
+                        X: =24
+                        Y: =DataCardKey1.Y + DataCardKey1.Height + 4
+                        ZIndex: =2
+
+                    ErrorMessage1 As Texto:
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: =
+                        Height: =30
+                        Text: =Parent.Error
+                        Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =Parent.Width - 48
+                        Wrap: =true
+                        X: =24
+                        Y: =DataCardValue1.Y + DataCardValue1.Height
+                        ZIndex: =3
+
+                    StarVisible1 As Texto:
+                        Align: ='TextCanvas.Align'.Center
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: =
+                        Height: =30
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        X: =0
+                        Y: =DataCardKey1.Y
+                        ZIndex: =4
+
+                Nome_DataCard1 As typedDataCard.fluentV9TextualEditCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="Nome"
+                    Default: =ThisItem.Nome
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@Cadastro_MeuDiario],DataSourceInfo.DisplayName,"Nome")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =70
+                    MaxLength: =DataSourceInfo([@Cadastro_MeuDiario], DataSourceInfo.MaxLength, "Nome")
+                    Required: =true
+                    Update: =DataCardValue2.Value
+                    Width: =385
+                    X: =0
+                    Y: =0
+                    ZIndex: =2
+
+                    DataCardKey2 As Texto:
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: =
+                        Height: =22
+                        Text: =Parent.DisplayName
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =Parent.Width - 48
+                        Wrap: =false
+                        X: =24
+                        Y: =10
+                        ZIndex: =1
+
+                    "DataCardValue2 As 'Entrada de texto'":
+                        AccessibleLabel: =Parent.DisplayName
+                        BasePaletteColor: =
+                        DisplayMode: =Parent.DisplayMode
+                        FontColor: =
+                        Height: =32
+                        Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
+                        Required: =Parent.Required
+                        ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                        Value: =Parent.Default
+                        Width: =Parent.Width - 48
+                        X: =24
+                        Y: =DataCardKey2.Y + DataCardKey2.Height + 4
+                        ZIndex: =2
+
+                    ErrorMessage2 As Texto:
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: =
+                        Height: =30
+                        Text: =Parent.Error
+                        Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =Parent.Width - 48
+                        Wrap: =true
+                        X: =24
+                        Y: =DataCardValue2.Y + DataCardValue2.Height
+                        ZIndex: =3
+
+                    StarVisible2 As Texto:
+                        Align: ='TextCanvas.Align'.Center
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: =
+                        Height: =30
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        X: =0
+                        Y: =DataCardKey2.Y
+                        ZIndex: =4
+
+                Data_nascimento_DataCard1 As typedDataCard.fluentV9DateEditCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="Data_nascimento"
+                    Default: =ThisItem.Data_nascimento
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@Cadastro_MeuDiario],DataSourceInfo.DisplayName,"Data_nascimento")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =70
+                    Required: =true
+                    Update: =DataCardValue3.SelectedDate
+                    Width: =385
+                    X: =1
+                    Y: =0
+                    ZIndex: =2
+
+                    DataCardKey3 As Texto:
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: =
+                        Height: =22
+                        Text: =Parent.DisplayName
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =Parent.Width - 48
+                        Wrap: =false
+                        X: =24
+                        Y: =10
+                        ZIndex: =1
+
+                    "DataCardValue3 As 'Seletor de data'":
+                        AccessibleLabel: =If(Parent.Required, Substitute("{0}. Obrigatório.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                        BasePaletteColor: =
+                        DisplayMode: =Parent.DisplayMode
+                        EndDate: =Date(Year(Today())+100, 12, 31)
+                        FontColor: =
+                        Height: =32
+                        SelectedDate: =Parent.Default
+                        StartDate: =Date(1900, 1, 1)
+                        ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                        Width: =Parent.Width - 48
+                        X: =24
+                        Y: =DataCardKey3.Y + DataCardKey3.Height + 4
+                        ZIndex: =2
+
+                    ErrorMessage3 As Texto:
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: =
+                        Height: =30
+                        Text: =Parent.Error
+                        Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =Parent.Width - 48
+                        Wrap: =true
+                        X: =24
+                        Y: =DataCardValue3.Y + DataCardValue3.Height
+                        ZIndex: =3
+
+                    StarVisible3 As Texto:
+                        Align: ='TextCanvas.Align'.Center
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: =
+                        Height: =30
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        X: =0
+                        Y: =DataCardKey3.Y
+                        ZIndex: =4
+
+                Email_DataCard1 As typedDataCard.fluentV9TextualEditCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="Email"
+                    Default: =ThisItem.Email
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@Cadastro_MeuDiario],DataSourceInfo.DisplayName,"Email")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =70
+                    MaxLength: =DataSourceInfo([@Cadastro_MeuDiario], DataSourceInfo.MaxLength, "Email")
+                    Required: =true
+                    Update: =DataCardValue4.Value
+                    Width: =385
+                    X: =2
+                    Y: =0
+                    ZIndex: =2
+
+                    DataCardKey4 As Texto:
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: =
+                        Height: =22
+                        Text: =Parent.DisplayName
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =Parent.Width - 48
+                        Wrap: =false
+                        X: =24
+                        Y: =10
+                        ZIndex: =1
+
+                    "DataCardValue4 As 'Entrada de texto'":
+                        AccessibleLabel: =Parent.DisplayName
+                        BasePaletteColor: =
+                        DisplayMode: =Parent.DisplayMode
+                        FontColor: =
+                        Height: =32
+                        Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
+                        Required: =Parent.Required
+                        ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                        Value: =Parent.Default
+                        Width: =Parent.Width - 48
+                        X: =24
+                        Y: =DataCardKey4.Y + DataCardKey4.Height + 4
+                        ZIndex: =2
+
+                    ErrorMessage4 As Texto:
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: =
+                        Height: =30
+                        Text: =Parent.Error
+                        Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =Parent.Width - 48
+                        Wrap: =true
+                        X: =24
+                        Y: =DataCardValue4.Y + DataCardValue4.Height
+                        ZIndex: =3
+
+                    StarVisible4 As Texto:
+                        Align: ='TextCanvas.Align'.Center
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: =
+                        Height: =30
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        X: =0
+                        Y: =DataCardKey4.Y
+                        ZIndex: =4
+
+                Foto_DataCard1 As typedDataCard.fluentV9AddLargePictureCard:
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="Foto"
+                    Default: =ThisItem.Foto
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@Cadastro_MeuDiario],DataSourceInfo.DisplayName,"Foto")
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =50
+                    Required: =false
+                    Update: =Image1.Image
+                    Width: =385
+                    X: =0
+                    Y: =1
+                    ZIndex: =2
+
+                    DataCardKey5 As Texto:
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: =
+                        Height: =34
+                        Text: =Parent.DisplayName
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =Parent.Width - 60
+                        Wrap: =false
+                        X: =30
+                        Y: =10
+                        ZIndex: =1
+
+                    Image1 As image:
+                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                        DisplayMode: =Parent.DisplayMode
+                        Height: =AddPicture1.Height
+                        Image: =If(IsBlank(AddPicture1.Media), Parent.Default, AddPicture1.Media)
+                        Tooltip: =Parent.DisplayName
+                        Width: =AddPicture1.Width
+                        X: =AddPicture1.X
+                        Y: =AddPicture1.Y
+                        ZIndex: =2
+
+                    AddPicture1 As addMedia:
+                        Height: =200
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =DataCardKey5.Y + DataCardKey5.Height + 5
+                        ZIndex: =3
+
+                    ErrorMessage5 As Texto:
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: =
+                        Height: =10
+                        Size: =12
+                        Text: =Parent.Error
+                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                        Width: =Parent.Width - 60
+                        X: =30
+                        Y: =Image1.Y + Image1.Height
+                        ZIndex: =4
+
+                    StarVisible5 As Texto:
+                        Align: ='TextCanvas.Align'.Center
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: =
+                        Height: =DataCardKey5.Height
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        Wrap: =false
+                        X: =0
+                        Y: =DataCardKey5.Y
+                        ZIndex: =5
+
+            Label2 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(53, 61, 63, 1)
+                BorderStyle: =BorderStyle.Dotted
+                BorderThickness: =2
+                Color: =RGBA(53, 61, 63, 1)
+                Font: =Font.'Patrick Hand'
+                Height: =108
+                Size: =35
+                Text: ="Cadastro"
+                Width: =184
+                X: =492
+                Y: =75
+                ZIndex: =2
+
+            Icon2 As icon.Waffle:
+                Color: =RGBA(53, 61, 63, 1)
+                Icon: =Icon.Waffle
+                OnSelect: |-
+                    =If(conteiner1=true,UpdateContext({conteiner1:false}),UpdateContext({conteiner1:true}))
+                Y: =75
+                ZIndex: =3
+
+            Button3 As button:
+                Fill: =RGBA(53, 61, 63, 1)
+                Height: =81
+                OnSelect: |-
+                    =Patch(Cadastro_MeuDiario,{Nome:DataCardValue2.Value},{Data_nascimento:DataCardValue3.SelectedDate},{Email:DataCardValue4.Value},{Foto:AddPicture1},{Senha:DataCardValue1.Value}) 
+                Text: ="Salvar informações"
+                X: =459
+                Y: =638
+                ZIndex: =4
+
+            Header4_1 As Cabeçalho:
+                BasePaletteColor: =
+                DisplayMode: =DisplayMode.Edit
+                FontColor: =
+                Height: =75
+                IsProfilePictureVisible: =false
+                Logo: ='diario (1)_1'
+                OnSelectLogo: =false
+                Style: ='Header.Style'.Primary
+                Title: ="Meu Diário de Controle"
+                UserEmail: =User().Email
+                UserImage: =User().Image
+                UserName: =User().FullName
+                Width: =Parent.Width
+                X: =0
+                Y: =0
+                ZIndex: =5
+
+            Button5 As button:
+                Fill: =RGBA(53, 61, 63, 1)
+                Height: =81
+                OnSelect: =Navigate(Login)
+                Text: ="Ir para Login"
+                X: =676
+                Y: =638
+                ZIndex: =6
+
+            Arrow1 As arrow.backArrow:
+                Fill: =RGBA(53, 61, 63, 1)
+                OnSelect: =Navigate(Tela_inicial)
+                Y: =718
+                ZIndex: =7
+
+            Arrow2 As arrow:
+                Fill: =RGBA(53, 61, 63, 1)
+                OnSelect: =Navigate(Login)
+                X: =1166
+                Y: =718
+                ZIndex: =8
+

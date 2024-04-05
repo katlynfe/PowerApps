@@ -1,0 +1,23 @@
+App As appinfo:
+    BackEnabled: =true
+    OnStart: |-
+        =ClearCollect(ControleFinanceiro,
+        {Categoria: "Aluguel/Parcela Casa", Porcentagem:40},
+        {Categoria: "Supermercado", Porcentagem:10},
+        {Categoria: "Água", Porcentagem:1.5},
+        {Categoria: "Luz", Porcentagem:3},
+        {Categoria: "Internet", Porcentagem:3},
+        {Categoria: "Remédios", Porcentagem:3},
+        {Categoria: "Lazer", Porcentagem:10},
+        {Categoria: "Gasolina/Transporte", Porcentagem:10},
+        {Categoria: "Outros gastos", Porcentagem:6.5},
+        {Categoria: "Investimento", Porcentagem:13})
+    Theme: =PlatinumTheme
+
+    Host As hostControl.DefaultHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+

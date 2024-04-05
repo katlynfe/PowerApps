@@ -1,0 +1,179 @@
+Login As screen:
+    Fill: =RGBA(214, 221, 224, 1)
+
+    Container10_1 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =768
+        LayoutMode: =LayoutMode.Auto
+        Width: =1366
+        ZIndex: =1
+
+        Container12_1 As groupContainer.verticalAutoLayoutContainer:
+            FillPortions: =0
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =150
+            LayoutMode: =LayoutMode.Auto
+            Visible: =conteiner2
+            Width: =150
+            ZIndex: =1
+
+            Container13_1 As groupContainer.manualLayoutContainer:
+                LayoutMinHeight: =100
+                LayoutMinWidth: =150
+                Visible: =conteiner2
+                ZIndex: =1
+
+                Rectangle1_1 As rectangle:
+                    Fill: =RGBA(106, 122, 127, 1)
+                    Height: =76
+                    ZIndex: =1
+
+                Label14_1 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(255, 255, 255, 1)
+                    Fill: =RGBA(106, 122, 127, 1)
+                    Font: =Font.'Patrick Hand'
+                    Height: =75
+                    Size: =25
+                    Text: ="Menu"
+                    Y: =62
+                    ZIndex: =2
+
+                Icon3_1 As icon.Home:
+                    BorderColor: =RGBA(53, 61, 63, 1)
+                    BorderThickness: =2
+                    Color: =RGBA(53, 61, 63, 1)
+                    Fill: =RGBA(214, 221, 224, 1)
+                    Icon: =Icon.Home
+                    OnSelect: =Navigate(Tela_inicial)
+                    Width: =150
+                    Y: =137
+                    ZIndex: =3
+
+                Icon4 As icon.AddUser:
+                    BorderColor: =RGBA(53, 61, 63, 1)
+                    BorderThickness: =2
+                    Color: =RGBA(53, 61, 63, 1)
+                    Height: =71
+                    Icon: =Icon.AddUser
+                    OnSelect: =Navigate(Cadastro)
+                    Width: =150
+                    Y: =201
+                    ZIndex: =4
+
+        Container11_1 As groupContainer.manualLayoutContainer:
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            ZIndex: =2
+
+            Label2_1 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(53, 61, 63, 1)
+                BorderStyle: =BorderStyle.Dotted
+                BorderThickness: =2
+                Color: =RGBA(53, 61, 63, 1)
+                Font: =Font.'Patrick Hand'
+                Height: =108
+                Size: =35
+                Text: ="Login"
+                Width: =184
+                X: =516
+                Y: =75
+                ZIndex: =2
+
+            Icon2_1 As icon.Waffle:
+                Color: =RGBA(53, 61, 63, 1)
+                Icon: =Icon.Waffle
+                OnSelect: |-
+                    =If(conteiner2=true,UpdateContext({conteiner2:false}),UpdateContext({conteiner2:true}))
+                Y: =75
+                ZIndex: =3
+
+            Label3 As label:
+                Font: =Font.'Patrick Hand'
+                Size: =20
+                Text: |-
+                    ="Email:"
+                X: =441
+                Y: =359
+                ZIndex: =4
+
+            TextInput1 As text:
+                Default: =""
+                HintText: ="Digite seu email"
+                X: =441
+                Y: =399
+                ZIndex: =5
+
+            Button4 As button:
+                Fill: =RGBA(53, 61, 63, 1)
+                OnSelect: |-
+                    =If(
+                        IsBlank(
+                            LookUp(
+                                Cadastro_MeuDiario,
+                                Email = TextInput1.Text,
+                                Senha = TextInputCanvas6.Value
+                            )
+                        ),
+                        Navigate(Menu),
+                        Notify(
+                            "Esse email não está cadastrado na base ou a senha está incorreta!",
+                            NotificationType.Error
+                        )
+                    )
+                Text: ="Entrar"
+                X: =528
+                Y: =593
+                ZIndex: =6
+
+            Header4_2 As Cabeçalho:
+                BasePaletteColor: =
+                DisplayMode: =DisplayMode.Edit
+                FontColor: =
+                Height: =75
+                IsProfilePictureVisible: =false
+                Logo: ='diario (1)_1'
+                OnSelectLogo: =false
+                Title: ="Meu Diário de Controle"
+                UserEmail: =User().Email
+                UserImage: =User().Image
+                UserName: =User().FullName
+                Width: =Parent.Width
+                X: =0
+                Y: =0
+                ZIndex: =7
+
+            "TextInputCanvas6 As 'Entrada de texto'":
+                BasePaletteColor: =
+                DisplayMode: =DisplayMode.Edit
+                FontColor: =
+                Height: =32
+                Type: ='TextInputCanvas.Type'.Password
+                Width: =320
+                X: =441
+                Y: =512
+                ZIndex: =8
+
+            Label3_1 As label:
+                Font: =Font.'Patrick Hand'
+                Size: =20
+                Text: |-
+                    ="Senha:"
+                X: =441
+                Y: =472
+                ZIndex: =9
+
+            Arrow1_1 As arrow.backArrow:
+                Fill: =RGBA(53, 61, 63, 1)
+                OnSelect: =Navigate(Cadastro)
+                Y: =718
+                ZIndex: =10
+
+            Arrow2_1 As arrow:
+                Fill: =RGBA(53, 61, 63, 1)
+                OnSelect: =Navigate(Menu)
+                X: =1166
+                Y: =718
+                ZIndex: =11
+

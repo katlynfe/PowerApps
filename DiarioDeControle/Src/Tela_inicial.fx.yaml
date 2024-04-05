@@ -1,0 +1,64 @@
+Tela_inicial As screen:
+
+    Container1 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =768
+        LayoutMode: =LayoutMode.Auto
+        Width: =1366
+        ZIndex: =1
+
+        Container2 As groupContainer.manualLayoutContainer:
+            Fill: =RGBA(214, 221, 224, 1)
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            ZIndex: =1
+
+            Label1 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(53, 61, 63, 1)
+                BorderStyle: =BorderStyle.Dotted
+                BorderThickness: =2
+                Color: =RGBA(53, 61, 63, 1)
+                Font: =Font.'Patrick Hand'
+                Height: =160
+                Size: =35
+                Text: ="Meu Diário de Controle"
+                Width: =317
+                X: =525
+                Y: =278
+                ZIndex: =1
+
+            Button1 As button:
+                Fill: =RGBA(53, 61, 63, 1)
+                Height: =39
+                OnSelect: =Navigate(Login)
+                Text: ="Login"
+                Width: =172
+                X: =736
+                Y: =563
+                ZIndex: =2
+
+            Button2 As button:
+                Fill: =RGBA(53, 61, 63, 1)
+                OnSelect: =Navigate(Cadastro)
+                Text: ="Cadastro"
+                X: =463
+                Y: =563
+                ZIndex: =3
+
+            Header4 As Cabeçalho:
+                BasePaletteColor: =
+                DisplayMode: =DisplayMode.Edit
+                FontColor: =
+                Height: =75
+                IsProfilePictureVisible: =false
+                Logo: ='diario (1)_1'
+                OnSelectLogo: =false
+                Title: ="Meu Diário de Controle"
+                UserEmail: =User().Email
+                UserImage: =User().Image
+                UserName: =User().FullName
+                Width: =Parent.Width
+                X: =0
+                Y: =0
+                ZIndex: =5
+

@@ -1,0 +1,208 @@
+Menu As screen:
+    Fill: =RGBA(214, 221, 224, 1)
+
+    Container3 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =768
+        LayoutMode: =LayoutMode.Auto
+        Width: =1366
+        ZIndex: =1
+
+        Container8 As groupContainer.verticalAutoLayoutContainer:
+            FillPortions: =0
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =150
+            LayoutMode: =LayoutMode.Auto
+            Visible: =conteiner3
+            Width: =150
+            ZIndex: =1
+
+            Container4 As groupContainer.manualLayoutContainer:
+                BorderThickness: =2
+                LayoutMinHeight: =100
+                LayoutMinWidth: =150
+                ZIndex: =1
+
+                Rectangle1_2 As rectangle:
+                    Fill: =RGBA(106, 122, 127, 1)
+                    Height: =76
+                    ZIndex: =1
+
+                Label14_2 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(255, 255, 255, 1)
+                    Fill: =RGBA(106, 122, 127, 1)
+                    Font: =Font.'Patrick Hand'
+                    Height: =75
+                    Size: =25
+                    Text: ="Menu"
+                    Y: =62
+                    ZIndex: =2
+
+                Icon3_2 As icon.Home:
+                    BorderColor: =RGBA(53, 61, 63, 1)
+                    BorderThickness: =2
+                    Color: =RGBA(53, 61, 63, 1)
+                    Fill: =RGBA(214, 221, 224, 1)
+                    Icon: =Icon.Home
+                    OnSelect: =Navigate(Tela_inicial)
+                    Width: =150
+                    Y: =137
+                    ZIndex: =3
+
+                Icon4_1 As icon.AddUser:
+                    BorderColor: =RGBA(53, 61, 63, 1)
+                    BorderThickness: =2
+                    Color: =RGBA(53, 61, 63, 1)
+                    Height: =71
+                    Icon: =Icon.AddUser
+                    OnSelect: =Navigate(Cadastro)
+                    Width: =150
+                    Y: =201
+                    ZIndex: =4
+
+                Icon5 As icon.Person:
+                    BorderColor: =RGBA(53, 61, 63, 1)
+                    BorderThickness: =2
+                    Color: =RGBA(53, 61, 63, 1)
+                    Height: =71
+                    Icon: =Icon.Person
+                    OnSelect: =Navigate(Login)
+                    Width: =150
+                    Y: =272
+                    ZIndex: =5
+
+        Container6 As groupContainer.horizontalAutoLayoutContainer:
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =2
+
+            Container9 As groupContainer.manualLayoutContainer:
+                FillPortions: =0
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                Width: =1215
+                ZIndex: =1
+
+                Icon1 As icon.Waffle:
+                    Color: =RGBA(53, 61, 63, 1)
+                    Icon: =Icon.Waffle
+                    OnSelect: |-
+                        =If(conteiner3=true,UpdateContext({conteiner3:false}),UpdateContext({conteiner3:true}))
+                    Y: =75
+                    ZIndex: =1
+
+                Header3 As Cabeçalho:
+                    BasePaletteColor: =
+                    DisplayMode: =DisplayMode.Edit
+                    FontColor: =
+                    Height: =75
+                    IsProfilePictureVisible: =true
+                    Logo: ='diario (1)'
+                    OnSelectLogo: =false
+                    Title: ="Meu Diário de Controle"
+                    UserEmail: =User().Email
+                    UserImage: =LookUp(Cadastro_MeuDiario, Email = User().Email).Foto
+                    UserName: =User().FullName
+                    Width: =Parent.Width
+                    X: =0
+                    Y: =0
+                    ZIndex: =2
+
+                Image3 As image:
+                    Height: =155
+                    Image: =imc
+                    OnSelect: =Navigate(IMC)
+                    Width: =142
+                    X: =198
+                    Y: =288
+                    ZIndex: =3
+
+                Image3_1 As image:
+                    Height: =155
+                    Image: =financa
+                    OnSelect: =Navigate(Financas)
+                    Width: =142
+                    X: =897
+                    Y: =288
+                    ZIndex: =4
+
+                Image3_2 As image:
+                    Height: =155
+                    Image: =anticoncepcional
+                    OnSelect: =Navigate(Anticoncepcional)
+                    Width: =142
+                    X: =198
+                    Y: =557
+                    ZIndex: =5
+
+                Image3_3 As image:
+                    Height: =155
+                    Image: ='bloco-de-anotacoes'
+                    OnSelect: =Navigate(Notas)
+                    Width: =142
+                    X: =897
+                    Y: =557
+                    ZIndex: =6
+
+                Label4 As label:
+                    Align: =Align.Center
+                    BorderStyle: =BorderStyle.Dotted
+                    BorderThickness: =2
+                    Color: =RGBA(53, 61, 63, 1)
+                    Font: =Font.'Patrick Hand'
+                    Height: =82
+                    OnSelect: =Navigate(IMC)
+                    Size: =20
+                    Text: ="Índice de Massa Corporal"
+                    Width: =194
+                    X: =172
+                    Y: =206
+                    ZIndex: =7
+
+                Label4_1 As label:
+                    Align: =Align.Center
+                    BorderStyle: =BorderStyle.Dotted
+                    BorderThickness: =2
+                    Color: =RGBA(53, 61, 63, 1)
+                    Font: =Font.'Patrick Hand'
+                    Height: =82
+                    OnSelect: =Navigate(Financas)
+                    Size: =20
+                    Text: ="Controle Financeiro"
+                    Width: =194
+                    X: =871
+                    Y: =206
+                    ZIndex: =8
+
+                Label4_2 As label:
+                    Align: =Align.Center
+                    BorderStyle: =BorderStyle.Dotted
+                    BorderThickness: =2
+                    Color: =RGBA(53, 61, 63, 1)
+                    Font: =Font.'Patrick Hand'
+                    Height: =82
+                    OnSelect: =Navigate(Anticoncepcional)
+                    Size: =20
+                    Text: ="Controle Anticoncepcional"
+                    Width: =194
+                    X: =172
+                    Y: =475
+                    ZIndex: =9
+
+                Label4_3 As label:
+                    Align: =Align.Center
+                    BorderStyle: =BorderStyle.Dotted
+                    BorderThickness: =2
+                    Color: =RGBA(53, 61, 63, 1)
+                    Font: =Font.'Patrick Hand'
+                    Height: =82
+                    OnSelect: =Navigate(Notas)
+                    Size: =20
+                    Text: ="Minhas Notas"
+                    Width: =194
+                    X: =871
+                    Y: =475
+                    ZIndex: =10
+
