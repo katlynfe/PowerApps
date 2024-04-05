@@ -1,0 +1,258 @@
+Screen3_1 As screen:
+    Fill: =RGBA(209, 232, 178, 1)
+
+    Container15_1 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =768
+        LayoutMode: =LayoutMode.Auto
+        Width: =1366
+        ZIndex: =1
+
+        Container18_1 As groupContainer.verticalAutoLayoutContainer:
+            FillPortions: =0
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            Visible: =conteiner
+            Width: =150
+            ZIndex: =1
+
+            Container28_1 As groupContainer.manualLayoutContainer:
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                ZIndex: =1
+
+                Icon2_13 As icon.Waffle:
+                    Color: =RGBA(127, 178, 57, 1)
+                    Icon: =Icon.Home
+                    OnSelect: |-
+                        =Navigate(Screen5);
+                        Set(conteiner,false)
+                    X: =42
+                    Y: =142
+                    ZIndex: =1
+
+                Label2_7 As label:
+                    Color: =RGBA(127, 178, 57, 1)
+                    Size: =20
+                    Text: ="Início"
+                    X: =42
+                    Y: =206
+                    ZIndex: =2
+
+                Label9_1 As label:
+                    Align: =Align.Center
+                    Fill: =RGBA(127, 178, 57, 1)
+                    Height: =127
+                    Size: =25
+                    Text: ="Menu"
+                    ZIndex: =3
+
+        Container20_1 As groupContainer.horizontalAutoLayoutContainer:
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =2
+
+            Container26_1 As groupContainer.manualLayoutContainer:
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                ZIndex: =1
+
+                Icon1_13 As icon.Hamburger:
+                    Color: =RGBA(127, 178, 57, 1)
+                    Height: =61
+                    Icon: =Icon.Hamburger
+                    OnSelect: |-
+                        =If(conteiner = true,
+                        Set(conteiner,false),
+                        Set(conteiner,true)
+                        )
+                    Width: =74
+                    ZIndex: =1
+
+                Label16_6 As label:
+                    BorderColor: =RGBA(101, 128, 187, 1)
+                    Color: =RGBA(47,41,43,1)
+                    Font: =Font.'Lato Black'
+                    Height: =72
+                    Size: =25
+                    Text: |-
+                        ="Informações extraídas: "
+                    Width: =367
+                    X: =134
+                    Y: =79
+                    ZIndex: =2
+
+                TextInput6_3 As text:
+                    BorderColor: =RGBA(101, 128, 187, 1)
+                    Color: =RGBA(47, 41, 43, 1)
+                    Default: =User().Email
+                    DisplayMode: =DisplayMode.Disabled
+                    HintText: ="Email"
+                    HoverBorderColor: =RGBA(101, 128, 187, 1)
+                    HoverColor: =RGBA(47, 41, 43, 1)
+                    HoverFill: =ColorFade(RGBA(190, 202, 226, 1), 30%)
+                    OnChange: =
+                    OnSelect: |-
+                        =UpdateContext({ varEmailSalvo: User().Email })
+                    X: =158
+                    Y: =230
+                    ZIndex: =3
+
+                TextInput7_3 As text:
+                    BorderColor: =RGBA(101, 128, 187, 1)
+                    Color: =RGBA(47, 41, 43, 1)
+                    Default: =User().FullName
+                    DisplayMode: =DisplayMode.Disabled
+                    HintText: =""
+                    HoverBorderColor: =RGBA(101, 128, 187, 1)
+                    HoverColor: =RGBA(47, 41, 43, 1)
+                    HoverFill: =ColorFade(RGBA(190, 202, 226, 1), 30%)
+                    OnChange: =
+                    OnSelect: =
+                    X: =158
+                    Y: =352
+                    ZIndex: =4
+
+        Container24_1 As groupContainer.horizontalAutoLayoutContainer:
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =3
+
+            Container27_1 As groupContainer.manualLayoutContainer:
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                ZIndex: =1
+
+                Image1_14 As image:
+                    Height: =85
+                    Image: =d46a3cdcea87af6
+                    Width: =166
+                    X: =442
+                    ZIndex: =1
+
+                Label1_22 As label:
+                    Font: =Font.'Open Sans Condensed'
+                    Size: =25
+                    Text: ="Game Lifer"
+                    X: =458
+                    Y: =45
+                    ZIndex: =2
+
+                Label16_7 As label:
+                    BorderColor: =RGBA(101, 128, 187, 1)
+                    Color: =RGBA(47,41,43,1)
+                    Font: =Font.'Lato Black'
+                    Height: =55
+                    Size: =25
+                    Text: |-
+                        ="Login:"
+                    Width: =167
+                    Y: =85
+                    ZIndex: =6
+
+                Button2_3 As button:
+                    Color: =RGBA(255,255,255,1)
+                    Fill: =RGBA(141, 198, 63, 1)
+                    HoverColor: =Self.Color
+                    HoverFill: =ColorFade(Self.Fill, 20%)
+                    OnSelect: |
+                        =Set(mensagemBemVindo, "Bem-vindo de volta, " & DataCardValue35_1.Text & "!");
+                        
+                        If(
+                            !IsBlank(LookUp(Lista_App_Katlyn, Apelido = DataCardValue35_1.Text)),
+                            Patch('ListaPontuação-Katlyn', Defaults('ListaPontuação-Katlyn'), { APELIDO: DataCardValue35_1.Text });Notify(mensagemBemVindo, NotificationType.Success)
+                        );
+                        
+                        If(
+                            IsBlank(LookUp(Lista_App_Katlyn, Apelido = DataCardValue35_1.Text)),
+                            Notify("Apelido não encontrado. Insira um apelido cadastrado.", NotificationType.Warning)
+                        );
+                        Navigate(Screen7)
+                    Text: ="Entrar"
+                    X: =448
+                    Y: =728
+                    ZIndex: =8
+
+                Form3_1 As form:
+                    DataSource: ='ListaPontuação-Katlyn'
+                    DefaultMode: =FormMode.New
+                    Height: =125
+                    Width: =630
+                    X: =17
+                    Y: =172
+                    ZIndex: =9
+
+                    APELIDO_DataCard2_1 As typedDataCard.textualEditCard:
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="APELIDO"
+                        Default: =ThisItem.APELIDO
+                        DisplayMode: =Parent.DisplayMode
+                        DisplayName: =DataSourceInfo([@'ListaPontuação-Katlyn'],DataSourceInfo.DisplayName,"APELIDO")
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =184
+                        MaxLength: =DataSourceInfo([@'ListaPontuação-Katlyn'], DataSourceInfo.MaxLength, "APELIDO")
+                        Required: =false
+                        Update: =DataCardValue35_1.Text
+                        Width: =420
+                        X: =0
+                        Y: =0
+                        ZIndex: =4
+
+                        DataCardKey35_1 As label:
+                            AutoHeight: =true
+                            Color: =RGBA(0, 0, 0, 1)
+                            Height: =34
+                            Size: =20
+                            Text: =Parent.DisplayName
+                            Width: =Parent.Width - 60
+                            Wrap: =false
+                            X: =60
+                            ZIndex: =1
+
+                        DataCardValue35_1 As text:
+                            BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                            Default: =Parent.Default
+                            DelayOutput: =true
+                            DisplayMode: =Parent.DisplayMode
+                            Height: =50
+                            MaxLength: =Parent.MaxLength
+                            PaddingLeft: =5
+                            RadiusBottomLeft: =0
+                            RadiusBottomRight: =0
+                            RadiusTopLeft: =0
+                            RadiusTopRight: =0
+                            Size: =20
+                            Tooltip: =Parent.DisplayName
+                            Width: =Parent.Width - 60
+                            X: =60
+                            Y: =55
+                            ZIndex: =2
+
+                        ErrorMessage35_1 As label:
+                            AutoHeight: =true
+                            Height: =10
+                            Live: =Live.Assertive
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Text: =Parent.Error
+                            Visible: =Parent.DisplayMode=DisplayMode.Edit
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardValue35_1.Y + DataCardValue35_1.Height
+                            ZIndex: =3
+
+                        StarVisible35_1 As label:
+                            Align: =Align.Center
+                            Height: =DataCardKey35_1.Height
+                            Text: ="*"
+                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            Width: =30
+                            Wrap: =false
+                            Y: =DataCardKey35_1.Y
+                            ZIndex: =4
+

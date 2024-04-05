@@ -1,0 +1,70 @@
+Screen5 As screen:
+    Fill: =RGBA(209, 232, 178, 1)
+
+    Container21 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =760
+        LayoutMode: =LayoutMode.Auto
+        Width: =1366
+        ZIndex: =1
+
+        Container22 As groupContainer.manualLayoutContainer:
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            ZIndex: =1
+
+            Label17_1 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(141, 198, 63, 1)
+                BorderThickness: =5
+                Font: =Font.'Lato Light'
+                Height: =112
+                Size: =40
+                Text: ="JOGOS"
+                Width: =296
+                X: =536
+                Y: =256
+                ZIndex: =1
+
+            Image1_12 As image:
+                Height: =85
+                Image: =d46a3cdcea87af6
+                Width: =166
+                X: =1200
+                ZIndex: =2
+
+            Label1_20 As label:
+                Font: =Font.'Open Sans Condensed'
+                Size: =25
+                Text: ="Game Lifer"
+                X: =1208
+                Y: =45
+                ZIndex: =3
+
+            Button3_2 As button:
+                Color: =RGBA(255,255,255,1)
+                Fill: =RGBA(141, 198, 63, 1)
+                Height: =72
+                HoverColor: =Self.Color
+                HoverFill: =ColorFade(Self.Fill, 20%)
+                OnSelect: =Navigate(Screen3, ScreenTransition.Cover)
+                Size: =25
+                Text: ="Ir para cadastro"
+                Width: =301
+                X: =338
+                Y: =478
+                ZIndex: =4
+
+            Button3_3 As button:
+                Color: =RGBA(255,255,255,1)
+                Fill: =RGBA(141, 198, 63, 1)
+                Height: =72
+                HoverColor: =Self.Color
+                HoverFill: =ColorFade(Self.Fill, 20%)
+                OnSelect: =Navigate(Screen3_1, ScreenTransition.Cover)
+                Size: =25
+                Text: ="Já sou cadastrado"
+                Width: =307
+                X: =730
+                Y: =478
+                ZIndex: =5
+

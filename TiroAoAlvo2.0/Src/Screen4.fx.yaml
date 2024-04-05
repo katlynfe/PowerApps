@@ -1,0 +1,142 @@
+Screen4 As screen:
+    Fill: =RGBA(209, 232, 178, 1)
+
+    Container15_6 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =768
+        LayoutMode: =LayoutMode.Auto
+        Width: =1366
+        ZIndex: =1
+
+        Container18_6 As groupContainer.verticalAutoLayoutContainer:
+            FillPortions: =0
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            Visible: =conteiner
+            Width: =150
+            ZIndex: =1
+
+            Container28_6 As groupContainer.manualLayoutContainer:
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                ZIndex: =1
+
+                Icon2_18 As icon.Waffle:
+                    Color: =RGBA(127, 178, 57, 1)
+                    Icon: =Icon.Home
+                    OnSelect: |-
+                        =Navigate(Screen5);
+                        Set(conteiner,false)
+                    X: =42
+                    Y: =142
+                    ZIndex: =1
+
+                Label2_12 As label:
+                    Color: =RGBA(127, 178, 57, 1)
+                    Size: =20
+                    Text: ="Início"
+                    X: =42
+                    Y: =206
+                    ZIndex: =2
+
+                Label9_6 As label:
+                    Align: =Align.Center
+                    Fill: =RGBA(127, 178, 57, 1)
+                    Height: =127
+                    Size: =25
+                    Text: ="Menu"
+                    ZIndex: =3
+
+                Arrow2_4 As arrow.backArrow:
+                    Fill: =RGBA(127, 178, 57, 1)
+                    Height: =64
+                    OnSelect: |-
+                        =Navigate(Screen7);
+                        Set(conteiner,false)
+                    Width: =64
+                    X: =42
+                    Y: =664
+                    ZIndex: =4
+
+                Label8_17 As label:
+                    Color: =RGBA(127, 178, 57, 1)
+                    Size: =20
+                    Text: ="Voltar"
+                    X: =42
+                    Y: =728
+                    ZIndex: =5
+
+        Container20_6 As groupContainer.horizontalAutoLayoutContainer:
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =2
+
+            Container29_3 As groupContainer.manualLayoutContainer:
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                ZIndex: =1
+
+                Image1_19 As image:
+                    Height: =85
+                    Image: =d46a3cdcea87af6
+                    Width: =166
+                    X: =1050
+                    ZIndex: =3
+
+                Label1_34 As label:
+                    Font: =Font.'Open Sans Condensed'
+                    Size: =25
+                    Text: ="Game Lifer"
+                    X: =1066
+                    Y: =45
+                    ZIndex: =4
+
+                Icon1_18 As icon.Hamburger:
+                    Color: =RGBA(127, 178, 57, 1)
+                    Icon: =Icon.Hamburger
+                    OnSelect: |-
+                        =If(conteiner = true,
+                        Set(conteiner,false),
+                        Set(conteiner,true)
+                        )
+                    ZIndex: =6
+
+                Label1_35 As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(101, 128, 187, 1)
+                    Color: =RGBA(255, 255, 255, 1)
+                    Fill: =RGBA(141, 198, 63, 1)
+                    Height: =42
+                    OnSelect: =Navigate(Screen9_1)
+                    Size: =25
+                    Text: ="Tiro ao alvo"
+                    Width: =326
+                    X: =452
+                    Y: =101
+                    ZIndex: =11
+
+                Image13_9 As image:
+                    BorderColor: =RGBA(101, 128, 187, 1)
+                    Height: =251
+                    Image: ='81UvvVIfhlL'
+                    OnSelect: =Navigate(Screen9_1)
+                    Width: =345
+                    X: =442
+                    Y: =175
+                    ZIndex: =12
+
+                Button4_7 As button:
+                    Color: =RGBA(255,255,255,1)
+                    Fill: =RGBA(141, 198, 63, 1)
+                    HoverColor: =Self.Color
+                    HoverFill: =ColorFade(Self.Fill, 20%)
+                    OnSelect: |-
+                        =Set(_Pontos,0);
+                        Navigate(Screen9_1)
+                    Text: ="Iniciar"
+                    X: =534
+                    Y: =487
+                    ZIndex: =13
+
