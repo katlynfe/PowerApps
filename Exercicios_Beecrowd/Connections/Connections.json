@@ -1,0 +1,64 @@
+{
+  "120d8f8b-2ea0-4a76-8cfd-0e2794c01c10": {
+    "appActions": [
+      "providers/PowerPlatform.Governance/Operations/Read",
+      "providers/PowerPlatform.Governance/Operations/Write"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1670/1.0.1670.3526/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://powerrockscombr.sharepoint.com/sites/QA-ENG": {
+        "dataSources": {
+          "Lista_Beecrowd_Katlyn": {
+            "tableName": "b7fe2b13-0261-4061-8bd8-2a8cec9f7b36"
+          },
+          "Lista_renas_Katlyn": {
+            "tableName": "a665e619-c3c3-4b95-a860-43116f9227ac"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "Lista_Beecrowd_Katlyn",
+      "Lista_renas_Katlyn"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "120d8f8b-2ea0-4a76-8cfd-0e2794c01c10"
+  },
+  "18c43d96-1dab-41bc-b923-9d2c225d0565": {
+    "appActions": [
+      "Translate"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Microsoft Translator",
+      "executionRestrictions": {
+        "apiId": "/providers/microsoft.powerapps/apis/shared_microsofttranslator",
+        "appVer": "3.24034.17",
+        "modifiedOn": "2024-04-05 20:20:24",
+        "policy": "{\"type\":\"unused\"}",
+        "version": 1
+      },
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1623/1.0.1623.3210/microsofttranslator/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_microsofttranslator",
+      "parameterHints": {},
+      "parameterHintsV2": {},
+      "runtimePolicyName": "74776b5a-5124-4d70-a009-76908effcf68",
+      "sharedConnectionId": "/providers/microsoft.powerapps/apis/shared_microsofttranslator/connections/2054af20e5604aacbde27bd83dcd0e20"
+    },
+    "datasets": {},
+    "dataSources": [
+      "MicrosoftTranslator"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "18c43d96-1dab-41bc-b923-9d2c225d0565"
+  }
+}

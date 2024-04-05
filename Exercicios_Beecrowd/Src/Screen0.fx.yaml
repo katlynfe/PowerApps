@@ -1,0 +1,126 @@
+Screen0 As screen:
+    Fill: =RGBA(237, 242, 97, 1)
+
+    Image1_1 As image:
+        Height: =265
+        Image: ='Captura de tela de 2024-01-05 11-51-45'
+        Width: =372
+        X: =496
+        Y: =80
+        ZIndex: =1
+
+    TextInput2_3 As text:
+        Default: =User().Email
+        DisplayMode: =DisplayMode.View
+        Height: =47
+        Size: =20
+        Width: =361
+        X: =67
+        Y: =500
+        ZIndex: =2
+
+    TextInput2_4 As text:
+        Default: =
+        Height: =47
+        HintText: ="Senha"
+        Size: =20
+        Width: =361
+        X: =919
+        Y: =500
+        ZIndex: =3
+
+    Label2_3 As label:
+        Font: =Font.'Lato Black'
+        Size: =25
+        Text: |-
+            ="Email: "
+        X: =67
+        Y: =447
+        ZIndex: =4
+
+    Label2_4 As label:
+        Font: =Font.'Lato Black'
+        Size: =25
+        Text: |-
+            ="Senha:"
+        Width: =190
+        X: =919
+        Y: =447
+        ZIndex: =5
+
+    Button3_1 As button:
+        Fill: =RGBA(116, 116, 116, 1)
+        Height: =57
+        OnSelect: |
+            =If(
+                Len(TextInput2_4.Text) >= 8 &&
+                CountRows(Filter(Split(TextInput2_4.Text, ""), "ABCDEFGHIJKLMNOPQRSTUVWXYZ")) > 0 &&
+                CountRows(Filter(Split(TextInput2_4.Text, ""), "abcdefghijklmnopqrstuvwxyz")) > 0 &&
+                CountRows(Filter(Split(TextInput2_4.Text, ""), "0123456789")) > 0 &&
+                CountRows(Filter(Split(TextInput2_4.Text, ""), "!@#$%^&*()_+{}|:<>?~-")) > 0,
+                Set(mensagemContaCriada, "Conta criada com sucesso!");
+                Notify(mensagemContaCriada, NotificationType.Success);
+                Patch(Lista_Beecrowd_Katlyn, Defaults(Lista_Beecrowd_Katlyn),
+                {
+                    Nome: User().FullName,
+                    Usuario: TextInput2_5.Text,
+                    Senha: Value(TextInput2_4.Text),
+                    Email: User().Email
+                }),
+                Notify("Conta criada com sucesso!", NotificationType.Success),
+                Notify("A senha não atende aos critérios. Insira uma senha válida.", NotificationType.Error)
+            );
+            
+            If(
+                IsBlank(LookUp(Lista_Beecrowd_Katlyn, Usuario = TextInput2_5.Text)),
+                Notify("Usuário não encontrado. Insira um usuário cadastrado.", NotificationType.Warning)
+            );
+            
+            Navigate(Screen1_1)
+        Size: =20
+        Text: ="Criar conta"
+        Width: =187
+        X: =608
+        Y: =684
+        ZIndex: =6
+
+    Label2_5 As label:
+        Font: =Font.'Lato Black'
+        Size: =25
+        Text: ="Usuário"
+        X: =482
+        Y: =447
+        ZIndex: =7
+
+    TextInput2_5 As text:
+        Default: =
+        DisplayMode: =DisplayMode.View
+        Height: =47
+        HintText: ="Nome de usuário"
+        Size: =20
+        Width: =361
+        X: =482
+        Y: =500
+        ZIndex: =8
+
+    Arrow4_1 As arrow.backArrow:
+        Fill: =RGBA(116, 116, 116, 1)
+        OnSelect: =Navigate(Screen)
+        Y: =6
+        ZIndex: =9
+
+    Icon2_1 As icon.View:
+        Color: =RGBA(0, 0, 0, 1)
+        Height: =47
+        Icon: =Icon.View
+        OnSelect: |
+            =If(
+                TextInput2_1.Mode = TextMode.Password,
+                Set(TextInput2_1.Mode, TextMode.Text),
+                Set(TextInput2_1.Mode, TextMode.Password)
+            )
+        Width: =41
+        X: =1224
+        Y: =500
+        ZIndex: =10
+

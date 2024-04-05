@@ -1,0 +1,37 @@
+Screen1_2 As screen:
+    Fill: =RGBA(237, 242, 97, 1)
+
+    Label5_1 As label:
+        Fill: =RGBA(219, 211, 59, 1)
+        Font: =Font.'Lato Black'
+        Height: =94
+        Size: =35
+        Text: ="Exercícios Avançados do Beecrowd"
+        Width: =782
+        X: =292
+        Y: =340
+        ZIndex: =1
+
+    Image3_2 As image:
+        Image: ='Captura de tela de 2024-01-08 11-34-06'
+        X: =98
+        Y: =340
+        ZIndex: =2
+
+    Image3_3 As image:
+        Image: ='Captura de tela de 2024-01-08 11-34-06'
+        X: =1162
+        Y: =340
+        ZIndex: =3
+
+    Arrow1_1 As arrow.backArrow:
+        Fill: =RGBA(116, 116, 116, 1)
+        OnSelect: =Navigate(Screen12)
+        ZIndex: =4
+
+    Arrow5_1 As arrow:
+        Fill: =RGBA(116, 116, 116, 1)
+        OnSelect: =Navigate(Screen14)
+        X: =1316
+        ZIndex: =5
+

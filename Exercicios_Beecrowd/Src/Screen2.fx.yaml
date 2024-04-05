@@ -1,0 +1,123 @@
+Screen2 As screen:
+    Fill: =RGBA(255, 255, 255, 1)
+
+    Container1 As groupContainer.verticalAutoLayoutContainer:
+        Height: =660
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =114
+        Y: =108
+        ZIndex: =1
+
+        Icon1 As icon.Hamburger:
+            Color: =RGBA(116, 116, 116, 1)
+            Icon: =Icon.Hamburger
+            OnSelect: |-
+                =Set(barra,true);
+                Set(voltar,true);
+            Y: =108
+            ZIndex: =1
+
+        Arrow2 As arrow.backArrow:
+            Fill: =RGBA(116, 116, 116, 1)
+            OnSelect: =Navigate(Screen1_1)
+            Visible: =voltar
+            ZIndex: =2
+
+    Container3 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =108
+        LayoutMode: =LayoutMode.Auto
+        Width: =1362
+        ZIndex: =2
+
+        Image2 As image:
+            Image: ='Captura de tela de 2024-01-05 11-51-45'
+            ZIndex: =1
+
+    Container5 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =660
+        LayoutMode: =LayoutMode.Auto
+        Width: =1252
+        X: =114
+        Y: =108
+        ZIndex: =3
+
+        Label1 As label:
+            Font: =Font.Lato
+            Height: =167
+            Size: =25
+            Text: |-
+                ="Bem-vindo ao beecrowd! O seu primeiro programa em qualquer linguagem de programação normalmente é o ""Hello World!"". Neste primeiro problema tudo o que você precisa fazer é imprimir esta mensagem na tela.
+                "
+            Width: =1205
+            X: =80
+            Y: =194
+            ZIndex: =1
+
+    TextInput1 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =82
+        HintText: ="Digite o texto desejado"
+        Size: =25
+        Width: =397
+        X: =160
+        Y: =472
+        ZIndex: =4
+
+    Label3 As label:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        BorderThickness: =2
+        Height: =82
+        Size: =25
+        Text: =TextInput1.Text
+        Width: =397
+        X: =840
+        Y: =472
+        ZIndex: =5
+
+    Label4 As label:
+        Height: =54
+        Size: =20
+        Text: |-
+            ="Texto digitado:"
+        Width: =205
+        X: =160
+        Y: =418
+        ZIndex: =6
+
+    Label4_1 As label:
+        Height: =36
+        Size: =20
+        Text: |-
+            ="Texto visualizado:"
+        Width: =250
+        X: =840
+        Y: =418
+        ZIndex: =7
+
+    Label6 As label:
+        Font: =Font.'Lato Black'
+        Height: =108
+        Size: =35
+        Text: ="BEE 1000"
+        X: =125
+        ZIndex: =8
+
+    Arrow3 As arrow:
+        Fill: =RGBA(116, 116, 116, 1)
+        OnSelect: =Navigate(Screen3)
+        X: =1316
+        Y: =718
+        ZIndex: =9
+
+    Label7_4 As label:
+        Font: =Font.Lato
+        Height: =62
+        Size: =35
+        Text: ="Básicos"
+        Width: =177
+        X: =1185
+        Y: =46
+        ZIndex: =10
+

@@ -1,0 +1,153 @@
+Screen16_2 As screen:
+
+    Container1_28 As groupContainer.verticalAutoLayoutContainer:
+        Height: =660
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =114
+        Y: =108
+        ZIndex: =1
+
+        Icon1_28 As icon.Hamburger:
+            Color: =RGBA(116, 116, 116, 1)
+            Icon: =Icon.Hamburger
+            OnSelect: |-
+                =Set(barra,true);
+                Set(voltar,true);
+            Y: =108
+            ZIndex: =1
+
+        Arrow2_28 As arrow.backArrow:
+            Fill: =RGBA(116, 116, 116, 1)
+            OnSelect: =Navigate(Screen15)
+            Visible: =voltar
+            ZIndex: =2
+
+    Container3_28 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =108
+        LayoutMode: =LayoutMode.Auto
+        Width: =1362
+        ZIndex: =2
+
+        Image2_28 As image:
+            Image: ='Captura de tela de 2024-01-05 11-51-45'
+            ZIndex: =1
+
+    Container5_28 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =660
+        LayoutMode: =LayoutMode.Auto
+        Width: =1252
+        X: =114
+        Y: =108
+        ZIndex: =3
+
+    Label6_28 As label:
+        Font: =Font.'Lato Black'
+        Height: =108
+        Size: =35
+        Text: |-
+            ="BEE 1069
+            "
+        X: =125
+        ZIndex: =8
+
+    Arrow3_28 As arrow:
+        Fill: =RGBA(116, 116, 116, 1)
+        OnSelect: =Navigate(Screen17)
+        X: =1316
+        Y: =718
+        ZIndex: =9
+
+    Label8_23 As label:
+        Font: =Font.Lato
+        Height: =299
+        Size: =25
+        Text: ="João está trabalhando em uma mina, tentando retirar o máximo que consegue de diamantes ""<>"". Ele deve excluir todas as particulas de areia ""."" do processo e a cada retirada de diamante, novos diamantes poderão se formar. Se ele tem como uma entrada .<...<<..>>....>....>>>., três diamantes são formados. O primeiro é retirado de <..>, resultando  .<...<>....>....>>>. Em seguida o segundo diamante é retirado, restando .<.......>....>>>. O terceiro diamante é então retirado, restando no final .....>>>., sem possibilidade de extração de novo diamante."
+        Width: =1253
+        X: =113
+        Y: =108
+        ZIndex: =10
+
+    Expressao As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =69
+        HintText: ="Digite a expressão desejada"
+        OnChange: =
+        Size: =25
+        Width: =466
+        X: =148
+        Y: =624
+        ZIndex: =24
+
+    Label4_76 As label:
+        Height: =74
+        Size: =20
+        Text: |-
+            ="Expressão:"
+        Width: =162
+        X: =148
+        Y: =550
+        ZIndex: =25
+
+    TextInput1_79 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =pos
+        Height: =69
+        HintText: ="Digite a expressão desejada"
+        Size: =25
+        Width: =466
+        X: =818
+        Y: =624
+        ZIndex: =26
+
+    Label4_77 As label:
+        Height: =74
+        Size: =20
+        Text: |-
+            ="Quantidade de diamantes:"
+        Width: =447
+        X: =818
+        Y: =550
+        ZIndex: =27
+
+    Button4_10 As button:
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =61
+        OnSelect: |-
+            =ClearCollect(TextoColecao, Expressao.Text);
+            
+            Set(Texto, Concatenate(TextoColecao.Value, ""));
+            Set(ContagemMenor, 0);
+            Set(ContagemMaior, 0);
+            Set(pos,Find("<...<<..>>....>....>>>","<",[1,Len(Value(Expressao.Text))-1]));
+            
+            If(pos > 0, 
+                Set(ContagemMenor, ContagemMenor + 1),
+                Find("<...<<..>>....>....>>>","<",pos)
+            );
+            
+            ForAll(
+                Find(Expressao.Text,">",2);
+                Set(ContagemMaior, ContagemMaior + 1)
+            );
+            
+            Notify("Quantidade de '<': " & ContagemMenor & "; Quantidade de '>': " & ContagemMaior, NotificationType.Success)
+        Text: ="Resultado"
+        Width: =122
+        X: =658
+        Y: =624
+        ZIndex: =28
+
+    Label7_27 As label:
+        Font: =Font.Lato
+        Height: =62
+        Size: =35
+        Text: ="Avançados"
+        Width: =247
+        X: =1119
+        Y: =46
+        ZIndex: =29
+

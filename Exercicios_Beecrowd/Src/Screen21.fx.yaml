@@ -1,0 +1,80 @@
+Screen21 As screen:
+
+    Container1_21 As groupContainer.verticalAutoLayoutContainer:
+        Height: =660
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =114
+        Y: =108
+        ZIndex: =1
+
+        Icon1_21 As icon.Hamburger:
+            Color: =RGBA(116, 116, 116, 1)
+            Icon: =Icon.Hamburger
+            OnSelect: |-
+                =Set(barra,true);
+                Set(voltar,true);
+            Y: =108
+            ZIndex: =1
+
+        Arrow2_21 As arrow.backArrow:
+            Fill: =RGBA(116, 116, 116, 1)
+            OnSelect: =Navigate(Screen20)
+            Visible: =voltar
+            ZIndex: =2
+
+    Container3_21 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =108
+        LayoutMode: =LayoutMode.Auto
+        Width: =1362
+        ZIndex: =2
+
+        Image2_21 As image:
+            Image: ='Captura de tela de 2024-01-05 11-51-45'
+            ZIndex: =1
+
+    Container5_21 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =660
+        LayoutMode: =LayoutMode.Auto
+        Width: =1252
+        X: =114
+        Y: =108
+        ZIndex: =3
+
+    Label6_21 As label:
+        Font: =Font.'Lato Black'
+        Height: =108
+        Size: =35
+        Text: |-
+            ="BEE 1382
+            "
+        X: =125
+        ZIndex: =8
+
+    Arrow3_21 As arrow:
+        Fill: =RGBA(116, 116, 116, 1)
+        OnSelect: =Navigate(Screen21_1)
+        X: =1316
+        Y: =718
+        ZIndex: =9
+
+    Label8_18 As label:
+        Font: =Font.Lato
+        Height: =660
+        Size: =20
+        Text: ="Watson, Crick e Wilkins receberam em 1962 o prêmio Nobel de Medicina especialmente pelo seu trabalho que resultou na descoberta da estrutura das moléculas do DNA e na sua importância na transmissão de informações entre as gerações de seres vivos. Watson e Crick publicaram na revista “Nature” em 1953 o artigo em que mostravam que a molécula de DNA apresentava uma estrutura de dupla hélice. O artigo assume enorme importância nos dias de hoje, especialmente depois dos vários avanços na área.Muitas pesquisas têm sido feitas na área de Bioinformática ligadas à descoberta da sequência de bases que compõem as moléculas de DNA dos vários seres vivos. Em especial, a estrutura destas moléculas tem sido usada para compor teorias de como os seres vivos evoluíram e quais têm ancestrais comuns. Acredita-se que os seres vivos presentes hoje no planeta podem descender de ancestrais comuns, sendo que as modificações nos seus respectivos DNAs são devidas a fenômenos de mutação ocorridos durante a evolução. Muitos biólogos acreditam no princípio da parcimônia, que diz que o número destas mutações deve ser o mínimo possível, uma vez que a Natureza busca, de certa forma, o caminho “mais barato” para a modificação desejada.Sua tarefa neste problema é auxiliar os pesquisadores na tarefa de determinar se duas sequências de DNA podem ter um ancestral comum. Considere dadas duas sequências (podemos imaginar como sequências de números inteiros). O seu objetivo é determinar o menor número de trocas de elementos de uma das sequências (os elementos não precisam estar em posições adjacentes na sequência) que leva uma das sequências na outra. Observe que podemos considerar uma das sequências fixa (por exemplo, em ordem crescente), dessa forma buscamos o número mínimo de tais trocas que ordena a sequência dada."
+        Width: =1253
+        X: =113
+        Y: =108
+        ZIndex: =10
+
+    Label7_20 As label:
+        Font: =Font.Lato
+        Height: =62
+        Size: =35
+        Text: ="Avançados"
+        Width: =247
+        X: =1119
+        Y: =46
+        ZIndex: =29
+

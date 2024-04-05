@@ -1,0 +1,159 @@
+Screen7 As screen:
+
+    Container1_5 As groupContainer.verticalAutoLayoutContainer:
+        Height: =660
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =114
+        Y: =108
+        ZIndex: =1
+
+        Icon1_5 As icon.Hamburger:
+            Color: =RGBA(116, 116, 116, 1)
+            Icon: =Icon.Hamburger
+            OnSelect: |-
+                =Set(barra,true);
+                Set(voltar,true);
+            Y: =108
+            ZIndex: =1
+
+        Arrow2_5 As arrow.backArrow:
+            Fill: =RGBA(116, 116, 116, 1)
+            OnSelect: =Navigate(Screen6)
+            Visible: =voltar
+            ZIndex: =2
+
+    Container3_5 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =108
+        LayoutMode: =LayoutMode.Auto
+        Width: =1362
+        ZIndex: =2
+
+        Image2_5 As image:
+            Image: ='Captura de tela de 2024-01-05 11-51-45'
+            ZIndex: =1
+
+    Container5_5 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =660
+        LayoutMode: =LayoutMode.Auto
+        Width: =1252
+        X: =114
+        Y: =108
+        ZIndex: =3
+
+    TextInput1_9 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =82
+        HintText: ="Digite o numero desejado"
+        Size: =25
+        Width: =127
+        X: =160
+        Y: =472
+        ZIndex: =4
+
+    ResultadoMedia As label:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        BorderThickness: =2
+        Height: =82
+        Size: =25
+        Text: ="MEDIA = " & Round(media,5)
+        Width: =397
+        X: =840
+        Y: =472
+        ZIndex: =5
+
+    Label4_14 As label:
+        Height: =54
+        Size: =20
+        Text: |-
+            ="Valor 1:"
+        Width: =205
+        X: =160
+        Y: =418
+        ZIndex: =6
+
+    Label4_16 As label:
+        Height: =36
+        Size: =20
+        Text: |-
+            ="Média dos valores:"
+        Width: =250
+        X: =840
+        Y: =418
+        ZIndex: =7
+
+    Label6_5 As label:
+        Font: =Font.'Lato Black'
+        Height: =108
+        Size: =35
+        Text: ="BEE 1005"
+        X: =125
+        ZIndex: =8
+
+    Arrow3_5 As arrow:
+        Fill: =RGBA(116, 116, 116, 1)
+        OnSelect: =Navigate(Screen8)
+        X: =1316
+        Y: =718
+        ZIndex: =9
+
+    Label8_4 As label:
+        Font: =Font.Lato
+        Height: =167
+        Size: =25
+        Text: ="Leia 2 valores de ponto flutuante de dupla precisão A e B, que correspondem a 2 notas de um aluno. A seguir, calcule a média do aluno, sabendo que a nota A tem peso 3.5 e a nota B tem peso 7.5 (A soma dos pesos portanto é 11). Assuma que cada nota pode ir de 0 até 10.0, sempre com uma casa decimal."
+        Width: =1253
+        X: =113
+        Y: =108
+        ZIndex: =10
+
+    TextInput1_10 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =82
+        HintText: ="Digite o numero desejado"
+        Size: =25
+        Width: =127
+        X: =393
+        Y: =472
+        ZIndex: =11
+
+    Label4_15 As label:
+        Height: =54
+        Size: =20
+        Text: |-
+            ="Valor 2:"
+        Width: =205
+        X: =393
+        Y: =418
+        ZIndex: =12
+
+    Button2 As button:
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        OnSelect: |
+            =Set(notaA, Value(TextInput1_9.Text));
+            Set(notaB, Value(TextInput1_10.Text));
+            If(
+                notaA >= 0 && notaA <= 10 &&
+                notaB >= 0 && notaB <= 10,
+                Set(pesoNotaA, 3.5),
+                Set(pesoNotaB, 7.5),
+                Set(media, ((notaA * pesoNotaA) + (notaB * pesoNotaB)) / (110));
+            )
+        Text: ="Calcular média"
+        X: =601
+        Y: =493
+        ZIndex: =14
+
+    Label7_9 As label:
+        Font: =Font.Lato
+        Height: =62
+        Size: =35
+        Text: ="Básicos"
+        Width: =177
+        X: =1185
+        Y: =46
+        ZIndex: =15
+

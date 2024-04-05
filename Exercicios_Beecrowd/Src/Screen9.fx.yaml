@@ -1,0 +1,198 @@
+Screen9 As screen:
+
+    Container1_7 As groupContainer.verticalAutoLayoutContainer:
+        Height: =660
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =114
+        Y: =108
+        ZIndex: =1
+
+        Icon1_7 As icon.Hamburger:
+            Color: =RGBA(116, 116, 116, 1)
+            Icon: =Icon.Hamburger
+            OnSelect: |-
+                =Set(barra,true);
+                Set(voltar,true);
+            Y: =108
+            ZIndex: =1
+
+        Arrow2_7 As arrow.backArrow:
+            Fill: =RGBA(116, 116, 116, 1)
+            OnSelect: =Navigate(Screen8)
+            Visible: =voltar
+            ZIndex: =2
+
+    Container3_7 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =108
+        LayoutMode: =LayoutMode.Auto
+        Width: =1362
+        ZIndex: =2
+
+        Image2_7 As image:
+            Image: ='Captura de tela de 2024-01-05 11-51-45'
+            ZIndex: =1
+
+    Container5_7 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =660
+        LayoutMode: =LayoutMode.Auto
+        Width: =1252
+        X: =114
+        Y: =108
+        ZIndex: =3
+
+    TextInput1_14 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =82
+        HintText: ="Digite o numero desejado"
+        Size: =25
+        Width: =127
+        X: =113
+        Y: =472
+        ZIndex: =4
+
+    ResultadoMedia_2 As label:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        BorderThickness: =2
+        Height: =82
+        Size: =25
+        Text: ="DIFERENCA = " & diferenca
+        Width: =397
+        X: =950
+        Y: =472
+        ZIndex: =5
+
+    Label4_21 As label:
+        Height: =45
+        Size: =20
+        Text: |-
+            ="Valor 1:"
+        Width: =127
+        X: =113
+        Y: =418
+        ZIndex: =6
+
+    Label6_7 As label:
+        Font: =Font.'Lato Black'
+        Height: =108
+        Size: =35
+        Text: ="BEE 1007"
+        X: =125
+        ZIndex: =8
+
+    Arrow3_7 As arrow:
+        Fill: =RGBA(116, 116, 116, 1)
+        OnSelect: =Navigate(Screen10)
+        X: =1316
+        Y: =718
+        ZIndex: =9
+
+    Label8_6 As label:
+        Font: =Font.Lato
+        Height: =134
+        Size: =25
+        Text: |-
+            ="Leia quatro valores inteiros A, B, C e D. A seguir, calcule e mostre a diferença do produto de A e B pelo produto de C e D segundo a fórmula: DIFERENCA = (A * B - C * D)."
+        Width: =1253
+        X: =113
+        Y: =108
+        ZIndex: =10
+
+    TextInput1_15 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =82
+        HintText: ="Digite o numero desejado"
+        Size: =25
+        Width: =127
+        X: =275
+        Y: =472
+        ZIndex: =11
+
+    Label4_22 As label:
+        Height: =45
+        Size: =20
+        Text: |-
+            ="Valor 2:"
+        Width: =117
+        X: =275
+        Y: =415
+        ZIndex: =12
+
+    Button2_2 As button:
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        OnSelect: |-
+            =Set(valor1, Value(TextInput1_14.Text));
+            Set(valor2, Value(TextInput1_15.Text));
+            Set(valor3, Value(TextInput1_16.Text));
+            Set(valor4, Value(TextInput1_17.Text));
+            Set(diferenca, (valor1*valor2 - valor3*valor4))
+        Text: ="Calcular média"
+        X: =755
+        Y: =493
+        ZIndex: =14
+
+    Label4_23 As label:
+        Height: =42
+        Size: =20
+        Text: |-
+            ="Valor 3:"
+        Width: =117
+        X: =439
+        Y: =415
+        ZIndex: =15
+
+    TextInput1_16 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =82
+        HintText: ="Digite o numero desejado"
+        Size: =25
+        Width: =127
+        X: =434
+        Y: =472
+        ZIndex: =16
+
+    TextInput1_17 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =82
+        HintText: ="Digite o numero desejado"
+        Size: =25
+        Width: =127
+        X: =594
+        Y: =472
+        ZIndex: =17
+
+    Label4_25 As label:
+        Height: =42
+        Size: =20
+        Text: |-
+            ="Valor 4:"
+        Width: =117
+        X: =594
+        Y: =415
+        ZIndex: =18
+
+    Label4_30 As label:
+        Height: =42
+        Size: =20
+        Text: |-
+            ="Diferença entre os valores: "
+        Width: =372
+        X: =955
+        Y: =415
+        ZIndex: =19
+
+    Label7_11 As label:
+        Font: =Font.Lato
+        Height: =62
+        Size: =35
+        Text: ="Básicos"
+        Width: =177
+        X: =1185
+        Y: =46
+        ZIndex: =20
+

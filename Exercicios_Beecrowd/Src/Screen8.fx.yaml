@@ -1,0 +1,183 @@
+Screen8 As screen:
+
+    Container1_6 As groupContainer.verticalAutoLayoutContainer:
+        Height: =660
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =114
+        Y: =108
+        ZIndex: =1
+
+        Icon1_6 As icon.Hamburger:
+            Color: =RGBA(116, 116, 116, 1)
+            Icon: =Icon.Hamburger
+            OnSelect: |-
+                =Set(barra,true);
+                Set(voltar,true);
+            Y: =108
+            ZIndex: =1
+
+        Arrow2_6 As arrow.backArrow:
+            Fill: =RGBA(116, 116, 116, 1)
+            OnSelect: =Navigate(Screen7)
+            Visible: =voltar
+            ZIndex: =2
+
+    Container3_6 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =108
+        LayoutMode: =LayoutMode.Auto
+        Width: =1362
+        ZIndex: =2
+
+        Image2_6 As image:
+            Image: ='Captura de tela de 2024-01-05 11-51-45'
+            ZIndex: =1
+
+    Container5_6 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =660
+        LayoutMode: =LayoutMode.Auto
+        Width: =1252
+        X: =114
+        Y: =108
+        ZIndex: =3
+
+    TextInput1_11 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =82
+        HintText: ="Digite o numero desejado"
+        Size: =25
+        Width: =127
+        X: =160
+        Y: =472
+        ZIndex: =4
+
+    ResultadoMedia_1 As label:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        BorderThickness: =2
+        Height: =82
+        Size: =25
+        Text: ="MEDIA = " & Round(media2,1)
+        Width: =397
+        X: =950
+        Y: =472
+        ZIndex: =5
+
+    Label4_17 As label:
+        Height: =54
+        Size: =20
+        Text: |-
+            ="Valor 1:"
+        Width: =205
+        X: =160
+        Y: =418
+        ZIndex: =6
+
+    Label4_19 As label:
+        Height: =36
+        Size: =20
+        Text: |-
+            ="Média dos valores:"
+        Width: =250
+        X: =950
+        Y: =427
+        ZIndex: =7
+
+    Label6_6 As label:
+        Font: =Font.'Lato Black'
+        Height: =108
+        Size: =35
+        Text: ="BEE 1006"
+        X: =125
+        ZIndex: =8
+
+    Arrow3_6 As arrow:
+        Fill: =RGBA(116, 116, 116, 1)
+        OnSelect: =Navigate(Screen9)
+        X: =1316
+        Y: =718
+        ZIndex: =9
+
+    Label8_5 As label:
+        Font: =Font.Lato
+        Height: =167
+        Size: =25
+        Text: ="Leia 3 valores, no caso, variáveis A, B e C, que são as três notas de um aluno. A seguir, calcule a média do aluno, sabendo que a nota A tem peso 2, a nota B tem peso 3 e a nota C tem peso 5. Considere que cada nota pode ir de 0 até 10.0, sempre com uma casa decimal."
+        Width: =1253
+        X: =113
+        Y: =108
+        ZIndex: =10
+
+    TextInput1_12 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =82
+        HintText: ="Digite o numero desejado"
+        Size: =25
+        Width: =127
+        X: =335
+        Y: =472
+        ZIndex: =11
+
+    Label4_18 As label:
+        Height: =54
+        Size: =20
+        Text: |-
+            ="Valor 2:"
+        Width: =205
+        X: =335
+        Y: =418
+        ZIndex: =12
+
+    Button2_1 As button:
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        OnSelect: |-
+            =Set(notaA2, Value(TextInput1_11.Text));
+            Set(notaB2, Value(TextInput1_12.Text));
+            Set(notaC2, Value(TextInput1_13.Text));
+            If(
+                notaA2 >= 0 && notaA2 <= 10 &&
+                notaB2 >= 0 && notaB2 <= 10 &&
+                notaC2 >= 0 && notaC2 <= 10,
+                Set(pesoNotaA2, 2),
+                Set(pesoNotaB2, 3),
+                Set(pesoNotaC2, 5),
+                Set(media2, ((notaA2 * pesoNotaA2) + (notaB2 * pesoNotaB2) + (notaC2 * pesoNotaC2)) / (pesoNotaA2 + pesoNotaB2 + pesoNotaC2));
+            )
+        Text: ="Calcular média"
+        X: =721
+        Y: =493
+        ZIndex: =14
+
+    Label4_20 As label:
+        Height: =54
+        Size: =20
+        Text: |-
+            ="Valor 3:"
+        Width: =205
+        X: =510
+        Y: =418
+        ZIndex: =15
+
+    TextInput1_13 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =82
+        HintText: ="Digite o numero desejado"
+        Size: =25
+        Width: =127
+        X: =507
+        Y: =472
+        ZIndex: =16
+
+    Label7_10 As label:
+        Font: =Font.Lato
+        Height: =62
+        Size: =35
+        Text: ="Básicos"
+        Width: =177
+        X: =1185
+        Y: =46
+        ZIndex: =17
+

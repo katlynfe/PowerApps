@@ -1,0 +1,116 @@
+<application xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:service="https://brazil-001.azure-apim.net/apim/microsofttranslator" xmlns:siena="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11" siena:serviceId="MicrosoftTranslator" xmlns="http://wadl.dev.java.net/2009/02">
+  <doc title="Microsoft Translator">O Microsoft Translator permite traduzir textos em diversos idiomas.</doc>
+  <grammars>
+    <jsonTypes targetNamespace="https://brazil-001.azure-apim.net/apim/microsofttranslator" xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+      <string name="Language_Code_def" />
+      <string name="Language_Name_def" />
+      <object name="Language">
+        <property name="Code" type="string" />
+        <property name="Name" type="string" />
+      </object>
+      <array typeRef="Language" name="Languages_responses_200_def" />
+      <string name="Translate_responses_200_def" />
+      <array typeRef="Language" name="SpeechLanguages_responses_200_def" />
+      <string name="TextToSpeech_responses_200_def" />
+    </jsonTypes>
+  </grammars>
+  <resources siena:authenticationProviderHref="#PowerAppAuth" base="https://brazil-001.azure-apim.net/apim/microsofttranslator">
+    <resource path="/{connectionId}/TranslatableLanguages">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="Languages" actionName="Languages" visibility="advanced" siena:isDeprecated="true">
+        <doc title="Obter idiomas&#xA;Recupera todos os idiomas com suporte pelo Microsoft Translator." />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:Languages_responses_200_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/Translate">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="Translate" actionName="Translate" visibility="important" siena:isDeprecated="true">
+        <doc title="Traduzir texto&#xA;Traduz texto para um idioma específico usando o Microsoft Translator." />
+        <request>
+          <param style="query" name="query" type="xs:string" required="true">
+            <doc title="O texto para traduzir." />
+          </param>
+          <param style="query" name="languageTo" type="xs:string" required="true">
+            <doc title="O código do idioma de destino (exemplo: 'fr')." />
+          </param>
+          <param style="query" name="languageFrom" type="xs:string">
+            <doc title="O idioma de origem (se não for informado, o Microsoft Translator tentará detectar automaticamente) (exemplo: pt)." />
+          </param>
+          <param style="query" name="category" type="xs:string">
+            <doc title="A categoria da tradução: (padrão: 'geral')." />
+          </param>
+          <param style="query" name="contentType" type="xs:string">
+            <doc title="O tipo de conteúdo (padrão: 'texto/simples')." />
+            <option value="text/plain" />
+            <option value="text/html" />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="xs:string" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/Detect">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="Detect" actionName="Detect" visibility="important" siena:isDeprecated="true">
+        <doc title="Detectar idioma&#xA;Detecta o idioma de origem do texto determinado." />
+        <request>
+          <param style="query" name="query" type="xs:string" required="true">
+            <doc title="O texto para traduzir." />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:Language" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/SpeakLanguages">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="SpeechLanguages" actionName="SpeechLanguages" visibility="advanced" siena:isDeprecated="true">
+        <doc title="Obter idiomas de fala&#xA;Recupera os idiomas disponíveis para síntese de fala." />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:SpeechLanguages_responses_200_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/Speak">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="TextToSpeech" actionName="TextToSpeech" visibility="important" siena:isDeprecated="true">
+        <doc title="Texto para fala&#xA;Converte um determinado texto em fala como um fluxo de áudio no formato wave." />
+        <request>
+          <param style="query" name="query" type="xs:string" required="true">
+            <doc title="O texto para traduzir." />
+          </param>
+          <param style="query" name="language" type="xs:string" required="true">
+            <doc title="Código de idioma para gerar fala (exemplo: 'pt-br')." />
+          </param>
+          <param style="query" name="format" type="xs:string">
+            <doc title="O formato de áudio para retornar (o padrão é áudio/wav)." />
+            <option value="audio/wav" />
+            <option value="audio/mp3" />
+          </param>
+          <param style="query" name="options" type="xs:string">
+            <doc title="Outras opções para o formato (o padrão é MinSize). As opções válidas são 'MinSize' ou 'MaxQuality'." />
+            <option value="MinSize" />
+            <option value="MaxQuality" />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/octet-stream" siena:dtype="media" />
+        </response>
+      </method>
+    </resource>
+  </resources>
+  <authenticationProviders xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <connectionProvider id="PowerAppAuth" siena:connectionProviderId="shared_microsofttranslator" />
+  </authenticationProviders>
+  <template xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <variable name="connectionId">
+      <modifyParams style="template" name="connectionId" attribute="fixed" />
+    </variable>
+  </template>
+</application>

@@ -1,0 +1,38 @@
+Screen25 As screen:
+    Fill: =RGBA(237, 242, 97, 1)
+
+    Label5_2 As label:
+        Fill: =RGBA(219, 211, 59, 1)
+        Font: =Font.'Lato Black'
+        Height: =236
+        Size: =35
+        Text: |-
+            ="Fim da lista de exercícios do Beecrowd!
+            
+            Para voltar ao menu principal, clique no ícone de menu."
+        Width: =861
+        X: =276
+        Y: =234
+        ZIndex: =1
+
+    Arrow6 As arrow.backArrow:
+        Fill: =RGBA(116, 116, 116, 1)
+        OnSelect: =Navigate(Screen24)
+        ZIndex: =2
+
+    Icon3 As icon.Waffle:
+        Color: =RGBA(116, 116, 116, 1)
+        Icon: =Icon.Waffle
+        OnSelect: =Navigate(Screen)
+        X: =674
+        Y: =568
+        ZIndex: =3
+
+    Label15 As label:
+        Font: =Font.'Lato Black'
+        Size: =20
+        Text: ="Menu"
+        X: =659
+        Y: =528
+        ZIndex: =4
+

@@ -1,0 +1,146 @@
+Screen18_1 As screen:
+
+    Container1_18 As groupContainer.verticalAutoLayoutContainer:
+        Height: =660
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =114
+        Y: =108
+        ZIndex: =1
+
+        Icon1_18 As icon.Hamburger:
+            Color: =RGBA(116, 116, 116, 1)
+            Icon: =Icon.Hamburger
+            OnSelect: |-
+                =Set(barra,true);
+                Set(voltar,true);
+            Y: =108
+            ZIndex: =1
+
+        Arrow2_18 As arrow.backArrow:
+            Fill: =RGBA(116, 116, 116, 1)
+            OnSelect: =Navigate(Screen18)
+            Visible: =voltar
+            ZIndex: =2
+
+    Container3_18 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =108
+        LayoutMode: =LayoutMode.Auto
+        Width: =1362
+        ZIndex: =2
+
+        Image2_18 As image:
+            Image: ='Captura de tela de 2024-01-05 11-51-45'
+            ZIndex: =1
+
+    Container5_18 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =660
+        LayoutMode: =LayoutMode.Auto
+        Width: =1252
+        X: =114
+        Y: =108
+        ZIndex: =3
+
+    Label6_18 As label:
+        Font: =Font.'Lato Black'
+        Height: =108
+        Size: =35
+        Text: |-
+            ="BEE 1120
+            "
+        X: =125
+        ZIndex: =8
+
+    Arrow3_18 As arrow:
+        Fill: =RGBA(116, 116, 116, 1)
+        OnSelect: =Navigate(Screen19)
+        X: =1316
+        Y: =718
+        ZIndex: =9
+
+    TextInput1_67 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =78
+        HintText: ="Digite o número desejado"
+        OnChange: =
+        Size: =25
+        Width: =118
+        X: =125
+        Y: =213
+        ZIndex: =24
+
+    Label4_61 As label:
+        Height: =74
+        Size: =20
+        Text: |-
+            ="Digito falho:"
+        Width: =161
+        X: =114
+        Y: =139
+        ZIndex: =25
+
+    Button4_7 As button:
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =61
+        OnSelect: |
+            =Set(textoNovo,Replace(TextInput1_70.Text,TextInput1_67.Text,1,""))
+        Text: ="Resultado"
+        Width: =122
+        X: =620
+        Y: =221
+        ZIndex: =28
+
+    Label7_17 As label:
+        Font: =Font.Lato
+        Height: =62
+        Size: =35
+        Text: ="Avançados"
+        Width: =247
+        X: =1119
+        Y: =46
+        ZIndex: =29
+
+    Label4_64 As label:
+        Height: =74
+        Size: =20
+        Text: |-
+            ="Valor combinado:"
+        Width: =249
+        X: =299
+        Y: =139
+        ZIndex: =32
+
+    TextInput1_70 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =78
+        HintText: ="Digite o número desejado"
+        OnChange: =
+        Size: =25
+        Width: =213
+        X: =299
+        Y: =213
+        ZIndex: =33
+
+    Label4_65 As label:
+        Height: =74
+        Size: =20
+        Text: |-
+            ="Valor no contrato:"
+        Width: =249
+        X: =870
+        Y: =139
+        ZIndex: =34
+
+    Label13 As label:
+        DisplayMode: =DisplayMode.View
+        Height: =78
+        Size: =25
+        Text: =textoNovo
+        Width: =228
+        X: =870
+        Y: =213
+        ZIndex: =35
+

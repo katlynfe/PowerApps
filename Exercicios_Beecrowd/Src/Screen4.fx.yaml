@@ -1,0 +1,147 @@
+Screen4 As screen:
+
+    Container1_2 As groupContainer.verticalAutoLayoutContainer:
+        Height: =660
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =114
+        Y: =108
+        ZIndex: =1
+
+        Icon1_2 As icon.Hamburger:
+            Color: =RGBA(116, 116, 116, 1)
+            Icon: =Icon.Hamburger
+            OnSelect: |-
+                =Set(barra,true);
+                Set(voltar,true);
+            Y: =108
+            ZIndex: =1
+
+        Arrow2_2 As arrow.backArrow:
+            Fill: =RGBA(116, 116, 116, 1)
+            OnSelect: =Navigate(Screen3)
+            Visible: =voltar
+            ZIndex: =2
+
+    Container3_2 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =108
+        LayoutMode: =LayoutMode.Auto
+        Width: =1362
+        ZIndex: =2
+
+        Image2_2 As image:
+            Image: ='Captura de tela de 2024-01-05 11-51-45'
+            ZIndex: =1
+
+    Container5_2 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =660
+        LayoutMode: =LayoutMode.Auto
+        Width: =1252
+        X: =114
+        Y: =108
+        ZIndex: =3
+
+    TextInput1_3 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =82
+        HintText: ="Digite o numero desejado"
+        OnChange: =
+        Size: =25
+        Width: =127
+        X: =327
+        Y: =472
+        ZIndex: =4
+
+    Resultado_Area_Label2 As label:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        BorderThickness: =2
+        Height: =82
+        OnSelect: =
+        Size: =25
+        Text: =area
+        Width: =397
+        X: =840
+        Y: =472
+        ZIndex: =5
+
+    Label4_5 As label:
+        Height: =54
+        Size: =20
+        Text: |-
+            ="Raio:"
+        Width: =205
+        X: =327
+        Y: =418
+        ZIndex: =6
+
+    Label4_6 As label:
+        Height: =36
+        Size: =20
+        Text: |-
+            ="Área do círculo:"
+        Width: =250
+        X: =840
+        Y: =418
+        ZIndex: =7
+
+    Label6_2 As label:
+        Font: =Font.'Lato Black'
+        Height: =108
+        Size: =35
+        Text: ="BEE 1002"
+        X: =125
+        ZIndex: =8
+
+    Arrow3_2 As arrow:
+        Fill: =RGBA(116, 116, 116, 1)
+        OnSelect: =Navigate(Screen5)
+        X: =1316
+        Y: =718
+        ZIndex: =9
+
+    Label8_1 As label:
+        Font: =Font.Lato
+        Height: =142
+        Size: =25
+        Text: |-
+            ="A fórmula para calcular a área de uma circunferência é: area = π . raio2. Considerando para este problema que π = 3.14159:- Efetue o cálculo da área, elevando o valor de raio ao quadrado e multiplicando por π."
+        Width: =1253
+        X: =113
+        Y: =108
+        ZIndex: =10
+
+    Label9_3 As label:
+        Color: =RGBA(116, 116, 116, 1)
+        Size: =35
+        Text: ="="
+        X: =640
+        Y: =493
+        ZIndex: =14
+
+    Button1 As button:
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        OnSelect: |
+            =Set(pi, 3.14159);
+            
+            If(
+                IsNumeric(Value(TextInput1_3.Text)),
+                Set(raio, Value(TextInput1_3.Text));
+                Set(area, pi * raio * raio);
+            )
+        Text: ="Calcular"
+        X: =567
+        Y: =493
+        ZIndex: =15
+
+    Label7_6 As label:
+        Font: =Font.Lato
+        Height: =62
+        Size: =35
+        Text: ="Básicos"
+        Width: =177
+        X: =1185
+        Y: =46
+        ZIndex: =16
+

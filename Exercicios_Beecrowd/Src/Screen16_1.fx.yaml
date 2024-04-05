@@ -1,0 +1,181 @@
+Screen16_1 As screen:
+
+    Container1_27 As groupContainer.verticalAutoLayoutContainer:
+        Height: =660
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =114
+        Y: =108
+        ZIndex: =1
+
+        Icon1_27 As icon.Hamburger:
+            Color: =RGBA(116, 116, 116, 1)
+            Icon: =Icon.Hamburger
+            OnSelect: |-
+                =Set(barra,true);
+                Set(voltar,true);
+            Y: =108
+            ZIndex: =1
+
+        Arrow2_27 As arrow.backArrow:
+            Fill: =RGBA(116, 116, 116, 1)
+            OnSelect: =Navigate(Screen15)
+            Visible: =voltar
+            ZIndex: =2
+
+    Container3_27 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =108
+        LayoutMode: =LayoutMode.Auto
+        Width: =1362
+        ZIndex: =2
+
+        Image2_27 As image:
+            Image: ='Captura de tela de 2024-01-05 11-51-45'
+            ZIndex: =1
+
+    Container5_27 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =660
+        LayoutMode: =LayoutMode.Auto
+        Width: =1252
+        X: =114
+        Y: =108
+        ZIndex: =3
+
+    Label6_27 As label:
+        Font: =Font.'Lato Black'
+        Height: =108
+        Size: =35
+        Text: |-
+            ="BEE 1069
+            "
+        X: =125
+        ZIndex: =8
+
+    Arrow3_27 As arrow:
+        Fill: =RGBA(116, 116, 116, 1)
+        OnSelect: =Navigate(Screen17)
+        X: =1316
+        Y: =718
+        ZIndex: =9
+
+    Label8_22 As label:
+        Font: =Font.Lato
+        Height: =299
+        Size: =25
+        Text: ="João está trabalhando em uma mina, tentando retirar o máximo que consegue de diamantes ""<>"". Ele deve excluir todas as particulas de areia ""."" do processo e a cada retirada de diamante, novos diamantes poderão se formar. Se ele tem como uma entrada .<...<<..>>....>....>>>., três diamantes são formados. O primeiro é retirado de <..>, resultando  .<...<>....>....>>>. Em seguida o segundo diamante é retirado, restando .<.......>....>>>. O terceiro diamante é então retirado, restando no final .....>>>., sem possibilidade de extração de novo diamante."
+        Width: =1253
+        X: =113
+        Y: =108
+        ZIndex: =10
+
+    TextInput1_77 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =69
+        HintText: ="Digite a expressão desejada"
+        OnChange: =
+        Size: =25
+        Width: =466
+        X: =125
+        Y: =484
+        ZIndex: =24
+
+    Label4_75 As label:
+        Height: =74
+        Size: =20
+        Text: |-
+            ="Expressão:"
+        Width: =162
+        X: =125
+        Y: =418
+        ZIndex: =25
+
+    Label7_26 As label:
+        Font: =Font.Lato
+        Height: =62
+        Size: =35
+        Text: ="Avançados"
+        Width: =247
+        X: =1119
+        Y: =46
+        ZIndex: =29
+
+    sldNbLoops As toggleSwitch:
+        FalseText: ="Off"
+        Height: =63
+        OnCheck: |-
+            =Set(
+                demoFlgStartLoop,
+                false
+            );
+            
+            Set(
+                demoCurLoop,
+                demoCurLoop + 1
+            );
+            
+            If(
+                !demoFlgForceStop,
+                If(
+                    demoCurLoop < Value(demoNbLoops),
+                    Set(
+                        demoFlgStartLoop,
+                        true;
+                    Find("<
+                    )
+                )
+            )
+        TrueText: ="On"
+        Width: =159
+        X: =684
+        Y: =407
+        ZIndex: =31
+
+    Button6 As button:
+        OnSelect: |
+            =Set(
+                demoNbLoops,
+                Len(TextInput1_77.Text)
+            );
+            Set(
+                demoCurLoop,
+                1
+            );
+            Set(
+                demoFlgForceStop,
+                false
+            );
+            Set(
+                demoFlgStartLoop,
+                true
+            );
+        Text: ="Iniciar"
+        X: =885
+        Y: =418
+        ZIndex: =32
+
+    Button7 As button:
+        OnSelect: |-
+            =Set(
+                demoFlgStartLoop,
+                false
+            );
+            Set(
+                demoFlgForceStop,
+                true
+            );
+        Text: ="Parar forçado"
+        X: =1067
+        Y: =418
+        ZIndex: =33
+
+    Label12 As label:
+        Height: =84
+        Size: =20
+        Text: |-
+            ="Número de loops: " & Len(TextInput1_77.Text)
+        Width: =259
+        X: =114
+        Y: =561
+        ZIndex: =34
+

@@ -1,0 +1,32 @@
+Screen As screen:
+    Fill: =RGBA(237, 242, 97, 1)
+
+    Image1_2 As image:
+        Height: =265
+        Image: ='Captura de tela de 2024-01-05 11-51-45'
+        Width: =372
+        X: =494
+        Y: =220
+        ZIndex: =1
+
+    Button5 As button:
+        Fill: =RGBA(116, 116, 116, 1)
+        Height: =57
+        OnSelect: =Navigate(Screen0)
+        Size: =25
+        Text: ="Criar conta"
+        Width: =235
+        X: =362
+        Y: =550
+        ZIndex: =2
+
+    Button5_1 As button:
+        Fill: =RGBA(116, 116, 116, 1)
+        Height: =57
+        Size: =25
+        Text: ="Entrar"
+        Width: =235
+        X: =757
+        Y: =550
+        ZIndex: =3
+

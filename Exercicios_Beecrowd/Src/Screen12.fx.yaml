@@ -1,0 +1,234 @@
+Screen12 As screen:
+
+    Container1_10 As groupContainer.verticalAutoLayoutContainer:
+        Height: =660
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =114
+        Y: =108
+        ZIndex: =1
+
+        Icon1_10 As icon.Hamburger:
+            Color: =RGBA(116, 116, 116, 1)
+            Icon: =Icon.Hamburger
+            OnSelect: |-
+                =Set(barra,true);
+                Set(voltar,true);
+            Y: =108
+            ZIndex: =1
+
+        Arrow2_10 As arrow.backArrow:
+            Fill: =RGBA(116, 116, 116, 1)
+            OnSelect: =Navigate(Screen11)
+            Visible: =voltar
+            ZIndex: =2
+
+    Container3_10 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =108
+        LayoutMode: =LayoutMode.Auto
+        Width: =1362
+        ZIndex: =2
+
+        Image2_10 As image:
+            Image: ='Captura de tela de 2024-01-05 11-51-45'
+            ZIndex: =1
+
+    Container5_10 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =660
+        LayoutMode: =LayoutMode.Auto
+        Width: =1252
+        X: =114
+        Y: =108
+        ZIndex: =3
+
+    TextInput1_24 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =82
+        HintText: ="Digite o numero desejado"
+        Size: =25
+        Width: =127
+        X: =113
+        Y: =407
+        ZIndex: =4
+
+    ResultadoMedia_6 As label:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        BorderThickness: =2
+        Height: =82
+        Size: =25
+        Text: ="Total = R$ " & Text(Round(valorPago/100,2), "[$-en-US]0.00")
+        Width: =397
+        X: =950
+        Y: =472
+        ZIndex: =5
+
+    Label4_39 As label:
+        Height: =74
+        Size: =20
+        Text: ="Código da peça 1"
+        Width: =162
+        X: =113
+        Y: =330
+        ZIndex: =6
+
+    Label4_36 As label:
+        Height: =36
+        Size: =20
+        Text: ="Valor a ser pago"
+        Width: =315
+        X: =950
+        Y: =427
+        ZIndex: =7
+
+    Label6_10 As label:
+        Font: =Font.'Lato Black'
+        Height: =108
+        Size: =35
+        Text: ="BEE 1010"
+        X: =125
+        ZIndex: =8
+
+    Arrow3_10 As arrow:
+        Fill: =RGBA(116, 116, 116, 1)
+        OnSelect: =Navigate(Screen1_2)
+        X: =1316
+        Y: =718
+        ZIndex: =9
+
+    Label8_9 As label:
+        Font: =Font.Lato
+        Height: =119
+        Size: =25
+        Text: ="Neste problema, deve-se ler o código de uma peça 1, o número de peças 1, o valor unitário de cada peça 1, o código de uma peça 2, o número de peças 2 e o valor unitário de cada peça 2. Após, calcule e mostre o valor a ser pago."
+        Width: =1253
+        X: =113
+        Y: =108
+        ZIndex: =10
+
+    TextInput1_25 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =82
+        HintText: ="Digite o numero desejado"
+        Size: =25
+        Width: =127
+        X: =292
+        Y: =404
+        ZIndex: =11
+
+    Label4_37 As label:
+        Height: =81
+        Size: =20
+        Text: ="Número da peça 1"
+        Width: =164
+        X: =292
+        Y: =317
+        ZIndex: =12
+
+    Button2_5 As button:
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        OnSelect: |-
+            =Set(peca1, TextInput1_24.Text);
+            Set(numero1, Value(TextInput1_25.Text));
+            Set(valor1, Value(TextInput1_26.Text));
+            Set(peca2, TextInput1_27.Text);
+            Set(numero2, Value(TextInput1_28.Text));
+            Set(valor2, Value(TextInput1_29.Text));
+            Set(valorPago, (numero1*valor1 + numero2*valor2))
+        Text: ="Calcular"
+        X: =715
+        Y: =532
+        ZIndex: =14
+
+    Label4_38 As label:
+        Height: =85
+        Size: =20
+        Text: ="Valor unitário"
+        Width: =117
+        X: =462
+        Y: =317
+        ZIndex: =15
+
+    TextInput1_26 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =82
+        HintText: ="Digite o numero desejado"
+        Size: =25
+        Width: =174
+        X: =470
+        Y: =407
+        ZIndex: =16
+
+    Label4_40 As label:
+        Height: =74
+        Size: =20
+        Text: ="Código da peça 2"
+        Width: =162
+        X: =113
+        Y: =529
+        ZIndex: =17
+
+    TextInput1_27 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =82
+        HintText: ="Digite o numero desejado"
+        Size: =25
+        Width: =127
+        X: =113
+        Y: =619
+        ZIndex: =18
+
+    Label4_41 As label:
+        Height: =81
+        Size: =20
+        Text: ="Número da peça 2"
+        Width: =164
+        X: =292
+        Y: =529
+        ZIndex: =19
+
+    TextInput1_28 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =82
+        HintText: ="Digite o numero desejado"
+        Size: =25
+        Width: =127
+        X: =287
+        Y: =619
+        ZIndex: =20
+
+    Label4_42 As label:
+        Height: =85
+        Size: =20
+        Text: ="Valor unitário"
+        Width: =117
+        X: =462
+        Y: =529
+        ZIndex: =21
+
+    TextInput1_29 As text:
+        BorderColor: =RGBA(116, 116, 116, 1)
+        Default: =
+        Height: =82
+        HintText: ="Digite o numero desejado"
+        Size: =25
+        Width: =174
+        X: =470
+        Y: =623
+        ZIndex: =22
+
+    Label7_14 As label:
+        Font: =Font.Lato
+        Height: =62
+        Size: =35
+        Text: ="Básicos"
+        Width: =177
+        X: =1185
+        Y: =46
+        ZIndex: =23
+
