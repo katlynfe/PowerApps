@@ -1,0 +1,461 @@
+Financas_2 As screen:
+    Fill: =RGBA(214, 221, 224, 1)
+
+    Container14_5 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =768
+        LayoutMode: =LayoutMode.Auto
+        Width: =1366
+        ZIndex: =1
+
+        Container17_5 As groupContainer.verticalAutoLayoutContainer:
+            FillPortions: =0
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            Visible: =conteiner9
+            Width: =150
+            ZIndex: =1
+
+            Container18_5 As groupContainer.manualLayoutContainer:
+                LayoutMinHeight: =100
+                LayoutMinWidth: =150
+                ZIndex: =1
+
+                Rectangle1_6 As rectangle:
+                    Fill: =RGBA(106, 122, 127, 1)
+                    Height: =76
+                    ZIndex: =1
+
+                Label14_6 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(255, 255, 255, 1)
+                    Fill: =RGBA(106, 122, 127, 1)
+                    Font: =Font.'Patrick Hand'
+                    Height: =75
+                    Size: =25
+                    Text: ="Menu"
+                    Y: =62
+                    ZIndex: =2
+
+                Icon3_6 As icon.Home:
+                    BorderColor: =RGBA(53, 61, 63, 1)
+                    BorderThickness: =2
+                    Color: =RGBA(53, 61, 63, 1)
+                    Fill: =RGBA(214, 221, 224, 1)
+                    Icon: =Icon.Home
+                    OnSelect: =Navigate(Tela_inicial)
+                    Width: =150
+                    Y: =137
+                    ZIndex: =3
+
+                Icon4_5 As icon.AddUser:
+                    BorderColor: =RGBA(53, 61, 63, 1)
+                    BorderThickness: =2
+                    Color: =RGBA(53, 61, 63, 1)
+                    Height: =71
+                    Icon: =Icon.AddUser
+                    OnSelect: =Navigate(Cadastro)
+                    Width: =150
+                    Y: =201
+                    ZIndex: =4
+
+                Icon5_4 As icon.Person:
+                    BorderColor: =RGBA(53, 61, 63, 1)
+                    BorderThickness: =2
+                    Color: =RGBA(53, 61, 63, 1)
+                    Height: =71
+                    Icon: =Icon.Person
+                    OnSelect: =Navigate(Login)
+                    Width: =150
+                    Y: =272
+                    ZIndex: =5
+
+                Image4_3 As image:
+                    BorderColor: =RGBA(53, 61, 63, 1)
+                    BorderThickness: =2
+                    Height: =71
+                    Image: =imc
+                    Width: =150
+                    Y: =343
+                    ZIndex: =6
+
+                Image3_14 As image:
+                    BorderColor: =RGBA(53, 61, 63, 1)
+                    BorderThickness: =2
+                    Height: =71
+                    Image: =anticoncepcional
+                    Width: =150
+                    Y: =414
+                    ZIndex: =7
+
+                Image3_20 As image:
+                    BorderColor: =RGBA(53, 61, 63, 1)
+                    BorderThickness: =2
+                    Height: =71
+                    Image: ='bloco-de-anotacoes'
+                    Width: =150
+                    Y: =485
+                    ZIndex: =8
+
+                Icon6_3 As icon.Leave:
+                    BorderColor: =RGBA(53, 61, 63, 1)
+                    BorderThickness: =2
+                    Color: =RGBA(53, 61, 63, 1)
+                    Height: =71
+                    Icon: =Icon.Leave
+                    OnSelect: |-
+                        =UpdateContext({conteiner5:true});
+                        UpdateContext({conteiner7:true})
+                    Width: =150
+                    Y: =697
+                    ZIndex: =9
+
+        Container15_5 As groupContainer.manualLayoutContainer:
+            BorderColor: =RGBA(53, 61, 63, 1)
+            LayoutMinHeight: =100
+            LayoutMinWidth: =150
+            ZIndex: =2
+
+            Header3_6 As Cabeçalho:
+                BasePaletteColor: =
+                DisplayMode: =DisplayMode.Edit
+                FontColor: =
+                Height: =75
+                IsProfilePictureVisible: =true
+                Logo: ='diario (1)'
+                OnSelectLogo: =false
+                Title: ="Meu Diário de Controle"
+                UserEmail: =User().Email
+                UserImage: =LookUp(Cadastro_MeuDiario, Email = User().Email).Foto
+                UserName: =User().FullName
+                Width: =Parent.Width
+                X: =0
+                Y: =0
+                ZIndex: =1
+
+            Image3_7 As image:
+                Height: =155
+                Image: =financa
+                Width: =142
+                X: =408
+                Y: =79
+                ZIndex: =2
+
+            Icon1_5 As icon.Waffle:
+                Color: =RGBA(53, 61, 63, 1)
+                Icon: =Icon.Waffle
+                OnSelect: |-
+                    =If(conteiner9=true,UpdateContext({conteiner9:false}),UpdateContext({conteiner9:true}))
+                Y: =76
+                ZIndex: =3
+
+            Label9_2 As label:
+                Align: =Align.Center
+                BorderStyle: =BorderStyle.Dotted
+                BorderThickness: =2
+                Color: =RGBA(53, 61, 63, 1)
+                Font: =Font.'Patrick Hand'
+                Height: =160
+                Size: =35
+                Text: ="Gasto mensal ideal"
+                Width: =223
+                X: =550
+                Y: =74
+                ZIndex: =4
+
+            Label10_13 As label:
+                Font: =Font.'Patrick Hand'
+                Height: =37
+                Size: =25
+                Text: ="Insira seu salário"
+                Width: =230
+                X: =32
+                Y: =289
+                ZIndex: =6
+
+            "TextInputCanvas2 As 'Entrada de texto'":
+                BasePaletteColor: =
+                ContentLanguage: =""
+                DisplayMode: =DisplayMode.Edit
+                FontColor: =
+                Height: =32
+                Width: =320
+                X: =32
+                Y: =340
+                ZIndex: =10
+
+            Label10_14 As label:
+                Font: =Font.'Patrick Hand'
+                Height: =49
+                Size: =25
+                Text: ="Aluguel/Parcela casa"
+                Width: =280
+                X: =32
+                Y: =400
+                ZIndex: =11
+
+            Label10_15 As label:
+                Font: =Font.'Patrick Hand'
+                Height: =49
+                Size: =25
+                Text: ="Supermercado"
+                Width: =280
+                X: =32
+                Y: =530
+                ZIndex: =12
+
+            Label10_16 As label:
+                Font: =Font.'Patrick Hand'
+                Height: =49
+                Size: =25
+                Text: ="Água"
+                Width: =280
+                X: =32
+                Y: =637
+                ZIndex: =13
+
+            Label10_17 As label:
+                Font: =Font.'Patrick Hand'
+                Height: =49
+                Size: =25
+                Text: ="Luz"
+                Width: =280
+                X: =382
+                Y: =289
+                ZIndex: =14
+
+            Label10_18 As label:
+                Font: =Font.'Patrick Hand'
+                Height: =49
+                Size: =25
+                Text: ="Internet"
+                Width: =280
+                X: =382
+                Y: =400
+                ZIndex: =15
+
+            Label10_19 As label:
+                Font: =Font.'Patrick Hand'
+                Height: =49
+                Size: =25
+                Text: ="Remédios"
+                Width: =280
+                X: =382
+                Y: =537
+                ZIndex: =16
+
+            Label10_20 As label:
+                Font: =Font.'Patrick Hand'
+                Height: =49
+                Size: =25
+                Text: ="Lazer"
+                Width: =280
+                X: =387
+                Y: =637
+                ZIndex: =17
+
+            Label10_21 As label:
+                Font: =Font.'Patrick Hand'
+                Height: =49
+                Size: =25
+                Text: ="Gasolina/Transporte"
+                Width: =280
+                X: =521
+                Y: =292
+                ZIndex: =18
+
+            Label10_22 As label:
+                Font: =Font.'Patrick Hand'
+                Height: =49
+                Size: =25
+                Text: ="Outros gastos"
+                Width: =280
+                X: =532
+                Y: =398
+                ZIndex: =19
+
+            Label10_23 As label:
+                Font: =Font.'Patrick Hand'
+                Height: =49
+                Size: =25
+                Text: ="Investimento"
+                Width: =280
+                X: =532
+                Y: =537
+                ZIndex: =20
+
+            Label5 As label:
+                Text: |-
+                    =Concatenate("R$", Text(TextInputCanvas2.Value*0.4, "[$-en-US]#,###"))
+                X: =32
+                Y: =449
+                ZIndex: =21
+
+            Label5_1 As label:
+                Text: |-
+                    =Concatenate("R$", Text(TextInputCanvas2.Value*0.1, "[$-en-US]#,###"))
+                X: =32
+                Y: =579
+                ZIndex: =22
+
+            Label5_2 As label:
+                Text: |-
+                    =Concatenate("R$", Text(TextInputCanvas2.Value*0.015, "[$-en-US]#,###"))
+                X: =32
+                Y: =700
+                ZIndex: =23
+
+            Label5_3 As label:
+                Text: |-
+                    =Concatenate("R$", Text(TextInputCanvas2.Value*0.03, "[$-en-US]#,###"))
+                X: =387
+                Y: =332
+                ZIndex: =24
+
+            Label5_4 As label:
+                Text: |-
+                    =Concatenate("R$", Text(TextInputCanvas2.Value*0.03, "[$-en-US]#,###"))
+                X: =382
+                Y: =447
+                ZIndex: =25
+
+            Label5_5 As label:
+                Text: |-
+                    =Concatenate("R$", Text(TextInputCanvas2.Value*0.03, "[$-en-US]#,###"))
+                X: =382
+                Y: =579
+                ZIndex: =26
+
+            Label5_6 As label:
+                Text: |-
+                    =Concatenate("R$", Text(TextInputCanvas2.Value*0.1, "[$-en-US]#,###"))
+                X: =390
+                Y: =686
+                ZIndex: =27
+
+            Label5_7 As label:
+                Text: |-
+                    =Concatenate("R$", Text(TextInputCanvas2.Value*0.1, "[$-en-US]#,###"))
+                X: =532
+                Y: =332
+                ZIndex: =28
+
+            Label5_8 As label:
+                Text: |-
+                    =Concatenate("R$", Text(TextInputCanvas2.Value*0.065, "[$-en-US]#,###"))
+                X: =537
+                Y: =447
+                ZIndex: =29
+
+            Label5_9 As label:
+                Text: |-
+                    =Concatenate("R$", Text(TextInputCanvas2.Value*0.13, "[$-en-US]#,###"))
+                X: =540
+                Y: =579
+                ZIndex: =30
+
+            CompositePieChart1 As group:
+                Height: =5
+                Width: =5
+                X: =-622
+                Y: =1
+                ZIndex: =31
+
+                Title1 As label:
+                    Align: =Align.Center
+                    Height: =65
+                    Size: =20
+                    Text: ="Controle Financeiro Ideal"
+                    Width: =358
+                    X: =812
+                    Y: =75
+                    ZIndex: =32
+
+                PieChart1 As pieChart:
+                    Height: =524
+                    Items: =ControleFinanceiro.Porcentagem
+                    LabelPosition: =LabelPosition.Inside
+                    Size: =15
+                    Width: =478
+                    X: =738
+                    Y: =38
+                    ZIndex: =33
+
+                Legend1 As legend:
+                    Height: =294
+                    ItemColorSet: =PieChart1.ItemColorSet
+                    Items: =ControleFinanceiro.Categoria
+                    Size: =16
+                    Width: =426
+                    X: =790
+                    Y: =474
+                    ZIndex: =34
+
+            Container5_3 As groupContainer.manualLayoutContainer:
+                Fill: =RGBA(0, 0, 0, 0.43)
+                Height: =768
+                Visible: =conteiner5
+                Width: =1216
+                ZIndex: =35
+
+                Container7_3 As groupContainer.manualLayoutContainer:
+                    BorderColor: =RGBA(53, 61, 63, 1)
+                    BorderThickness: =1
+                    Fill: =RGBA(214, 221, 224, 1)
+                    Height: =437
+                    Visible: =conteiner7
+                    Width: =540
+                    X: =340
+                    Y: =188
+                    ZIndex: =1
+
+                    Rectangle3_3 As rectangle:
+                        Fill: =RGBA(53, 61, 63, 1)
+                        Height: =80
+                        Width: =540
+                        ZIndex: =1
+
+                    Label15_3 As label:
+                        Align: =Align.Center
+                        Height: =274
+                        Size: =40
+                        Text: ="Deseja sair realmente?"
+                        Width: =540
+                        Y: =80
+                        ZIndex: =2
+
+                    Button6_6 As button:
+                        Fill: =RGBA(53, 61, 63, 1)
+                        OnSelect: =Exit()
+                        Text: ="Sim"
+                        X: =56
+                        Y: =397
+                        ZIndex: =4
+
+                    Button6_7 As button:
+                        Fill: =RGBA(53, 61, 63, 1)
+                        OnSelect: |-
+                            =UpdateContext({conteiner7:false});UpdateContext({conteiner5:false})
+                        Text: ="Não"
+                        X: =300
+                        Y: =397
+                        ZIndex: =5
+
+                    Icon7_3 As icon.Cancel:
+                        Color: =RGBA(214, 221, 224, 1)
+                        Height: =80
+                        Icon: =Icon.Cancel
+                        OnSelect: |-
+                            =UpdateContext({conteiner7:false});
+                            UpdateContext({conteiner5:false})
+                        Width: =59
+                        X: =481
+                        ZIndex: =6
+
+            Arrow1_5 As arrow.backArrow:
+                Fill: =RGBA(53, 61, 63, 1)
+                OnSelect: =Navigate(Financas_1)
+                Y: =718
+                ZIndex: =36
+

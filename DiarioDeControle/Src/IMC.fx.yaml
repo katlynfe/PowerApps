@@ -1,0 +1,301 @@
+IMC As screen:
+    Fill: =RGBA(214, 221, 224, 1)
+
+    Container14 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =768
+        LayoutMode: =LayoutMode.Auto
+        Width: =1366
+        ZIndex: =1
+
+        Container17 As groupContainer.verticalAutoLayoutContainer:
+            FillPortions: =0
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            Visible: =conteiner4
+            Width: =150
+            ZIndex: =1
+
+            Container18 As groupContainer.manualLayoutContainer:
+                LayoutMinHeight: =100
+                LayoutMinWidth: =150
+                ZIndex: =1
+
+                Rectangle1_3 As rectangle:
+                    Fill: =RGBA(106, 122, 127, 1)
+                    Height: =76
+                    ZIndex: =1
+
+                Label14_3 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(255, 255, 255, 1)
+                    Fill: =RGBA(106, 122, 127, 1)
+                    Font: =Font.'Patrick Hand'
+                    Height: =75
+                    Size: =25
+                    Text: ="Menu"
+                    Y: =60
+                    ZIndex: =2
+
+                Icon3_3 As icon.Home:
+                    BorderColor: =RGBA(53, 61, 63, 1)
+                    BorderThickness: =2
+                    Color: =RGBA(53, 61, 63, 1)
+                    Fill: =RGBA(214, 221, 224, 1)
+                    Icon: =Icon.Home
+                    OnSelect: =Navigate(Tela_inicial)
+                    Width: =150
+                    Y: =135
+                    ZIndex: =3
+
+                Icon4_2 As icon.AddUser:
+                    BorderColor: =RGBA(53, 61, 63, 1)
+                    BorderThickness: =2
+                    Color: =RGBA(53, 61, 63, 1)
+                    Height: =71
+                    Icon: =Icon.AddUser
+                    OnSelect: =Navigate(Cadastro)
+                    Width: =150
+                    Y: =199
+                    ZIndex: =4
+
+                Icon5_1 As icon.Person:
+                    BorderColor: =RGBA(53, 61, 63, 1)
+                    BorderThickness: =2
+                    Color: =RGBA(53, 61, 63, 1)
+                    Height: =71
+                    Icon: =Icon.Person
+                    OnSelect: =Navigate(Login)
+                    Width: =150
+                    Y: =270
+                    ZIndex: =5
+
+                Icon6 As icon.Leave:
+                    BorderColor: =RGBA(53, 61, 63, 1)
+                    BorderThickness: =2
+                    Color: =RGBA(53, 61, 63, 1)
+                    Height: =71
+                    Icon: =Icon.Leave
+                    OnSelect: |-
+                        =UpdateContext({conteiner5:true});
+                        UpdateContext({conteiner7:true})
+                    Width: =150
+                    Y: =697
+                    ZIndex: =6
+
+                Image3_8 As image:
+                    BorderColor: =RGBA(53, 61, 63, 1)
+                    BorderThickness: =2
+                    Height: =71
+                    Image: =financa
+                    Width: =150
+                    Y: =341
+                    ZIndex: =7
+
+                Image3_11 As image:
+                    BorderColor: =RGBA(53, 61, 63, 1)
+                    BorderThickness: =2
+                    Height: =71
+                    Image: =anticoncepcional
+                    Width: =150
+                    Y: =412
+                    ZIndex: =8
+
+                Image3_17 As image:
+                    BorderColor: =RGBA(53, 61, 63, 1)
+                    BorderThickness: =2
+                    Height: =71
+                    Image: ='bloco-de-anotacoes'
+                    Width: =150
+                    Y: =483
+                    ZIndex: =9
+
+        Container15 As groupContainer.manualLayoutContainer:
+            LayoutMinHeight: =100
+            LayoutMinWidth: =150
+            ZIndex: =2
+
+            Header3_1 As Cabeçalho:
+                BasePaletteColor: =
+                DisplayMode: =DisplayMode.Edit
+                FontColor: =
+                Height: =75
+                IsProfilePictureVisible: =true
+                Logo: ='diario (1)'
+                OnSelectLogo: =false
+                Title: ="Meu Diário de Controle"
+                UserEmail: =User().Email
+                UserImage: =LookUp(Cadastro_MeuDiario, Email = User().Email).Foto
+                UserName: =User().FullName
+                Width: =Parent.Width
+                X: =0
+                Y: =0
+                ZIndex: =1
+
+            Icon1_1 As icon.Waffle:
+                Color: =RGBA(53, 61, 63, 1)
+                Icon: =Icon.Waffle
+                OnSelect: |-
+                    =If(conteiner4=true,UpdateContext({conteiner4:false}),UpdateContext({conteiner4:true}))
+                Y: =75
+                ZIndex: =2
+
+            Label6 As label:
+                Font: =Font.'Patrick Hand'
+                Size: =20
+                Text: |-
+                    ="Altura:"
+                X: =64
+                Y: =278
+                ZIndex: =5
+
+            Label6_1 As label:
+                Font: =Font.'Patrick Hand'
+                Size: =20
+                Text: |-
+                    ="Peso:"
+                X: =311
+                Y: =278
+                ZIndex: =6
+
+            Label7 As label:
+                Align: =Align.Center
+                DisplayMode: =DisplayMode.View
+                Height: =93
+                Size: =20
+                Text: =Value(NumberInput1.Value/(NumberInput1.Value*NumberInput1.Value))*1000
+                Width: =186
+                X: =644
+                Y: =318
+                ZIndex: =7
+
+            Label6_2 As label:
+                Font: =Font.'Patrick Hand'
+                Size: =20
+                Text: |-
+                    ="IMC:"
+                X: =680
+                Y: =278
+                ZIndex: =8
+
+            Label8 As label:
+                Font: =Font.'Patrick Hand'
+                Size: =20
+                Text: =If(Value(Label7.Text)<18.5,"Baixo peso",If(Value(Label7.Text)>=18.5 && Value(Label7.Text)<=24.9,"Peso normal",If(Value(Label7.Text)>=25 && Value(Label7.Text)<29.9,"Sobrepeso",If(Value(Label7.Text)>=30 && Value(Label7.Text)<35,"Obesidade",If(Value(Label7.Text)>=35,"Obesidade extrema")))))
+                X: =888
+                Y: =344
+                ZIndex: =9
+
+            Image4 As image:
+                Height: =165
+                Image: =imc
+                Width: =165
+                X: =488
+                Y: =75
+                ZIndex: =10
+
+            TextCanvas2 As Texto:
+                DisplayMode: =DisplayMode.Edit
+                FontColor: =
+                Height: =300
+                Size: |
+                    =25
+                Text: |-
+                    =If(Label8.Text = "Baixo peso","Acompanhamento nutricional e médico é recomendado, de forma a avaliar a existência de possíveis carências nutricionais e garantir uma nutrição adequada.",
+                    If(Label8.Text = "Peso normal","Menor risco e uma menor incidência de doenças.",
+                    If(Label8.Text = "Sobrepeso","É interessante avaliar a forma como o peso se encontra distribuído e, perceber de existe ou não um excesso de massa gorda.",
+                    If(Label8.Text = "Obesidade" || Label8.Text = "Obesidade Extrema","Esta é uma doença crónica, com repercussões para a saúde da pessoa, pelo que um acompanhamento nutricional por um nutricionista e um acompanhamento médico é fundamental."))))
+                Visible: =true
+                Width: =935
+                X: =64
+                Y: =468
+                ZIndex: =12
+
+            "NumberInput1 As 'Entrada de número'":
+                BasePaletteColor: =
+                DisplayMode: =DisplayMode.Edit
+                Height: =71
+                Max: =1000
+                Width: =164
+                X: =57
+                Y: =328
+                ZIndex: =13
+
+            "NumberInput1_1 As 'Entrada de número'":
+                BasePaletteColor: =
+                DisplayMode: =DisplayMode.Edit
+                Height: =71
+                Max: =1000
+                Width: =164
+                X: =272
+                Y: =328
+                ZIndex: =14
+
+            Container5 As groupContainer.manualLayoutContainer:
+                Fill: =RGBA(0, 0, 0, 0.43)
+                Height: =768
+                Visible: =conteiner5
+                Width: =1216
+                ZIndex: =15
+
+                Container7 As groupContainer.manualLayoutContainer:
+                    BorderColor: =RGBA(53, 61, 63, 1)
+                    BorderThickness: =1
+                    Fill: =RGBA(214, 221, 224, 1)
+                    Height: =437
+                    Visible: =conteiner7
+                    Width: =540
+                    X: =340
+                    Y: =188
+                    ZIndex: =1
+
+                    Rectangle3 As rectangle:
+                        Fill: =RGBA(53, 61, 63, 1)
+                        Height: =80
+                        Width: =540
+                        ZIndex: =1
+
+                    Label15 As label:
+                        Align: =Align.Center
+                        Height: =274
+                        Size: =40
+                        Text: ="Deseja sair realmente?"
+                        Width: =540
+                        Y: =80
+                        ZIndex: =2
+
+                    Button6 As button:
+                        Fill: =RGBA(53, 61, 63, 1)
+                        OnSelect: =Exit()
+                        Text: ="Sim"
+                        X: =56
+                        Y: =397
+                        ZIndex: =4
+
+                    Button6_1 As button:
+                        Fill: =RGBA(53, 61, 63, 1)
+                        OnSelect: |-
+                            =UpdateContext({conteiner7:false});UpdateContext({conteiner5:false})
+                        Text: ="Não"
+                        X: =300
+                        Y: =397
+                        ZIndex: =5
+
+                    Icon7 As icon.Cancel:
+                        Color: =RGBA(214, 221, 224, 1)
+                        Height: =80
+                        Icon: =Icon.Cancel
+                        OnSelect: |-
+                            =UpdateContext({conteiner7:false});
+                            UpdateContext({conteiner5:false})
+                        Width: =59
+                        X: =481
+                        ZIndex: =6
+
+            Arrow1_2 As arrow.backArrow:
+                Fill: =RGBA(53, 61, 63, 1)
+                OnSelect: =Navigate(Menu)
+                Y: =718
+                ZIndex: =16
+

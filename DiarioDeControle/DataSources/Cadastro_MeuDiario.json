@@ -1,0 +1,49 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+    "CdpRevision": {
+      "BaseUrl": "/",
+      "LastChangedTimeString": "2024-03-07T20:18:44.9020000Z",
+      "RevisionNumber": 1
+    },
+    "ConnectedDataSourceInfoNameMapping": {
+      "{Attachments}": "Anexos",
+      "{Attachments}@odata.type": "{Attachments} ({Attachments}@odata.type)",
+      "{FilenameWithExtension}": "Nome de arquivo com extensão",
+      "{FullPath}": "Caminho Completo",
+      "{HasAttachments}": "Tem anexos",
+      "{Identifier}": "Identificador",
+      "{IsFolder}": "ÉPasta",
+      "{Link}": "Link para o item",
+      "{ModerationComment}": "Comentários associados à aprovação de conteúdo deste item de lista",
+      "{ModerationStatus}": "Status de aprovação de conteúdo",
+      "{Name}": "Nome ({Name})",
+      "{Path}": "Caminho da pasta",
+      "{Thumbnail}": "Thumbnail",
+      "{TriggerWindowEndToken}": "Token de Fim da Janela de Acionamento",
+      "{TriggerWindowStartToken}": "Token de Início da Janela de Acionamento",
+      "{VersionNumber}": "Número da versão",
+      "Author": "Criado por",
+      "Author#Claims": "Criado por Claims",
+      "ComplianceAssetId": "ID de Ativo de Conformidade",
+      "Created": "Criado",
+      "Data_nascimento": "Data_nascimento",
+      "Editor": "Modificado por",
+      "Editor#Claims": "Modificado por Claims",
+      "Email": "Email",
+      "Foto": "Foto",
+      "ID": "ID",
+      "Modified": "Modificado",
+      "Nome": "Nome",
+      "OData__ColorTag": "Pressione Delete para excluir o ícone.",
+      "Senha": "Senha",
+      "Title": "Título"
+    },
+    "DatasetName": "https://powerrockscombr.sharepoint.com/sites/QA-ENG",
+    "EncodeDataset": true,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "Name": "Cadastro_MeuDiario",
+    "Type": "ConnectedDataSourceInfo"
+  }
+]

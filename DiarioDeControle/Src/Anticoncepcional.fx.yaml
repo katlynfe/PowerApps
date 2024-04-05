@@ -1,0 +1,261 @@
+Anticoncepcional As screen:
+    Fill: =RGBA(214, 221, 224, 1)
+
+    Container14_2 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =768
+        LayoutMode: =LayoutMode.Auto
+        Width: =1366
+        ZIndex: =1
+
+        Container17_2 As groupContainer.verticalAutoLayoutContainer:
+            FillPortions: =0
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            Visible: =conteiner10
+            Width: =150
+            ZIndex: =1
+
+            Container18_2 As groupContainer.manualLayoutContainer:
+                LayoutMinHeight: =100
+                LayoutMinWidth: =150
+                ZIndex: =1
+
+                Rectangle1_7 As rectangle:
+                    Fill: =RGBA(106, 122, 127, 1)
+                    Height: =76
+                    ZIndex: =1
+
+                Label14_7 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(255, 255, 255, 1)
+                    Fill: =RGBA(106, 122, 127, 1)
+                    Font: =Font.'Patrick Hand'
+                    Height: =75
+                    Size: =25
+                    Text: ="Menu"
+                    Y: =62
+                    ZIndex: =2
+
+                Icon3_7 As icon.Home:
+                    BorderColor: =RGBA(53, 61, 63, 1)
+                    BorderThickness: =2
+                    Color: =RGBA(53, 61, 63, 1)
+                    Fill: =RGBA(214, 221, 224, 1)
+                    Icon: =Icon.Home
+                    OnSelect: =Navigate(Tela_inicial)
+                    Width: =150
+                    Y: =137
+                    ZIndex: =3
+
+                Icon4_6 As icon.AddUser:
+                    BorderColor: =RGBA(53, 61, 63, 1)
+                    BorderThickness: =2
+                    Color: =RGBA(53, 61, 63, 1)
+                    Height: =71
+                    Icon: =Icon.AddUser
+                    OnSelect: =Navigate(Cadastro)
+                    Width: =150
+                    Y: =201
+                    ZIndex: =4
+
+                Icon5_5 As icon.Person:
+                    BorderColor: =RGBA(53, 61, 63, 1)
+                    BorderThickness: =2
+                    Color: =RGBA(53, 61, 63, 1)
+                    Height: =71
+                    Icon: =Icon.Person
+                    OnSelect: =Navigate(Login)
+                    Width: =150
+                    Y: =272
+                    ZIndex: =5
+
+                Image4_4 As image:
+                    BorderColor: =RGBA(53, 61, 63, 1)
+                    BorderThickness: =2
+                    Height: =71
+                    Image: =imc
+                    Width: =150
+                    Y: =343
+                    ZIndex: =6
+
+                Image3_9 As image:
+                    BorderColor: =RGBA(53, 61, 63, 1)
+                    BorderThickness: =2
+                    Height: =71
+                    Image: =financa
+                    Width: =150
+                    Y: =414
+                    ZIndex: =7
+
+                Image3_21 As image:
+                    BorderColor: =RGBA(53, 61, 63, 1)
+                    BorderThickness: =2
+                    Height: =71
+                    Image: ='bloco-de-anotacoes'
+                    Width: =150
+                    Y: =485
+                    ZIndex: =8
+
+                Icon6_4 As icon.Leave:
+                    BorderColor: =RGBA(53, 61, 63, 1)
+                    BorderThickness: =2
+                    Color: =RGBA(53, 61, 63, 1)
+                    Height: =71
+                    Icon: =Icon.Leave
+                    OnSelect: |-
+                        =UpdateContext({conteiner5:true});
+                        UpdateContext({conteiner7:true})
+                    Width: =150
+                    Y: =697
+                    ZIndex: =9
+
+        Container15_2 As groupContainer.manualLayoutContainer:
+            LayoutMinHeight: =100
+            LayoutMinWidth: =150
+            ZIndex: =2
+
+            Header3_3 As Cabeçalho:
+                BasePaletteColor: =
+                DisplayMode: =DisplayMode.Edit
+                FontColor: =
+                Height: =75
+                IsProfilePictureVisible: =true
+                Logo: ='diario (1)'
+                OnSelectLogo: =false
+                Title: ="Meu Diário de Controle"
+                UserEmail: =User().Email
+                UserImage: =LookUp(Cadastro_MeuDiario, Email = User().Email).Foto
+                UserName: =User().FullName
+                Width: =Parent.Width
+                X: =0
+                Y: =0
+                ZIndex: =1
+
+            Image3_5 As image:
+                Height: =155
+                Image: =anticoncepcional
+                Width: =142
+                X: =524
+                Y: =75
+                ZIndex: =2
+
+            Icon1_3 As icon.Waffle:
+                Color: =RGBA(53, 61, 63, 1)
+                Icon: =Icon.Waffle
+                OnSelect: |-
+                    =If(conteiner10=true,UpdateContext({conteiner10:false}),UpdateContext({conteiner10:true}))
+                Y: =75
+                ZIndex: =3
+
+            Label13 As label:
+                Font: =Font.'Patrick Hand'
+                Height: =97
+                Size: =25
+                Text: ="Cartela de quantos dias?"
+                Width: =220
+                X: =276
+                Y: =305
+                ZIndex: =4
+
+            Label13_1 As label:
+                Font: =Font.'Patrick Hand'
+                Height: =151
+                Size: =25
+                Text: =If(Slider3.Value<=28,"Pausa de " & Value(28-Slider3.Value) & " dias","Cartela sem pausa")
+                Width: =220
+                X: =748
+                Y: =278
+                ZIndex: =6
+
+            Slider3 As slider:
+                Height: =62
+                Max: =30
+                Min: =21
+                Width: =220
+                X: =261
+                Y: =402
+                ZIndex: =7
+
+            LinkCanvas1 As Link:
+                AccessibleLabel: ="Link"
+                BasePaletteColor: =
+                DisplayMode: =DisplayMode.Edit
+                Height: =61
+                Text: ="Entenda mais seu ciclo e seu corpo!"
+                URL: |-
+                    ="https://app.flo.health/pt-BR?utm_source=google&utm_medium=cpc&utm_campaign=GA_BR_Web_General_PR_Search_Prt&utm_content=01k&gad_source=1&gclid=CjwKCAiAi6uvBhADEiwAWiyRdtLFeOyvwmXWEXrMoGaogdc-RDt1aQpkLP-uzhiYrG6If63oqdZFBBoCGDwQAvD_BwE"
+                VerticalAlign: ='LinkCanvas.VerticalAlign'.Middle
+                Width: =251
+                X: =496
+                Y: =486
+                ZIndex: =8
+
+            Container5_4 As groupContainer.manualLayoutContainer:
+                Fill: =RGBA(0, 0, 0, 0.43)
+                Height: =768
+                Visible: =conteiner5
+                Width: =1216
+                ZIndex: =9
+
+                Container7_4 As groupContainer.manualLayoutContainer:
+                    BorderColor: =RGBA(53, 61, 63, 1)
+                    BorderThickness: =1
+                    Fill: =RGBA(214, 221, 224, 1)
+                    Height: =437
+                    Visible: =conteiner7
+                    Width: =540
+                    X: =340
+                    Y: =188
+                    ZIndex: =1
+
+                    Rectangle3_4 As rectangle:
+                        Fill: =RGBA(53, 61, 63, 1)
+                        Height: =80
+                        Width: =540
+                        ZIndex: =1
+
+                    Label15_4 As label:
+                        Align: =Align.Center
+                        Height: =274
+                        Size: =40
+                        Text: ="Deseja sair realmente?"
+                        Width: =540
+                        Y: =80
+                        ZIndex: =2
+
+                    Button6_8 As button:
+                        Fill: =RGBA(53, 61, 63, 1)
+                        OnSelect: =Exit()
+                        Text: ="Sim"
+                        X: =56
+                        Y: =397
+                        ZIndex: =4
+
+                    Button6_9 As button:
+                        Fill: =RGBA(53, 61, 63, 1)
+                        OnSelect: |-
+                            =UpdateContext({conteiner7:false});UpdateContext({conteiner5:false})
+                        Text: ="Não"
+                        X: =300
+                        Y: =397
+                        ZIndex: =5
+
+                    Icon7_4 As icon.Cancel:
+                        Color: =RGBA(214, 221, 224, 1)
+                        Height: =80
+                        Icon: =Icon.Cancel
+                        OnSelect: |-
+                            =UpdateContext({conteiner7:false});
+                            UpdateContext({conteiner5:false})
+                        Width: =59
+                        X: =481
+                        ZIndex: =6
+
+            Arrow1_6 As arrow.backArrow:
+                Fill: =RGBA(53, 61, 63, 1)
+                OnSelect: =Navigate(Menu)
+                Y: =718
+                ZIndex: =10
+
