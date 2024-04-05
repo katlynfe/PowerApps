@@ -1,0 +1,557 @@
+Atualizacao As screen:
+    OnVisible: =true
+
+    Container1_6 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =632
+        LayoutMode: =LayoutMode.Auto
+        Width: =1366
+        Y: =68
+        ZIndex: =1
+
+        Container2_9 As groupContainer.verticalAutoLayoutContainer:
+            Fill: =RGBA(175, 191, 224, 1)
+            FillPortions: =0
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            Visible: =coluna
+            Width: =150
+            ZIndex: =1
+
+            Container12_4 As groupContainer.manualLayoutContainer:
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                ZIndex: =1
+
+                Label4_5 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(255, 255, 255, 1)
+                    Fill: =RGBA(50, 86, 160, 1)
+                    Height: =72
+                    Size: =25
+                    Text: ="MENU"
+                    Width: =147
+                    ZIndex: =1
+
+                Label5_15 As label:
+                    BorderColor: =RGBA(50, 86, 160, 1)
+                    BorderThickness: =1
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =62
+                    OnSelect: =Navigate(Historia)
+                    Size: =25
+                    Text: ="CIA"
+                    Width: =147
+                    Y: =72
+                    ZIndex: =2
+
+                Icon2_5 As icon.Airplane:
+                    Color: =RGBA(50, 86, 160, 1)
+                    Height: =46
+                    Icon: =Icon.Airplane
+                    OnSelect: =Navigate(Historia)
+                    Width: =35
+                    X: =112
+                    Y: =72
+                    ZIndex: =3
+
+                Label5_16 As label:
+                    BorderColor: =RGBA(50, 86, 160, 1)
+                    BorderThickness: =1
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =62
+                    OnSelect: =Navigate(TelaInicial)
+                    Size: =25
+                    Text: ="Início"
+                    Width: =147
+                    Y: =134
+                    ZIndex: =4
+
+                Icon3_5 As icon.Home:
+                    Color: =RGBA(50, 86, 160, 1)
+                    Icon: =Icon.Home
+                    OnSelect: =Navigate(TelaInicial)
+                    Width: |
+                        =35
+                    X: =112
+                    Y: =132
+                    ZIndex: =5
+
+                Label5_28 As label:
+                    BorderColor: =RGBA(50, 86, 160, 1)
+                    BorderThickness: =1
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =62
+                    OnSelect: =Navigate(Dados)
+                    Size: =25
+                    Text: ="Dados"
+                    Width: =147
+                    Y: =196
+                    ZIndex: =8
+
+                Icon11_4 As icon.GlobeRefresh:
+                    Color: =RGBA(50, 86, 160, 1)
+                    Icon: =Icon.GlobeRefresh
+                    OnSelect: =Navigate(Dados)
+                    Width: =35
+                    X: =112
+                    Y: =196
+                    ZIndex: =9
+
+        Container3_6 As groupContainer.horizontalAutoLayoutContainer:
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =2
+
+            Container4_6 As groupContainer.manualLayoutContainer:
+                FillPortions: =0
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                Width: =1215
+                ZIndex: =1
+
+                Icon1_6 As icon.Hamburger:
+                    Color: =RGBA(50, 86, 160, 1)
+                    Icon: =Icon.Hamburger
+                    OnSelect: |
+                        =If(
+                            coluna = true,
+                            UpdateContext({coluna: false}),
+                            UpdateContext({coluna: true})
+                        );
+                    ZIndex: =1
+
+                Label6_6 As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(50, 86, 160, 1)
+                    BorderThickness: =1
+                    Font: =Font.Lato
+                    Height: =64
+                    Size: =35
+                    Text: ="ATUALIZAÇÕES"
+                    Width: =375
+                    X: =510
+                    ZIndex: =2
+
+                TextInput1 As text:
+                    Default: =""
+                    X: =212
+                    Y: =436
+                    ZIndex: =8
+
+                "Gallery1_1 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+                    BorderColor: =RGBA(50, 86, 160, 1)
+                    DelayItemLoading: =true
+                    Height: =392
+                    Items: =Filter(Lista_Cia_Katlyn, CPF = Value(DataCardValue3.Text))
+                    Layout: =Layout.Vertical
+                    LoadingSpinner: =LoadingSpinner.Data
+                    TemplatePadding: =0
+                    TemplateSize: =391
+                    Width: =579
+                    X: =636
+                    Y: =106
+                    ZIndex: =9
+
+                    Image6_1 As image:
+                        Height: =152
+                        Image: =ThisItem.Foto_perfil
+                        OnSelect: =Select(Parent)
+                        RadiusBottomLeft: =8
+                        RadiusBottomRight: =8
+                        RadiusTopLeft: =8
+                        RadiusTopRight: =8
+                        Width: =214
+                        X: =16
+                        Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+                        ZIndex: =1
+
+                    Title1_1 As label:
+                        FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                        Height: =25
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =ThisItem.Nome_completo
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =461
+                        X: =230
+                        Y: =119
+                        ZIndex: =2
+
+                    Subtitle1_6 As label:
+                        FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                        Height: =Self.Size * 1.8
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =ThisItem.Email
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =Title1_1.Width
+                        X: =Title1_1.X
+                        Y: =Title1_1.Y + Title1_1.Height
+                        ZIndex: =3
+
+                    NextArrow1_1 As icon.ChevronRight:
+                        AccessibleLabel: =Self.Tooltip
+                        Color: =RGBA(166, 166, 166, 1)
+                        Height: =50
+                        Icon: =Icon.ChevronRight
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =16
+                        PaddingLeft: =16
+                        PaddingRight: =16
+                        PaddingTop: =16
+                        Tooltip: ="Exibir detalhes do item"
+                        Width: =50
+                        X: =Parent.TemplateWidth - Self.Width - 12
+                        Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+                        ZIndex: =4
+
+                    Separator1_1 As rectangle:
+                        Height: =8
+                        OnSelect: =Select(Parent)
+                        Width: =Parent.TemplateWidth
+                        Y: =Parent.TemplateHeight - Self.Height
+                        ZIndex: =5
+
+                    Rectangle1_1 As rectangle:
+                        Height: =Parent.TemplateHeight - Separator1_1.Height
+                        OnSelect: =Select(Parent)
+                        Visible: =ThisItem.IsSelected
+                        Width: =4
+                        ZIndex: =6
+
+                    Subtitle1_8 As label:
+                        FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                        Height: =Self.Size * 1.8
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =ThisItem.Data_nascimento
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =Title1_1.Width
+                        X: =230
+                        Y: =199
+                        ZIndex: =7
+
+                    Subtitle1_7 As label:
+                        FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                        Height: =Self.Size * 1.8
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =ThisItem.CPF
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =Title1_1.Width
+                        X: =230
+                        Y: =170
+                        ZIndex: =8
+
+                    Subtitle1_9 As label:
+                        FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                        Height: =Self.Size * 1.8
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =ThisItem.Endereco
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =Title1_1.Width
+                        X: =230
+                        Y: =220
+                        ZIndex: =9
+
+                    Subtitle1_10 As label:
+                        FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                        Height: =Self.Size * 1.8
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =ThisItem.Cidade_Estado
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =Title1_1.Width
+                        X: =230
+                        Y: =241
+                        ZIndex: =10
+
+                    Subtitle1_11 As label:
+                        FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                        Height: =Self.Size * 1.8
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =ThisItem.Celular
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =Title1_1.Width
+                        X: =230
+                        Y: =262
+                        ZIndex: =11
+
+                Label7 As label:
+                    Align: =Align.Justify
+                    Fill: =RGBA(175, 191, 224, 1)
+                    Height: =90
+                    Size: =20
+                    Text: |-
+                        ="Selecione o campo que deseja alterar ou excluir (clique na lixeira):"
+                    Width: =320
+                    X: =212
+                    Y: =120
+                    ZIndex: =10
+
+                Label7_1 As label:
+                    Align: =Align.Justify
+                    Fill: =RGBA(175, 191, 224, 1)
+                    Height: =90
+                    Size: =20
+                    Text: |-
+                        ="Digite para o que deseja alterar ou ação a ser realizada: "
+                    Width: =320
+                    X: =212
+                    Y: =346
+                    ZIndex: =11
+
+                ComboBox1 As combobox:
+                    DisplayFields: =["Opcoes"]
+                    IsSearchable: =false
+                    Items: =ColecaoOpcoes.Opcoes
+                    OnChange: |-
+                        =Switch(
+                            ComboBox1.Selected.Opcoes,
+                            "Nome_completo", Set(varVai, "Nome"),
+                            "Email", Set(varVai, "Email"),
+                            "CPF", Set(varVai, "CPF"),
+                            "Data_nascimento", Set(varVai, "Data"),
+                            "Celular", Set(varVai, "Celular"),
+                            "Cidade_Estado", Set(varVai, "Cidade_Estado"),
+                            "Endereco", Set(varVai, "Endereco")
+                        )
+                    SearchFields: =["Opcoes"]
+                    SearchItems: =[]
+                    SelectMultiple: =false
+                    X: =212
+                    Y: =210
+                    ZIndex: =12
+
+                Icon7 As icon.Trash:
+                    Color: =RGBA(50, 86, 160, 1)
+                    Icon: =Icon.Trash
+                    OnSelect: |-
+                        =FluxoExcluir.Run(User().Email,"katlyn.fagundes@powerrocks.com.br",ComboBox1.Selected.Opcoes);
+                        Notify("Sua solicitação foi enviada!",NotificationType.Information)
+                    X: =570
+                    Y: =186
+                    ZIndex: =13
+
+    Container5_12 As groupContainer.horizontalAutoLayoutContainer:
+        Fill: =RGBA(130, 141, 158, 1)
+        Height: =68
+        LayoutMode: =LayoutMode.Auto
+        Width: =1366
+        ZIndex: =2
+
+        Container6_6 As groupContainer.manualLayoutContainer:
+            Fill: =RGBA(175, 191, 224, 1)
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            ZIndex: =1
+
+            Image1_6 As image:
+                Height: =72
+                Image: =Wikimania2023_Animated_Sticker_Airplane
+                Width: =147
+                Y: =4
+                ZIndex: =1
+
+            Label1_6 As label:
+                Align: =Align.Center
+                Color: =RGBA(255, 255, 255, 1)
+                Font: =Font.'Patrick Hand'
+                Height: =64
+                Size: =25
+                Text: ="Airplane CIA"
+                Width: =194
+                X: =1164
+                Y: =8
+                ZIndex: =2
+
+    Container5_13 As groupContainer.horizontalAutoLayoutContainer:
+        Fill: =RGBA(175, 191, 224, 1)
+        Height: =68
+        LayoutMode: =LayoutMode.Auto
+        Width: =1366
+        Y: =700
+        ZIndex: =3
+
+        Container2_10 As groupContainer.manualLayoutContainer:
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            ZIndex: =1
+
+            Icon12 As icon.NextArrow:
+                Color: =RGBA(50, 86, 160, 1)
+                Icon: =Icon.NextArrow
+                OnSelect: =Navigate(Login)
+                X: =1302
+                Y: =4
+                ZIndex: =2
+
+            Button4 As button:
+                OnSelect: |-
+                    =Switch(
+                        varVai,
+                        "Nome", If(
+                        varVai = "Nome" And (User().Email = "katlyn.fagundes@powerrocks.com.br" Or User().Email = "thiago.faria@powerrocks.com.br"),
+                        Patch(
+                            Lista_Cia_Katlyn,
+                            LookUp(
+                                Lista_Cia_Katlyn,
+                                CPF = Value(DataCardValue3.Text)
+                            ),
+                            {Nome_completo: TextInput1.Text}
+                        ),
+                        AtualizacaoDeDados.Run(
+                            ComboBox1.Selected.Opcoes,
+                            TextInput1.Text
+                        ) And Notify(
+                            "Sua solicitação foi enviada!",
+                            NotificationType.Success
+                        )
+                        
+                    ),
+                        "Email", If(
+                        varVai = "Email" And (User().Email = "katlyn.fagundes@powerrocks.com.br" Or User().Email = "thiago.faria@powerrocks.com.br"),
+                        Patch(
+                            Lista_Cia_Katlyn,
+                            LookUp(
+                                Lista_Cia_Katlyn,
+                                CPF = Value(DataCardValue3.Text)
+                            ),
+                            {Email: TextInput1.Text}
+                        ),
+                        AtualizacaoDeDados.Run(
+                            ComboBox1.Selected.Opcoes,
+                            TextInput1.Text
+                        ) And Notify(
+                            "Sua solicitação foi enviada!",
+                            NotificationType.Success
+                        ),
+                        Reset(TextInput1) And Reset(ComboBox1)
+                    ),
+                        "CPF", If(
+                        varVai = "CPF" And (User().Email = "katlyn.fagundes@powerrocks.com.br" Or User().Email = "thiago.faria@powerrocks.com.br"),
+                        Patch(
+                            Lista_Cia_Katlyn,
+                            LookUp(
+                                Lista_Cia_Katlyn,
+                                CPF = Value(DataCardValue3.Text)
+                            ),
+                            {CPF: Value(TextInput1.Text)}
+                        ),
+                        AtualizacaoDeDados.Run(
+                            ComboBox1.Selected.Opcoes,
+                            TextInput1.Text
+                        ) And Notify(
+                            "Sua solicitação foi enviada!",
+                            NotificationType.Success
+                        ),
+                        Reset(TextInput1) And Reset(ComboBox1)
+                    ),
+                        "Data", If(
+                        varVai = "Data" And (User().Email = "katlyn.fagundes@powerrocks.com.br" Or User().Email = "thiago.faria@powerrocks.com.br"),
+                        Patch(
+                            Lista_Cia_Katlyn,
+                            LookUp(
+                                Lista_Cia_Katlyn,
+                                CPF = Value(DataCardValue3.Text)
+                            ),
+                            {Data_nascimento: DateValue(TextInput1.Text)}
+                        ),
+                        AtualizacaoDeDados.Run(
+                            ComboBox1.Selected.Opcoes,
+                            TextInput1.Text
+                        ) And Notify(
+                            "Sua solicitação foi enviada!",
+                            NotificationType.Success
+                        ),
+                        Reset(TextInput1) And Reset(ComboBox1)
+                    ),
+                        "Celular", If(
+                        varVai = "Celular" And (User().Email = "katlyn.fagundes@powerrocks.com.br" Or User().Email = "thiago.faria@powerrocks.com.br"),
+                        Patch(
+                            Lista_Cia_Katlyn,
+                            LookUp(
+                                Lista_Cia_Katlyn,
+                                CPF = Value(DataCardValue3.Text)
+                            ),
+                            {Celular: Value(TextInput1.Text)}
+                        ),
+                        AtualizacaoDeDados.Run(
+                            ComboBox1.Selected.Opcoes,
+                            TextInput1.Text
+                        ) And Notify(
+                            "Sua solicitação foi enviada!",
+                            NotificationType.Success
+                        ),
+                        Reset(TextInput1) And Reset(ComboBox1)
+                    ),
+                        "Cidade_Estado", If(
+                        varVai = "Cidade_Estado" And (User().Email = "katlyn.fagundes@powerrocks.com.br" Or User().Email = "thiago.faria@powerrocks.com.br"),
+                        Patch(
+                            Lista_Cia_Katlyn,
+                            LookUp(
+                                Lista_Cia_Katlyn,
+                                CPF = Value(DataCardValue3.Text)
+                            ),
+                            {Cidade_Estado: TextInput1.Text}
+                        ),
+                        AtualizacaoDeDados.Run(
+                            ComboBox1.Selected.Opcoes,
+                            TextInput1.Text
+                        ) And Notify(
+                            "Sua solicitação foi enviada!",
+                            NotificationType.Success
+                        ),
+                        Reset(TextInput1) And Reset(ComboBox1)
+                    ),
+                        "Endereco", If(
+                        varVai = "Endereco" And (User().Email = "katlyn.fagundes@powerrocks.com.br" Or User().Email = "thiago.faria@powerrocks.com.br"),
+                        Patch(
+                            Lista_Cia_Katlyn,
+                            LookUp(
+                                Lista_Cia_Katlyn,
+                                CPF = Value(DataCardValue3.Text)
+                            ),
+                            {Endereco: TextInput1.Text}
+                        ),
+                        AtualizacaoDeDados.Run(
+                            ComboBox1.Selected.Opcoes,
+                            TextInput1.Text
+                        ) And Notify(
+                            "Sua solicitação foi enviada!",
+                            NotificationType.Success
+                        ),
+                        Reset(TextInput1) And Reset(ComboBox1)
+                    )
+                    )
+                Text: ="Enviar"
+                X: =607
+                Y: =16
+                ZIndex: =5
+

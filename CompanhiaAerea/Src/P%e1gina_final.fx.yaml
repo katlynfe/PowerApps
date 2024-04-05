@@ -1,0 +1,197 @@
+Página_final As screen:
+
+    Container1_8 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =632
+        LayoutMode: =LayoutMode.Auto
+        Width: =1366
+        Y: =68
+        ZIndex: =1
+
+        Container2_13 As groupContainer.verticalAutoLayoutContainer:
+            Fill: =RGBA(175, 191, 224, 1)
+            FillPortions: =0
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            Visible: =coluna
+            Width: =150
+            ZIndex: =1
+
+            Container12_6 As groupContainer.manualLayoutContainer:
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                ZIndex: =1
+
+                Label4_7 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(255, 255, 255, 1)
+                    Fill: =RGBA(50, 86, 160, 1)
+                    Height: =72
+                    Size: =25
+                    Text: ="MENU"
+                    Width: =147
+                    ZIndex: =1
+
+                Label5_21 As label:
+                    BorderColor: =RGBA(50, 86, 160, 1)
+                    BorderThickness: =1
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =62
+                    OnSelect: =Navigate(Historia)
+                    Size: =25
+                    Text: ="CIA"
+                    Width: =147
+                    Y: =72
+                    ZIndex: =2
+
+                Icon2_7 As icon.Airplane:
+                    Color: =RGBA(50, 86, 160, 1)
+                    Height: =46
+                    Icon: =Icon.Airplane
+                    OnSelect: =Navigate(Historia)
+                    Width: =35
+                    X: =112
+                    Y: =72
+                    ZIndex: =3
+
+                Label5_22 As label:
+                    BorderColor: =RGBA(50, 86, 160, 1)
+                    BorderThickness: =1
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =62
+                    OnSelect: =Navigate(TelaInicial)
+                    Size: =25
+                    Text: ="Início"
+                    Width: =147
+                    Y: =134
+                    ZIndex: =4
+
+                Icon3_7 As icon.Home:
+                    Color: =RGBA(50, 86, 160, 1)
+                    Icon: =Icon.Home
+                    OnSelect: =Navigate(TelaInicial)
+                    Width: |
+                        =35
+                    X: =112
+                    Y: =132
+                    ZIndex: =5
+
+                Label5_24 As label:
+                    BorderColor: =RGBA(50, 86, 160, 1)
+                    BorderThickness: =1
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =62
+                    OnSelect: =Navigate(Dados)
+                    Size: =25
+                    Text: ="Dados"
+                    Width: =147
+                    Y: =196
+                    ZIndex: =8
+
+                Icon11 As icon.GlobeRefresh:
+                    Color: =RGBA(50, 86, 160, 1)
+                    Icon: =Icon.GlobeRefresh
+                    OnSelect: =Navigate(Dados)
+                    Width: =35
+                    X: =112
+                    Y: =194
+                    ZIndex: =9
+
+        Container3_8 As groupContainer.horizontalAutoLayoutContainer:
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =2
+
+            Container4_8 As groupContainer.manualLayoutContainer:
+                FillPortions: =0
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                Width: =1215
+                ZIndex: =1
+
+                Icon1_8 As icon.Hamburger:
+                    Color: =RGBA(50, 86, 160, 1)
+                    Icon: =Icon.Hamburger
+                    OnSelect: |
+                        =If(
+                            coluna = true,
+                            UpdateContext({coluna: false}),
+                            UpdateContext({coluna: true})
+                        );
+                    ZIndex: =1
+
+                Icon9 As icon.CheckBadge:
+                    Color: =RGBA(141, 198, 63, 1)
+                    Icon: =Icon.CheckBadge
+                    X: =158
+                    Y: =156
+                    ZIndex: =2
+
+                Label17 As label:
+                    Font: =Font.Lato
+                    Height: =344
+                    Size: =35
+                    Text: |-
+                        ="Pagamento aprovado! Obrigada por comprar com a Airplane Company.
+                        
+                        
+                        
+                        Aproveite a sua viagem!"
+                    Width: =979
+                    X: =232
+                    Y: =138
+                    ZIndex: =3
+
+                Icon10 As icon.Airplane:
+                    Icon: =Icon.Airplane
+                    X: =750
+                    Y: =432
+                    ZIndex: =4
+
+    Container5_16 As groupContainer.horizontalAutoLayoutContainer:
+        Fill: =RGBA(130, 141, 158, 1)
+        Height: =68
+        LayoutMode: =LayoutMode.Auto
+        Width: =1366
+        ZIndex: =2
+
+        Container6_8 As groupContainer.manualLayoutContainer:
+            Fill: =RGBA(175, 191, 224, 1)
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            ZIndex: =1
+
+            Image1_8 As image:
+                Height: =72
+                Image: =Wikimania2023_Animated_Sticker_Airplane
+                Width: =147
+                Y: =4
+                ZIndex: =1
+
+            Label1_8 As label:
+                Align: =Align.Center
+                Color: =RGBA(255, 255, 255, 1)
+                Font: =Font.'Patrick Hand'
+                Height: =64
+                Size: =25
+                Text: ="Airplane CIA"
+                Width: =194
+                X: =1164
+                Y: =8
+                ZIndex: =2
+
+    Container5_17 As groupContainer.horizontalAutoLayoutContainer:
+        Fill: =RGBA(175, 191, 224, 1)
+        Height: =68
+        LayoutMode: =LayoutMode.Auto
+        Width: =1366
+        Y: =700
+        ZIndex: =3
+
+        Container2_14 As groupContainer.manualLayoutContainer:
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            ZIndex: =1
+

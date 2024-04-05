@@ -1,0 +1,471 @@
+Dados As screen:
+
+    Container1_5 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =632
+        LayoutMode: =LayoutMode.Auto
+        Width: =1366
+        Y: =68
+        ZIndex: =1
+
+        Container2_7 As groupContainer.verticalAutoLayoutContainer:
+            Fill: =RGBA(175, 191, 224, 1)
+            FillPortions: =0
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            Visible: =coluna
+            Width: =150
+            ZIndex: =1
+
+            Container12_3 As groupContainer.manualLayoutContainer:
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                ZIndex: =1
+
+                Label4_4 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(255, 255, 255, 1)
+                    Fill: =RGBA(50, 86, 160, 1)
+                    Height: =72
+                    Size: =25
+                    Text: ="MENU"
+                    Width: =147
+                    ZIndex: =1
+
+                Label5_12 As label:
+                    BorderColor: =RGBA(50, 86, 160, 1)
+                    BorderThickness: =1
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =62
+                    OnSelect: =Navigate(Historia)
+                    Size: =25
+                    Text: ="CIA"
+                    Width: =147
+                    Y: =72
+                    ZIndex: =2
+
+                Icon2_4 As icon.Airplane:
+                    Color: =RGBA(50, 86, 160, 1)
+                    Height: =46
+                    Icon: =Icon.Airplane
+                    OnSelect: =Navigate(Historia)
+                    Width: =35
+                    X: =112
+                    Y: =72
+                    ZIndex: =3
+
+                Label5_13 As label:
+                    BorderColor: =RGBA(50, 86, 160, 1)
+                    BorderThickness: =1
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =62
+                    OnSelect: =Navigate(TelaInicial)
+                    Size: =25
+                    Text: ="Início"
+                    Width: =147
+                    Y: =134
+                    ZIndex: =4
+
+                Icon3_4 As icon.Home:
+                    Color: =RGBA(50, 86, 160, 1)
+                    Icon: =Icon.Home
+                    OnSelect: =Navigate(TelaInicial)
+                    Width: |
+                        =35
+                    X: =112
+                    Y: =132
+                    ZIndex: =5
+
+        Container3_5 As groupContainer.horizontalAutoLayoutContainer:
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =2
+
+            Container4_5 As groupContainer.manualLayoutContainer:
+                FillPortions: =0
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                Width: =1215
+                ZIndex: =1
+
+                Icon1_5 As icon.Hamburger:
+                    Color: =RGBA(50, 86, 160, 1)
+                    Icon: =Icon.Hamburger
+                    OnSelect: |
+                        =If(
+                            coluna = true,
+                            UpdateContext({coluna: false}),
+                            UpdateContext({coluna: true})
+                        );
+                    ZIndex: =1
+
+                Label6_5 As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(50, 86, 160, 1)
+                    BorderThickness: =1
+                    Font: =Font.Lato
+                    Height: =64
+                    Size: =35
+                    Text: ="DADOS"
+                    Width: =175
+                    X: =585
+                    ZIndex: =2
+
+                "Gallery1 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+                    BorderColor: =RGBA(50, 86, 160, 1)
+                    DelayItemLoading: =true
+                    Items: =Filter(Lista_Cia_Katlyn, CPF = Value(DataCardValue3.Text))
+                    Layout: =Layout.Vertical
+                    LoadingSpinner: =LoadingSpinner.Data
+                    TemplatePadding: =0
+                    TemplateSize: =391
+                    Width: =797
+                    X: =392
+                    Y: =57
+                    ZIndex: =4
+
+                    Image6 As image:
+                        Height: =152
+                        Image: =ThisItem.Foto_perfil
+                        OnSelect: =Select(Parent)
+                        RadiusBottomLeft: =8
+                        RadiusBottomRight: =8
+                        RadiusTopLeft: =8
+                        RadiusTopRight: =8
+                        Width: =214
+                        X: =16
+                        Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+                        ZIndex: =1
+
+                    Title1 As label:
+                        FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                        Height: =25
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =15
+                        Text: =ThisItem.Nome_completo
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =461
+                        X: =230
+                        Y: =119
+                        ZIndex: =2
+
+                    Subtitle1 As label:
+                        FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                        Height: =Self.Size * 1.8
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =15
+                        Text: =ThisItem.Email
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =Title1.Width
+                        X: =Title1.X
+                        Y: =Title1.Y + Title1.Height
+                        ZIndex: =3
+
+                    NextArrow1 As icon.ChevronRight:
+                        AccessibleLabel: =Self.Tooltip
+                        Color: =RGBA(166, 166, 166, 1)
+                        Height: =50
+                        Icon: =Icon.ChevronRight
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =16
+                        PaddingLeft: =16
+                        PaddingRight: =16
+                        PaddingTop: =16
+                        Tooltip: ="Exibir detalhes do item"
+                        Width: =50
+                        X: =Parent.TemplateWidth - Self.Width - 12
+                        Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+                        ZIndex: =4
+
+                    Separator1 As rectangle:
+                        Height: =8
+                        OnSelect: =Select(Parent)
+                        Width: =Parent.TemplateWidth
+                        Y: =Parent.TemplateHeight - Self.Height
+                        ZIndex: =5
+
+                    Rectangle1 As rectangle:
+                        Height: =Parent.TemplateHeight - Separator1.Height
+                        OnSelect: =Select(Parent)
+                        Visible: =ThisItem.IsSelected
+                        Width: =4
+                        ZIndex: =6
+
+                    Subtitle1_1 As label:
+                        FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                        Height: =Self.Size * 1.8
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =15
+                        Text: =ThisItem.Data_nascimento
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =Title1.Width
+                        X: =230
+                        Y: =199
+                        ZIndex: =7
+
+                    Subtitle1_2 As label:
+                        FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                        Height: =Self.Size * 1.8
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =15
+                        Text: =ThisItem.CPF
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =Title1.Width
+                        X: =230
+                        Y: =170
+                        ZIndex: =8
+
+                    Subtitle1_3 As label:
+                        FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                        Height: =Self.Size * 1.8
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =15
+                        Text: =ThisItem.Endereco
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =Title1.Width
+                        X: =230
+                        Y: =220
+                        ZIndex: =9
+
+                    Subtitle1_4 As label:
+                        FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                        Height: =Self.Size * 1.8
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =15
+                        Text: =ThisItem.Cidade_Estado
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =Title1.Width
+                        X: =230
+                        Y: =241
+                        ZIndex: =10
+
+                    Subtitle1_5 As label:
+                        FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                        Height: =Self.Size * 1.8
+                        OnSelect: =Select(Parent)
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =15
+                        Text: =ThisItem.Celular
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =Title1.Width
+                        X: =230
+                        Y: =262
+                        ZIndex: =11
+
+                Container27_1 As groupContainer.verticalAutoLayoutContainer:
+                    BorderThickness: =1
+                    Height: =352
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMode: =LayoutMode.Auto
+                    Visible: =Popup2
+                    Width: =445
+                    X: =450
+                    Y: =137
+                    ZIndex: =5
+
+                    Container28_1 As groupContainer.horizontalAutoLayoutContainer:
+                        Fill: =RGBA(175, 191, 224, 1)
+                        FillPortions: =0
+                        Height: =50
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        ZIndex: =1
+
+                    Container30_1 As groupContainer.manualLayoutContainer:
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        ZIndex: =2
+
+                        Container31_1 As groupContainer.verticalAutoLayoutContainer:
+                            BorderThickness: =1
+                            Height: =56
+                            LayoutDirection: =LayoutDirection.Vertical
+                            LayoutMode: =LayoutMode.Auto
+                            Width: =445
+                            Y: =246
+                            ZIndex: =1
+
+                            Container32_1 As groupContainer.manualLayoutContainer:
+                                BorderThickness: =2
+                                Fill: =RGBA(175, 191, 224, 1)
+                                LayoutMinHeight: =100
+                                LayoutMinWidth: =250
+                                ZIndex: =1
+
+                                Icon5_1 As icon.Check:
+                                    Icon: =Icon.Check
+                                    OnSelect: |-
+                                        =UpdateContext({Popup2: false});
+                                        Navigate(Atualizacao)
+                                    X: =82
+                                    ZIndex: =1
+
+                                Icon6_1 As icon.Cancel:
+                                    Icon: =Icon.Cancel
+                                    OnSelect: |-
+                                        =UpdateContext({Popup2: false});
+                                        Navigate(Login)
+                                    Width: =86
+                                    X: =274
+                                    ZIndex: =2
+
+                        Label12_1 As label:
+                            Align: =Align.Center
+                            Fill: =RGBA(175, 191, 224, 1)
+                            Height: =246
+                            Size: =35
+                            Text: ="Deseja atualizar algum dado?"
+                            Width: =445
+                            ZIndex: =2
+
+                Container27 As groupContainer.verticalAutoLayoutContainer:
+                    BorderThickness: =1
+                    Height: =352
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMode: =LayoutMode.Auto
+                    Visible: =Popup1
+                    Width: =445
+                    X: =450
+                    Y: =137
+                    ZIndex: =6
+
+                    Container28 As groupContainer.horizontalAutoLayoutContainer:
+                        Fill: =RGBA(175, 191, 224, 1)
+                        FillPortions: =0
+                        Height: =50
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        ZIndex: =1
+
+                    Container30 As groupContainer.manualLayoutContainer:
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        ZIndex: =2
+
+                        Container31 As groupContainer.verticalAutoLayoutContainer:
+                            BorderThickness: =1
+                            Height: =56
+                            LayoutDirection: =LayoutDirection.Vertical
+                            LayoutMode: =LayoutMode.Auto
+                            Width: =445
+                            Y: =246
+                            ZIndex: =1
+
+                            Container32 As groupContainer.manualLayoutContainer:
+                                BorderThickness: =2
+                                Fill: =RGBA(175, 191, 224, 1)
+                                LayoutMinHeight: =100
+                                LayoutMinWidth: =250
+                                ZIndex: =1
+
+                                Icon5 As icon.Check:
+                                    Icon: =Icon.Check
+                                    OnSelect: |-
+                                        =UpdateContext({Popup1: false});
+                                        Navigate(Login)
+                                    X: =82
+                                    ZIndex: =1
+
+                                Icon6 As icon.Cancel:
+                                    Icon: =Icon.Cancel
+                                    OnSelect: |-
+                                        =UpdateContext({Popup1: false});
+                                        UpdateContext({Popup2: true})
+                                    Width: =86
+                                    X: =274
+                                    ZIndex: =2
+
+                        Label12 As label:
+                            Align: =Align.Center
+                            Fill: =RGBA(175, 191, 224, 1)
+                            Height: =246
+                            Size: =35
+                            Text: ="Confirma os dados?"
+                            Width: =445
+                            ZIndex: =2
+
+    Container5_10 As groupContainer.horizontalAutoLayoutContainer:
+        Fill: =RGBA(130, 141, 158, 1)
+        Height: =68
+        LayoutMode: =LayoutMode.Auto
+        Width: =1366
+        ZIndex: =2
+
+        Container6_5 As groupContainer.manualLayoutContainer:
+            Fill: =RGBA(175, 191, 224, 1)
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            ZIndex: =1
+
+            Image1_5 As image:
+                Height: =72
+                Image: =Wikimania2023_Animated_Sticker_Airplane
+                Width: =147
+                Y: =4
+                ZIndex: =1
+
+            Label1_5 As label:
+                Align: =Align.Center
+                Color: =RGBA(255, 255, 255, 1)
+                Font: =Font.'Patrick Hand'
+                Height: =64
+                Size: =25
+                Text: ="Airplane CIA"
+                Width: =194
+                X: =1164
+                Y: =8
+                ZIndex: =2
+
+    Container5_11 As groupContainer.horizontalAutoLayoutContainer:
+        Fill: =RGBA(175, 191, 224, 1)
+        Height: =68
+        LayoutMode: =LayoutMode.Auto
+        Width: =1366
+        Y: =700
+        ZIndex: =3
+
+        Container2_8 As groupContainer.manualLayoutContainer:
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            ZIndex: =1
+
+            Button1_3 As button:
+                Fill: =RGBA(50, 86, 160, 1)
+                OnSelect: |-
+                    =UpdateContext({Popup1:true})
+                Text: ="Prosseguir"
+                X: =598
+                Y: =16
+                ZIndex: =1
+
