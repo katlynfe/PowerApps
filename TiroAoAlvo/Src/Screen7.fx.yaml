@@ -1,0 +1,126 @@
+Screen7 As screen:
+    Fill: =RGBA(209, 232, 178, 1)
+
+    Label18 As label:
+        Fill: =RGBA(141, 198, 63, 1)
+        Font: =Font.'Lato Light'
+        Height: =81
+        Size: =30
+        Text: |-
+            ="Selecione o jogo desejado:"
+        Width: =535
+        Y: =9
+        ZIndex: =1
+
+    Image13 As image:
+        Height: =194
+        Image: =images_1
+        OnSelect: =Navigate(Screen4_1)
+        Width: =238
+        X: =110
+        Y: =216
+        ZIndex: =2
+
+    Image14 As image:
+        Height: =284
+        Image: ='Captura de tela de 2023-12-28 12-57-46_1'
+        OnSelect: =Navigate(Screen4_3)
+        Width: =282
+        X: =110
+        Y: =484
+        ZIndex: =3
+
+    Image15 As image:
+        Height: =175
+        Image: =xadrez1_1
+        OnSelect: =Navigate(Screen4_2)
+        Width: =238
+        X: =926
+        Y: =235
+        ZIndex: =4
+
+    Image16 As image:
+        Height: =194
+        Image: ='81UvvVIfhlL_1'
+        OnSelect: =Navigate(Screen4)
+        Width: =233
+        X: =926
+        Y: =555
+        ZIndex: =5
+
+    Label1 As label:
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =RGBA(141, 198, 63, 1)
+        Height: =45
+        OnSelect: =Navigate(Screen4_1)
+        Size: =25
+        Text: ="Dama"
+        Width: =182
+        X: =110
+        Y: =171
+        ZIndex: =6
+
+    Label1_1 As label:
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =RGBA(141, 198, 63, 1)
+        Height: =45
+        OnSelect: =Navigate(Screen4_3)
+        Size: =25
+        Text: ="Snake"
+        Width: =182
+        X: =110
+        Y: =484
+        ZIndex: =7
+
+    Label1_2 As label:
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =RGBA(141, 198, 63, 1)
+        Height: =45
+        OnSelect: =Navigate(Screen4_2)
+        Size: =25
+        Text: ="Xadrez"
+        Width: =192
+        X: =937
+        Y: =171
+        ZIndex: =8
+
+    Label1_3 As label:
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =RGBA(141, 198, 63, 1)
+        Height: =45
+        OnSelect: =Navigate(Screen4)
+        Size: =25
+        Text: ="Tiro ao alvo"
+        Width: =192
+        X: =937
+        Y: =484
+        ZIndex: =9
+
+    Arrow1 As arrow:
+        Fill: =RGBA(141, 198, 63, 1)
+        OnSelect: =Navigate(Screen4_1)
+        X: =298
+        Y: =171
+        ZIndex: =10
+
+    Arrow1_1 As arrow:
+        Fill: =RGBA(141, 198, 63, 1)
+        OnSelect: =Navigate(Screen4_3)
+        X: =298
+        Y: =479
+        ZIndex: =11
+
+    Arrow1_2 As arrow:
+        Fill: =RGBA(141, 198, 63, 1)
+        OnSelect: =Navigate(Screen4_2)
+        X: =1144
+        Y: =171
+        ZIndex: =12
+
+    Arrow1_3 As arrow:
+        Fill: =RGBA(141, 198, 63, 1)
+        OnSelect: =Navigate(Screen4)
+        X: =1144
+        Y: =484
+        ZIndex: =13
+

@@ -1,0 +1,32 @@
+Screen4_2 As screen:
+    Fill: =RGBA(209, 232, 178, 1)
+
+    Image7_3 As image:
+        Height: =303
+        Image: =xadrez1_2
+        Width: =326
+        X: =537
+        Y: =65
+        ZIndex: =1
+
+    Button4_2 As button:
+        Fill: =RGBA(141, 198, 63, 1)
+        OnSelect: =Navigate(Screen9)
+        Text: ="Iniciar"
+        X: =620
+        Y: =383
+        ZIndex: =2
+
+    Label1_6 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(141, 198, 63, 1)
+        Height: =45
+        OnSelect: =Navigate(Screen4_3)
+        Size: =25
+        Text: ="Xadrez"
+        Width: =326
+        X: =537
+        Y: =20
+        ZIndex: =3
+

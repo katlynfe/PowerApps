@@ -1,0 +1,12 @@
+{
+  "Content": "Image",
+  "FileName": "/ctrllib/icon/images/Basel_ExpandView.svg",
+  "IsSampleData": true,
+  "IsWritable": false,
+  "Name": "Basel_ExpandView",
+  "Path": "/ctrllib/icon/images/Basel_ExpandView.svg",
+  "ResourceKind": "Uri",
+  "RootPath": "ms-appx:///ctrllib/icon/images/Basel_ExpandView.svg",
+  "Schema": "i",
+  "Type": "ResourceInfo"
+}

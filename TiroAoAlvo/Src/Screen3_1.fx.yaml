@@ -1,0 +1,89 @@
+Screen3_1 As screen:
+    Fill: =RGBA(209, 232, 178, 1)
+
+    Container1_1 As groupContainer.manualLayoutContainer:
+        Height: =763
+        Width: =1366
+        Y: =3
+        ZIndex: =1
+
+        Label4_1 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(141, 198, 63, 1)
+            Font: =Font.'Lato Light'
+            Height: =187
+            Size: =25
+            Text: ="Plataforma de Jogos"
+            Width: =305
+            X: =531
+            ZIndex: =1
+
+        TextInput3_1 As text:
+            Default: =
+            HintText: ="Digite seu apelido"
+            OnChange: |
+                =Set(varApelidoSalvo,TextInput3_1.Text)
+            X: =531
+            Y: =518
+            ZIndex: =2
+
+        Label16_1 As label:
+            Font: =Font.'Lato Black'
+            Size: =25
+            Text: |-
+                ="Login: "
+            X: =531
+            Y: =315
+            ZIndex: =4
+
+        TextInput6_1 As text:
+            Default: =User().Email
+            DisplayMode: =DisplayMode.Disabled
+            HintText: ="Email"
+            OnChange: =
+            OnSelect: |-
+                =UpdateContext({ varEmailSalvo: User().Email })
+            X: =531
+            Y: =370
+            ZIndex: =5
+
+        TextInput7_1 As text:
+            Default: =User().FullName
+            DisplayMode: =DisplayMode.Disabled
+            HintText: ="Nome"
+            OnChange: =
+            OnSelect: =
+            X: =531
+            Y: =442
+            ZIndex: =6
+
+    Arrow2_3 As arrow:
+        Fill: =RGBA(141, 198, 63, 1)
+        Height: =86
+        OnSelect: =Navigate(Screen7, ScreenTransition.Cover)
+        Width: =85
+        X: =1266
+        Y: =669
+        ZIndex: =3
+
+    Button2_1 As button:
+        Fill: =RGBA(141, 198, 63, 1)
+        OnSelect: |
+            =Set(mensagemBemVindo, "Bem-vindo de volta, " & varApelidoSalvo & "!");
+            
+            If(
+                !IsBlank(LookUp(Lista_App_Katlyn, Apelido = TextInput3_1.Text)),
+                Patch('ListaPontuação-Katlyn', Defaults('ListaPontuação-Katlyn'), { APELIDO: TextInput3_1.Text }),
+                Notify(mensagemBemVindo, NotificationType.Success)
+            );
+            
+            If(
+                IsBlank(LookUp(Lista_App_Katlyn, Apelido = TextInput3_1.Text)),
+                Notify("Apelido não encontrado. Insira um apelido cadastrado.", NotificationType.Warning)
+            )
+        Text: ="Salvar"
+        X: =603
+        Y: =669
+        ZIndex: =4
+

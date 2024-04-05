@@ -1,0 +1,335 @@
+Screen6 As screen:
+    Fill: =RGBA(0, 0, 0, 1)
+
+    Label14 As label:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =32
+        Size: =20
+        Text: |-
+            ="Pontuação: " & _Pontos
+        Width: =320
+        X: =135
+        Y: =8
+        ZIndex: =1
+
+    Button1 As button:
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =64
+        OnSelect: =Set(_Pontos, 0)
+        Text: ="Resetar pontuação"
+        X: =135
+        Y: =40
+        ZIndex: =2
+
+    Button6 As button:
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =RGBA(255, 255, 0, 1)
+        OnSelect: |-
+            =Set(Cont,true);
+            Set(varContagemRegressiva,30000);
+            UpdateContext({ Contagem: 1 * 1000 });
+            UpdateContext({ varCountdown: true });
+            UpdateContext({ TimerDuration: 1 * 1000 });
+            Set(comeco,10000) 
+        Text: ="Médio"
+        X: =640
+        ZIndex: =3
+
+    Button7 As button:
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =RGBA(255, 0, 0, 1)
+        OnSelect: |-
+            =Set(Cont,true);
+            UpdateContext({ Contagem: 0.5 * 1000 });
+            Set(varContagemRegressiva,30000);
+            UpdateContext({ varCountdown: true });
+            UpdateContext({ TimerDuration: 0.5 * 1000 });
+            Set(varTimerRunning,true)
+        Text: ="Difícil"
+        X: =800
+        ZIndex: =4
+
+    Arrow3_1 As arrow.backArrow:
+        Fill: =RGBA(141, 198, 63, 1)
+        Height: =86
+        OnSelect: =Navigate(Screen7)
+        Width: =85
+        Y: =8
+        ZIndex: =5
+
+    Button9 As button:
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(184, 0, 0, 1)
+        OnSelect: |
+            =Set(resetar,false);
+            Set(comecar,false);
+            Set(Popup2, true)
+        Text: ="Finalizar"
+        X: =1206
+        Y: =728
+        ZIndex: =6
+
+    Button10 As button:
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =RGBA(152, 208, 70, 1)
+        OnSelect: |-
+            =Set(Cont,true);
+            Set(varContagemRegressiva,30000);
+            UpdateContext({Contagem: 2 * 1000});
+            UpdateContext({varCountdown: true});
+            UpdateContext({TimerDuration: 2 * 1000});
+        Text: ="Fácil"
+        X: =476
+        ZIndex: =7
+
+    Label20 As label:
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(0, 0, 0, 1)
+        Height: =53
+        OnSelect: =
+        Size: =20
+        Text: |
+            =If(
+                varCountdown,
+                Text(RoundUp(Contagem / 1000, 1), "[$-en]0.0 ") & "s"
+            )
+        Width: =130
+        X: =1128
+        Y: =33
+        ZIndex: =8
+
+    Timer1 As timer:
+        AutoStart: =true
+        Color: =RGBA(0, 0, 0, 1)
+        DisplayMode: =DisplayMode.View
+        Duration: =varContagemRegressiva
+        Fill: =RGBA(255, 255, 255, 1)
+        OnTimerEnd: |
+            =If(
+                varContagemRegressiva <= 0,
+                Set(resetar,false),
+                Set(comecar,false),
+                Set(Popup2,true),
+                Notify("Tempo esgotado!", NotificationType.Warning)
+            
+            );
+        OnTimerStart: =varContagemRegressiva
+        Reset: =resetar
+        Size: =20
+        Start: =comecar
+        X: =1206
+        ZIndex: =9
+
+    Container4 As groupContainer.manualLayoutContainer:
+        Height: =314
+        Visible: =VisibilidadePopup
+        Width: =401
+        X: =501
+        Y: =204
+        ZIndex: =11
+
+        Label2_2 As label:
+            Align: =Align.Center
+            Fill: =RGBA(141, 198, 63, 1)
+            Height: =312
+            Size: =35
+            Text: ="Deseja reiniciar o jogo?"
+            Width: =401
+            ZIndex: =1
+
+        Button5_4 As button:
+            Fill: =RGBA(99, 139, 44, 1)
+            OnSelect: |
+                =Set(varTempoRestante, 60);
+                Set(varMostrarPopup, false);
+                Set(varTempoRestante, varTempoRestante - 1);
+                Navigate(Screen6)
+            Text: ="SIM"
+            Width: =195
+            Y: =272
+            ZIndex: =2
+
+        Button5_5 As button:
+            Fill: =RGBA(184, 0, 0, 1)
+            OnSelect: =Navigate(Screen1)
+            Text: ="NÃO"
+            Width: =187
+            X: =214
+            Y: =272
+            ZIndex: =3
+
+        Icon3_2 As icon.Cancel:
+            Color: =RGBA(184, 0, 0, 1)
+            Icon: =Icon.Cancel
+            OnSelect: =Navigate(Screen1)
+            X: =337
+            ZIndex: =4
+
+        Label2_4 As label:
+            Align: =Align.Center
+            Fill: =RGBA(141, 198, 63, 1)
+            Font: =Font.'Lato Light'
+            Height: =312
+            Size: =35
+            Text: ="Deseja salvar a pontuação?"
+            Width: =401
+            ZIndex: =5
+
+        Button5_8 As button:
+            Fill: =RGBA(99, 139, 44, 1)
+            OnSelect: |
+                =Patch(
+                    Lista_App_Katlyn,
+                    LookUp(Lista_App_Katlyn, Apelido = TextInput3.Text),
+                    {Pontuacao: _Pontos}
+                );
+                Patch('ListaPontuação-Katlyn',Defaults('ListaPontuação-Katlyn'),{
+                        APELIDO: TextInput3_1.Text,
+                        Pontuacao: _Pontos
+                        });
+                Set(VisibilidadePopup,false);
+                Navigate(Screen1)
+            Text: ="SIM"
+            Width: =195
+            Y: =272
+            ZIndex: =6
+
+        Button5_9 As button:
+            Fill: =RGBA(184, 0, 0, 1)
+            OnSelect: |-
+                =Set(VisibilidadePopup,false);
+                Navigate(Screen1_1)
+            Text: ="NÃO"
+            Width: =187
+            X: =214
+            Y: =274
+            ZIndex: =7
+
+        Icon3_4 As icon.Cancel:
+            Color: =RGBA(184, 0, 0, 1)
+            Icon: =Icon.Cancel
+            OnSelect: =Navigate(Screen6)
+            X: =337
+            ZIndex: =8
+
+    Alvo1Ponto As circle:
+        Fill: =RGBA(237, 28, 36, 1)
+        Height: =232
+        OnSelect: |-
+            =Set(_Pontos, _Pontos+1);
+            
+            Set(Pos_X, Max((Screen6.Width - 246)));
+            Set(Pos_Y, Max((Screen6.Height - 232)));
+            
+            Set(Pos_X,(Rand()*1000)); 
+            Set(Pos_Y,(Rand()*1000));
+        Width: =246
+        X: =Pos_X
+        Y: =Pos_Y
+        ZIndex: =12
+
+    Alvo2Pontos As circle:
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =179
+        OnSelect: =Set(_Pontos, _Pontos+2);Set(Pos_X,(Rand()*1000)) And Set(Pos_Y,(Rand()*1000))
+        Width: =200
+        X: =Alvo1Ponto.X +22
+        Y: =Alvo1Ponto.Y + 22
+        ZIndex: =13
+
+    Alvo3Pontos As circle:
+        Fill: =RGBA(237, 28, 36, 1)
+        Height: =133
+        OnSelect: =Set(_Pontos, _Pontos+3);Set(Pos_X,(Rand()*1000)) And Set(Pos_Y,(Rand()*1000))
+        Width: =139
+        X: =Alvo2Pontos.X + 27
+        Y: =Alvo2Pontos.Y + 22
+        ZIndex: =14
+
+    Alvo4Pontos As circle:
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =89
+        OnSelect: =Set(_Pontos, _Pontos+4);Set(Pos_X,(Rand()*1000)) And Set(Pos_Y,(Rand()*1000))
+        Width: =98
+        X: =Alvo3Pontos.X + 20
+        Y: =Alvo3Pontos.Y + 22
+        ZIndex: =15
+
+    Alvo5Pontos As circle:
+        Fill: =RGBA(237, 28, 36, 1)
+        Height: =34
+        OnSelect: =Set(_Pontos, _Pontos+5);Set(Pos_X,(Rand()*1000)) And Set(Pos_Y,(Rand()*1000))
+        Width: =32
+        X: =Alvo4Pontos.X + 33
+        Y: =Alvo4Pontos.Y + 27
+        ZIndex: =16
+
+    Contagem As timer:
+        AutoPause: =false
+        AutoStart: =Cont
+        Color: =RGBA(0, 0, 0, 1)
+        DisplayMode: =DisplayMode.View
+        Duration: =TimerDuration
+        Fill: =RGBA(255, 255, 255, 1)
+        OnTimerStart: |-
+            =Set(Pos_X,(Rand()*1000)); 
+            Set(Pos_Y,(Rand()*1000));
+        Repeat: =true
+        Size: =20
+        Start: =Cont
+        X: =1206
+        Y: =40
+        ZIndex: =17
+
+    Container3 As groupContainer.manualLayoutContainer:
+        Height: =359
+        Visible: =Popup2
+        Width: =431
+        X: =471
+        Y: =171
+        ZIndex: =18
+
+        Label2_3 As label:
+            Align: =Align.Center
+            Fill: =RGBA(141, 198, 63, 1)
+            Font: =Font.'Lato Light'
+            Height: =304
+            Size: =35
+            Text: ="Deseja reiniciar o jogo?"
+            Width: =392
+            X: =39
+            Y: =40
+            ZIndex: =1
+
+        Button5_6 As button:
+            Fill: =RGBA(99, 139, 44, 1)
+            OnSelect: |-
+                =Set(resetar,true);
+                Set(comecar,true);
+                Set(Popup2,false)
+            Text: ="SIM"
+            Width: =195
+            X: =40
+            Y: =304
+            ZIndex: =2
+
+        Button5_7 As button:
+            Fill: =RGBA(184, 0, 0, 1)
+            OnSelect: |-
+                =Set(Popup2,false);
+                Set(VisibilidadePopup, true)
+            Text: ="NÃO"
+            Width: =187
+            X: =244
+            Y: =304
+            ZIndex: =3
+
+        Icon3_3 As icon.Cancel:
+            Color: =RGBA(184, 0, 0, 1)
+            Icon: =Icon.Cancel
+            OnSelect: =Set(Popup2,false)
+            X: =367
+            Y: =40
+            ZIndex: =4
+

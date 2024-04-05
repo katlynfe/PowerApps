@@ -1,0 +1,19 @@
+[
+  {
+    "Data": "[{\"City\":\"Redmond\",\"Main Phone\":\"425-228-1740\",\"Name\":\"A. Datum\",\"Primary Contact\":\"Vincent Lauriant\"},{\"City\":\"Renton\",\"Main Phone\":\"425-488-7759\",\"Name\":\"Alpine Ski House\",\"Primary Contact\":\"Cathan Cook\"},{\"City\":\"Barcelona\",\"Main Phone\":\"345-899-7888\",\"Name\":\"Best o\\u0027 Sales\",\"Primary Contact\":null},{\"City\":\"Sydney\",\"Main Phone\":\"555-0135\",\"Name\":\"Blue Yonder Airlines\",\"Primary Contact\":\"Brian LaMee\"},{\"City\":\"Bothell\",\"Main Phone\":\"425-485-7377\",\"Name\":\"City Power \\u0026 Light\",\"Primary Contact\":\"Walter Harp\"},{\"City\":\"Renton\",\"Main Phone\":\"425-485-1255\",\"Name\":\"Coho Winery\",\"Primary Contact\":\"Cat Francis\"},{\"City\":\"Sammamish\",\"Main Phone\":\"425-885-3323\",\"Name\":\"Consolidated Messenger\",\"Primary Contact\":\"Forrest Chand\"},{\"City\":\"Redmond\",\"Main Phone\":\"425-885-9591\",\"Name\":\"Fabrikam, Inc.\",\"Primary Contact\":\"Eva Corets\"},{\"City\":\"Bellevue\",\"Main Phone\":\"425-635-7494\",\"Name\":\"Fourth Coffee\",\"Primary Contact\":\"Gabriele Cannata\"},{\"City\":\"Seattle\",\"Main Phone\":\"425-452-9425\",\"Name\":\"Graphic Design Institute\",\"Primary Contact\":\"George Sullivan\"},{\"City\":\"Renton\",\"Main Phone\":\"425-836-8641\",\"Name\":\"Humongous Insurance\",\"Primary Contact\":\"Tamer Salah\"},{\"City\":\"Redmond\",\"Main Phone\":\"425-883-8536\",\"Name\":\"Litware\",\"Primary Contact\":\"Andrew Dixon\"},{\"City\":\"Bellevue\",\"Main Phone\":\"425-558-1596\",\"Name\":\"Lucerne Publishing\",\"Primary Contact\":\"Patrick Steiner\"},{\"City\":\"Seattle\",\"Main Phone\":\"425-637-9330\",\"Name\":\"Margie\\u0027s Travel\",\"Primary Contact\":\"Susan Burk\"},{\"City\":\"Redmond\",\"Main Phone\":\"555-555-0135\",\"Name\":\"Microsoft\",\"Primary Contact\":null},{\"City\":\"Renton\",\"Main Phone\":\"425-861-9199\",\"Name\":\"Northwind Traders\",\"Primary Contact\":\"Alex Wu\"},{\"City\":\"Seattle\",\"Main Phone\":\"425-882-2881\",\"Name\":\"Proseware, Inc.\",\"Primary Contact\":\"Yvonne McKay\"},{\"City\":\"Seattle\",\"Main Phone\":\"206-433-5131\",\"Name\":\"School of Fine Art\",\"Primary Contact\":\"Shaun Beasley\"},{\"City\":\"Bothell\",\"Main Phone\":\"206-937-5112\",\"Name\":\"Southridge Video\",\"Primary Contact\":\"Kim Abercrombie\"},{\"City\":\"Seattle\",\"Main Phone\":\"425-391-8595\",\"Name\":\"Tailspin Toys\",\"Primary Contact\":\"Marco Tanara\"},{\"City\":\"Kansas City\",\"Main Phone\":\"327-555-3960\",\"Name\":\"The Phone Company\",\"Primary Contact\":\"Allison Brown\"},{\"City\":\"Seattle\",\"Main Phone\":\"206-728-4077\",\"Name\":\"Trey Research\",\"Primary Contact\":\"Humberto Acevedo\"},{\"City\":\"Seattle\",\"Main Phone\":\"425-562-7041\",\"Name\":\"Wide World Importers\",\"Primary Contact\":\"Sean Chai\"},{\"City\":\"Seattle\",\"Main Phone\":\"206-652-0872\",\"Name\":\"Wingtip Toys\",\"Primary Contact\":\"David Ahs\"},{\"City\":\"Sammamish\",\"Main Phone\":\"206-244-2567\",\"Name\":\"Woodgrove Bank\",\"Primary Contact\":\"Darren Parker\"}]",
+    "IsSampleData": false,
+    "IsWritable": false,
+    "Name": "Accounts",
+    "OrderedColumnNames": [
+      "Name",
+      "Main Phone",
+      "City",
+      "Primary Contact"
+    ],
+    "OriginalName": "Accounts",
+    "OriginalSchema": "*[City:s, 'Main Phone':s, Name:s, 'Primary Contact':s]",
+    "Schema": "*[City:s, 'Main Phone':s, Name:s, 'Primary Contact':s]",
+    "Token": "dummyToken",
+    "Type": "StaticDataSourceInfo"
+  }
+]

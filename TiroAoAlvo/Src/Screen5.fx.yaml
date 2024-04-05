@@ -1,0 +1,39 @@
+Screen5 As screen:
+    Fill: =RGBA(209, 232, 178, 1)
+
+    Label17 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(141, 198, 63, 1)
+        BorderThickness: =5
+        Color: =RGBA(0, 0, 0, 1)
+        Font: =Font.'Lato Light'
+        Height: =112
+        Size: =40
+        Text: ="JOGOS"
+        Width: =296
+        X: =565
+        Y: =222
+        ZIndex: =1
+
+    Button3 As button:
+        Fill: =RGBA(141, 198, 63, 1)
+        Height: =72
+        OnSelect: =Navigate(Screen3, ScreenTransition.Cover)
+        Size: =25
+        Text: ="Ir para cadastro"
+        Width: =301
+        X: =560
+        Y: =385
+        ZIndex: =6
+
+    Button3_1 As button:
+        Fill: =RGBA(141, 198, 63, 1)
+        Height: =72
+        OnSelect: =Navigate(Screen3_1, ScreenTransition.Cover)
+        Size: =25
+        Text: ="Já sou cadastrado"
+        Width: =307
+        X: =559
+        Y: =509
+        ZIndex: =7
+

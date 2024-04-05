@@ -1,0 +1,12 @@
+{
+  "Content": "Image",
+  "FileName": "/ctrllib/icon/images/Basel_Post.svg",
+  "IsSampleData": true,
+  "IsWritable": false,
+  "Name": "Basel_Post",
+  "Path": "/ctrllib/icon/images/Basel_Post.svg",
+  "ResourceKind": "Uri",
+  "RootPath": "ms-appx:///ctrllib/icon/images/Basel_Post.svg",
+  "Schema": "i",
+  "Type": "ResourceInfo"
+}

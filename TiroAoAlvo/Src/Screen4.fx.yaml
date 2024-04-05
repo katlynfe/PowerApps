@@ -1,0 +1,34 @@
+Screen4 As screen:
+    Fill: =RGBA(209, 232, 178, 1)
+
+    Image7_1 As image:
+        Height: =303
+        Image: ='81UvvVIfhlL'
+        Width: =326
+        X: =537
+        Y: =72
+        ZIndex: =1
+
+    Button4 As button:
+        Fill: =RGBA(141, 198, 63, 1)
+        OnSelect: |-
+            =Set(_Pontos,0);
+            Navigate(Screen6)
+        Text: ="Iniciar"
+        X: =620
+        Y: =403
+        ZIndex: =2
+
+    Label1_7 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(141, 198, 63, 1)
+        Height: =42
+        OnSelect: =Navigate(Screen4_3)
+        Size: =25
+        Text: ="Tiro ao alvo"
+        Width: =326
+        X: =537
+        Y: =15
+        ZIndex: =3
+
