@@ -1,0 +1,52 @@
+App As appinfo:
+    BackEnabled: =true
+    OnStart: |-
+        =ClearCollect(
+            ColecaoCidades,
+            {Cidades: "Belo Horizonte - MG"},
+            {Cidades: "São Paulo - SP"},
+            {Cidades: "Rio de Janeiro - RJ"},
+            {Cidades: "Aracaju - SE"},
+            {Cidades: "Recife - PE"},
+            {Cidades: "Vitória - ES"},
+            {Cidades: "Campo Grande - MS"},
+            {Cidades: "Cuiabá - MT"},
+            {Cidades: "Goiânia - GO"},
+            {Cidades: "Porto Velho - RO"},
+            {Cidades: "Palmas - TO"},
+            {Cidades: "Manaus - AM"},
+            {Cidades: "Boa Vista - RR"},
+            {Cidades: "Belém - PA"},
+            {Cidades: "João Pessoa - PB"},
+            {Cidades: "São Luís - MA"},
+            {Cidades: "Teresina - PI"},
+            {Cidades: "Macapá - AP"},
+            {Cidades: "Maceió - AL"},
+            {Cidades: "Rio Branco - AC"},
+            {Cidades: "Porto Alegre - RS"},
+            {Cidades: "Florianópolis - SC"},
+            {Cidades: "Curitiba - PR"},
+            {Cidades: "Brasília - DF"},
+            {Cidades: "Salvado - BA"},
+            {Cidades: "Buenos Aires - Argentina"}
+        );
+        ClearCollect(
+            ColecaoOpcoes,
+            {Opcoes: "Nome_completo"},
+            {Opcoes: "Email"},
+            {Opcoes: "CPF"},
+            {Opcoes: "Data_nascimento"},
+            {Opcoes: "Celular"},
+            {Opcoes: "Cidade_Estado"},
+            {Opcoes: "Foto_perfil"},
+            {Opcoes: "Endereco"}
+        )
+    Theme: =PowerAppsTheme
+
+    Host As hostControl.DefaultHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+

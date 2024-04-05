@@ -1,0 +1,275 @@
+Bem_vindo As screen:
+    OnVisible: |-
+        =UpdateContext({Popup3:true})
+
+    Container1_4 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =632
+        LayoutMode: =LayoutMode.Auto
+        Width: =1366
+        Y: =68
+        ZIndex: =1
+
+        Container2_5 As groupContainer.verticalAutoLayoutContainer:
+            Fill: =RGBA(175, 191, 224, 1)
+            FillPortions: =0
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            Visible: =coluna
+            Width: =150
+            ZIndex: =1
+
+            Container12_2 As groupContainer.manualLayoutContainer:
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                ZIndex: =1
+
+                Label4_3 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(255, 255, 255, 1)
+                    Fill: =RGBA(50, 86, 160, 1)
+                    Height: =72
+                    Size: =25
+                    Text: ="MENU"
+                    Width: =147
+                    ZIndex: =1
+
+                Label5_9 As label:
+                    BorderColor: =RGBA(50, 86, 160, 1)
+                    BorderThickness: =1
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =62
+                    OnSelect: =Navigate(Historia)
+                    Size: =25
+                    Text: ="CIA"
+                    Width: =147
+                    Y: =72
+                    ZIndex: =2
+
+                Icon2_3 As icon.Airplane:
+                    Color: =RGBA(50, 86, 160, 1)
+                    Height: =46
+                    Icon: =Icon.Airplane
+                    OnSelect: =Navigate(Historia)
+                    Width: =35
+                    X: =112
+                    Y: =72
+                    ZIndex: =3
+
+                Label5_10 As label:
+                    BorderColor: =RGBA(50, 86, 160, 1)
+                    BorderThickness: =1
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =62
+                    OnSelect: =Navigate(TelaInicial)
+                    Size: =25
+                    Text: ="Início"
+                    Width: =147
+                    Y: =134
+                    ZIndex: =4
+
+                Icon3_3 As icon.Home:
+                    Color: =RGBA(50, 86, 160, 1)
+                    Icon: =Icon.Home
+                    OnSelect: =Navigate(TelaInicial)
+                    Width: |
+                        =35
+                    X: =112
+                    Y: =132
+                    ZIndex: =5
+
+                Label5_26 As label:
+                    BorderColor: =RGBA(50, 86, 160, 1)
+                    BorderThickness: =1
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =62
+                    OnSelect: =Navigate(Dados)
+                    Size: =25
+                    Text: ="Dados"
+                    Width: =147
+                    Y: =196
+                    ZIndex: =8
+
+                Icon11_2 As icon.GlobeRefresh:
+                    Color: =RGBA(50, 86, 160, 1)
+                    Icon: =Icon.GlobeRefresh
+                    OnSelect: =Navigate(Dados)
+                    Width: =35
+                    X: =112
+                    Y: =196
+                    ZIndex: =9
+
+        Container3_4 As groupContainer.horizontalAutoLayoutContainer:
+            FillPortions: =0
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            Width: =1215
+            ZIndex: =2
+
+            Container4_4 As groupContainer.manualLayoutContainer:
+                EnableChildFocus: =
+                FillPortions: =0
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                Width: =1215
+                ZIndex: =1
+
+                Icon1_4 As icon.Hamburger:
+                    Color: =RGBA(50, 86, 160, 1)
+                    Icon: =Icon.Hamburger
+                    OnSelect: |
+                        =If(
+                            coluna = true,
+                            UpdateContext({coluna: false}),
+                            UpdateContext({coluna: true})
+                        );
+                    ZIndex: =1
+
+                Label6_2 As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(50, 86, 160, 1)
+                    BorderThickness: =1
+                    Font: =Font.'Patrick Hand'
+                    Height: =133
+                    Size: =40
+                    Text: ="SEJA BEM VINDO(A), " & Upper(PrimeiroNome)
+                    Width: =724
+                    X: =306
+                    ZIndex: =2
+
+                Label15 As label:
+                    Align: =Align.Justify
+                    Height: =460
+                    Size: =25
+                    Text: ="Partindo de " & Dropdown1.Selected.Cidades & " no dia " & DatePicker1.SelectedDate & " no asssento " & Radio2.Selected.Value & ", com destino a " & Dropdown1_1.Selected.Value & ", permanecendo até " & DatePicker1_1.SelectedDate & "."
+                    Width: =437
+                    X: =742
+                    Y: =172
+                    ZIndex: =3
+
+                Label14 As label:
+                    Font: =Font.Lato
+                    Height: =75
+                    Size: =25
+                    Text: |-
+                        ="Escolha seu assento: "
+                    Width: =372
+                    X: =133
+                    Y: =267
+                    ZIndex: =4
+
+                Radio2 As radio:
+                    Height: =290
+                    Items: =["1A","1B","1C","1D","2A","2B","2C","2D","3A","3B","3C","3D","4A","4B","4C","4D","5A","5B","5C","5D","6A","6B","6C","6D","7A","7B","7C","7D","8A","8B","8C","8D","9A","9B","9C","9D","10A","10B","10C","10D"]
+                    Width: =345
+                    X: =133
+                    Y: =342
+                    ZIndex: =5
+
+    Container5_8 As groupContainer.horizontalAutoLayoutContainer:
+        Fill: =RGBA(130, 141, 158, 1)
+        Height: =68
+        LayoutMode: =LayoutMode.Auto
+        Width: =1366
+        ZIndex: =2
+
+        Container6_4 As groupContainer.manualLayoutContainer:
+            Fill: =RGBA(175, 191, 224, 1)
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            ZIndex: =1
+
+            Image1_4 As image:
+                Height: =72
+                Image: =Wikimania2023_Animated_Sticker_Airplane
+                Width: =147
+                Y: =4
+                ZIndex: =1
+
+            Label1_4 As label:
+                Align: =Align.Center
+                Color: =RGBA(255, 255, 255, 1)
+                Font: =Font.'Patrick Hand'
+                Height: =64
+                Size: =25
+                Text: ="Airplane CIA"
+                Width: =194
+                X: =1164
+                Y: =8
+                ZIndex: =2
+
+    Container5_9 As groupContainer.horizontalAutoLayoutContainer:
+        Fill: =RGBA(175, 191, 224, 1)
+        Height: =68
+        LayoutMode: =LayoutMode.Auto
+        Width: =1366
+        Y: =700
+        ZIndex: =3
+
+        Container2_6 As groupContainer.manualLayoutContainer:
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            ZIndex: =1
+
+            Button1_2 As button:
+                Fill: =RGBA(50, 86, 160, 1)
+                Height: =47
+                OnSelect: =Navigate(Pagamento)
+                Text: ="Ir para pagamento"
+                Width: =240
+                X: =578
+                Y: =8
+                ZIndex: =1
+
+    Container21 As groupContainer.verticalAutoLayoutContainer:
+        Height: =432
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Visible: =Popup3
+        Width: =515
+        X: =425
+        Y: =203
+        ZIndex: =4
+
+        Container22 As groupContainer.manualLayoutContainer:
+            BorderColor: =RGBA(50, 86, 160, 1)
+            BorderThickness: =2
+            Fill: =RGBA(175, 191, 224, 1)
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            ZIndex: =1
+
+            Label14_1 As label:
+                Align: =Align.Center
+                Font: =Font.Lato
+                Height: =216
+                Size: =35
+                Text: ="Deseja enviar os dados em pdf para o email do responsável?"
+                Width: =515
+                Y: =90
+                ZIndex: =1
+
+            Button4_2 As button:
+                Height: =84
+                OnSelect: |-
+                    =DownloadPDF.Run(Value(LookUp(Lista_Cia_Katlyn,Email = "katlyn.fagundes@powerrocks.com.br",ID)),{Email:"katlyn.fagundes@powerrocks.com.br"});
+                    UpdateContext({Popup3:false})
+                Text: ="Enviar"
+                Width: =215
+                X: =32
+                Y: =345
+                ZIndex: =2
+
+            Button4_3 As button:
+                Fill: =RGBA(255, 0, 0, 1)
+                Height: =84
+                OnSelect: |-
+                    =UpdateContext({Popup3: false})
+                Text: ="Não"
+                Width: =199
+                X: =282
+                Y: =345
+                ZIndex: =3
+

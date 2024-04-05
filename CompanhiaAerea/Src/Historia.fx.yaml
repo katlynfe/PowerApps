@@ -1,0 +1,117 @@
+Historia As screen:
+
+    Container1_2 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =632
+        LayoutMode: =LayoutMode.Auto
+        Width: =1366
+        Y: =68
+        ZIndex: =1
+
+        Container2_2 As groupContainer.verticalAutoLayoutContainer:
+            Fill: =RGBA(175, 191, 224, 1)
+            FillPortions: =0
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            Visible: =false
+            Width: =150
+            ZIndex: =1
+
+        Container3_2 As groupContainer.horizontalAutoLayoutContainer:
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =2
+
+            Container4_2 As groupContainer.manualLayoutContainer:
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                ZIndex: =1
+
+                Label5_1 As label:
+                    Color: =RGBA(136, 160, 209, 1)
+                    Font: =Font.'Patrick Hand'
+                    Height: =129
+                    Size: =40
+                    Text: |-
+                        ="Airplane CIA: Nossa história"
+                    Width: =300
+                    X: =530
+                    ZIndex: =1
+
+                Label6_4 As label:
+                    Align: =Align.Justify
+                    Font: =Font.Lato
+                    Height: =492
+                    Size: =24
+                    Text: ="       Há mais de 50 anos no mercado, a Airplane CIA atinge os objetivos dos seus queredos clientes e contribuintes, atingindo a máxima eficiência e contentamento. O nosso credo é ""atender a todos como se fosse a única experiência pela primeira vez"", pois assim garantimos que tenha a melhor experiência em todos os contatos com a companhia. Visamos a diversidade e acessibilidade, com intérprete de libras, conteúdo em braile e legendas nas informações em todos os pontos da CIA."
+                    Width: =620
+                    X: =685
+                    Y: =140
+                    ZIndex: =3
+
+                Label6_3 As label:
+                    Align: =Align.Justify
+                    Font: =Font.Lato
+                    Height: =492
+                    Size: =24
+                    Text: ="       A Airplane Company com sede em Belo Horizonte, Minas Gerais, no Brasil, foi fundada em 24 de janeiro de 1974. A sua fundadora é a Katlyn Fagundes e a ideia surgiu após uma reunião em grupo com os co-fundadores Thiago Faria, Kely Murta e Pablo Ives durante a época do estágio. Observando a necessidade de uma companhia aérea que fosse acessível a todos em todos os quesitos, como preço, acesso e experiência, com segurança, surgiu a Airplane CIA."
+                    Width: =578
+                    X: =30
+                    Y: =140
+                    ZIndex: =4
+
+    Container5_4 As groupContainer.horizontalAutoLayoutContainer:
+        Fill: =RGBA(130, 141, 158, 1)
+        Height: =68
+        LayoutMode: =LayoutMode.Auto
+        Width: =1366
+        ZIndex: =2
+
+        Container6_2 As groupContainer.manualLayoutContainer:
+            Fill: =RGBA(175, 191, 224, 1)
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            ZIndex: =1
+
+            Image1_2 As image:
+                Height: =72
+                Image: =Wikimania2023_Animated_Sticker_Airplane
+                Width: =147
+                Y: =4
+                ZIndex: =1
+
+            Label1_2 As label:
+                Align: =Align.Center
+                Color: =RGBA(255, 255, 255, 1)
+                Font: =Font.'Patrick Hand'
+                Height: =64
+                Size: =25
+                Text: ="Airplane CIA"
+                Width: =194
+                X: =1164
+                Y: =8
+                ZIndex: =2
+
+    Container5_5 As groupContainer.horizontalAutoLayoutContainer:
+        Fill: =RGBA(175, 191, 224, 1)
+        Height: =68
+        LayoutMode: =LayoutMode.Auto
+        Width: =1366
+        Y: =700
+        ZIndex: =3
+
+        Container7_1 As groupContainer.manualLayoutContainer:
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            ZIndex: =1
+
+            Icon1_1 As icon.NextArrow:
+                Color: =RGBA(50, 86, 160, 1)
+                Icon: =Icon.NextArrow
+                OnSelect: =Navigate(TelaInicial)
+                X: =1302
+                Y: =2
+                ZIndex: =1
+

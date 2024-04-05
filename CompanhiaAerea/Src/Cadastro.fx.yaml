@@ -1,0 +1,978 @@
+Cadastro As screen:
+
+    Container1_1 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =632
+        LayoutMode: =LayoutMode.Auto
+        Width: =1366
+        Y: =68
+        ZIndex: =1
+
+        Container2_1 As groupContainer.verticalAutoLayoutContainer:
+            Fill: =RGBA(175, 191, 224, 1)
+            FillPortions: =0
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            Visible: =coluna
+            Width: =150
+            ZIndex: =1
+
+            Container12 As groupContainer.manualLayoutContainer:
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                ZIndex: =1
+
+                Label4_1 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(255, 255, 255, 1)
+                    Fill: =RGBA(50, 86, 160, 1)
+                    Height: =72
+                    Size: =25
+                    Text: ="MENU"
+                    Width: =147
+                    ZIndex: =1
+
+                Label5_2 As label:
+                    BorderColor: =RGBA(50, 86, 160, 1)
+                    BorderThickness: =1
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =62
+                    OnSelect: =Navigate(Historia)
+                    Size: =25
+                    Text: ="CIA"
+                    Width: =147
+                    Y: =72
+                    ZIndex: =2
+
+                Icon2_1 As icon.Airplane:
+                    Color: =RGBA(50, 86, 160, 1)
+                    Height: =46
+                    Icon: =Icon.Airplane
+                    OnSelect: =Navigate(Historia)
+                    Width: =35
+                    X: =112
+                    Y: =72
+                    ZIndex: =3
+
+                Label5_4 As label:
+                    BorderColor: =RGBA(50, 86, 160, 1)
+                    BorderThickness: =1
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =62
+                    OnSelect: =Navigate(TelaInicial)
+                    Size: =25
+                    Text: ="Início"
+                    Width: =147
+                    Y: =134
+                    ZIndex: =4
+
+                Icon3_1 As icon.Home:
+                    Color: =RGBA(50, 86, 160, 1)
+                    Icon: =Icon.Home
+                    OnSelect: =Navigate(TelaInicial)
+                    Width: |
+                        =35
+                    X: =112
+                    Y: =132
+                    ZIndex: =5
+
+                Label5_29 As label:
+                    BorderColor: =RGBA(50, 86, 160, 1)
+                    BorderThickness: =1
+                    Color: =RGBA(255, 255, 255, 1)
+                    Height: =62
+                    OnSelect: =Navigate(Login)
+                    Size: =25
+                    Text: ="Login"
+                    Width: =147
+                    Y: =196
+                    ZIndex: =8
+
+                Icon3 As icon.OpenInNewWindow:
+                    Color: =RGBA(50, 86, 160, 1)
+                    Icon: =Icon.Person
+                    OnSelect: =Navigate(Login)
+                    Width: =35
+                    X: =112
+                    Y: =195
+                    ZIndex: =9
+
+        Container3_1 As groupContainer.horizontalAutoLayoutContainer:
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =2
+
+            Container4_1 As groupContainer.manualLayoutContainer:
+                FillPortions: =0
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                Width: =1215
+                ZIndex: =1
+
+                Icon1_2 As icon.Hamburger:
+                    Color: =RGBA(50, 86, 160, 1)
+                    Icon: =Icon.Hamburger
+                    OnSelect: |
+                        =If(
+                            coluna = true,
+                            UpdateContext({coluna: false}),
+                            UpdateContext({coluna: true})
+                        );
+                    ZIndex: =1
+
+                Label6 As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(50, 86, 160, 1)
+                    BorderThickness: =1
+                    Font: =Font.Lato
+                    Height: =67
+                    Size: =35
+                    Text: ="CADASTRO"
+                    Width: =285
+                    X: =568
+                    ZIndex: =2
+
+                Form1 As form:
+                    DataSource: =Lista_Cia_Katlyn
+                    DefaultMode: =FormMode.New
+                    Height: =547
+                    OnSuccess: |-
+                        =Patch(
+                            Lista_Cia_Katlyn,    
+                            Form1.LastSubmit,
+                            {
+                                Nome_completo: User().FullName,
+                                Email: User().Email,
+                                Data_nascimento: DataCardValue2.SelectedDate,
+                                CPF: Value(DataCardValue3.Text),
+                                Celular: Value(DataCardValue4.Text),
+                                Cidade_Estado: DataCardValue5.Text,
+                                Endereco: DataCardValue6.Text,
+                                Foto_perfil: Image4.Image
+                            }
+                        )
+                    Width: =1215
+                    Y: =85
+                    ZIndex: =3
+
+                    Nome_completo_DataCard1 As typedDataCard.textualEditCard:
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="Nome_completo"
+                        Default: =ThisItem.Nome_completo
+                        DisplayMode: =Parent.DisplayMode
+                        DisplayName: =DataSourceInfo([@Lista_Cia_Katlyn],DataSourceInfo.DisplayName,"Nome_completo")
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =50
+                        MaxLength: =DataSourceInfo([@Lista_Cia_Katlyn], DataSourceInfo.MaxLength, "Nome_completo")
+                        Required: =false
+                        Update: =DataCardValue1.Text
+                        Width: =405
+                        X: =0
+                        Y: =0
+                        ZIndex: =1
+
+                        DataCardKey1 As label:
+                            AutoHeight: =true
+                            Height: =34
+                            Text: =Parent.DisplayName
+                            Width: =Parent.Width - 60
+                            Wrap: =false
+                            X: =30
+                            Y: =10
+                            ZIndex: =1
+
+                        DataCardValue1 As text:
+                            BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                            Default: =Parent.Default
+                            DelayOutput: =true
+                            DisplayMode: =Parent.DisplayMode
+                            MaxLength: =Parent.MaxLength
+                            PaddingLeft: =5
+                            RadiusBottomLeft: =0
+                            RadiusBottomRight: =0
+                            RadiusTopLeft: =0
+                            RadiusTopRight: =0
+                            Tooltip: =Parent.DisplayName
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardKey1.Y + DataCardKey1.Height + 5
+                            ZIndex: =2
+
+                        ErrorMessage1 As label:
+                            AutoHeight: =true
+                            Height: =10
+                            Live: =Live.Assertive
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Text: =Parent.Error
+                            Visible: =Parent.DisplayMode=DisplayMode.Edit
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardValue1.Y + DataCardValue1.Height
+                            ZIndex: =3
+
+                        StarVisible1 As label:
+                            Align: =Align.Center
+                            Height: =DataCardKey1.Height
+                            Text: ="*"
+                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            Width: =30
+                            Wrap: =false
+                            Y: =DataCardKey1.Y
+                            ZIndex: =4
+
+                    Foto_perfil_DataCard1 As typedDataCard.addLargePictureCard:
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="Foto_perfil"
+                        Default: =ThisItem.Foto_perfil
+                        DisplayMode: =Parent.DisplayMode
+                        DisplayName: =DataSourceInfo([@Lista_Cia_Katlyn],DataSourceInfo.DisplayName,"Foto_perfil")
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =50
+                        Required: =false
+                        Update: =Image4.Image
+                        Width: =405
+                        X: =1
+                        Y: =2
+                        ZIndex: =1
+
+                        DataCardKey9 As label:
+                            AutoHeight: =true
+                            Height: =34
+                            Text: =Parent.DisplayName
+                            Width: =Parent.Width - 60
+                            Wrap: =false
+                            X: =30
+                            Y: =10
+                            ZIndex: =1
+
+                        Image4 As image:
+                            BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                            DisplayMode: =Parent.DisplayMode
+                            Height: =AddPicture1.Height
+                            Image: =If(IsBlank(AddPicture1.Media), Parent.Default, AddPicture1.Media)
+                            Tooltip: =Parent.DisplayName
+                            Width: =AddPicture1.Width
+                            X: =AddPicture1.X
+                            Y: =AddPicture1.Y
+                            ZIndex: =2
+
+                        AddPicture1 As addMedia:
+                            Height: =200
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardKey9.Y + DataCardKey9.Height + 5
+                            ZIndex: =3
+
+                        ErrorMessage9 As label:
+                            AutoHeight: =true
+                            Height: =10
+                            Live: =Live.Assertive
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Text: =Parent.Error
+                            Visible: =Parent.DisplayMode=DisplayMode.Edit
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =Image4.Y + Image4.Height
+                            ZIndex: =4
+
+                        StarVisible9 As label:
+                            Align: =Align.Center
+                            Height: =DataCardKey9.Height
+                            Text: ="*"
+                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            Width: =30
+                            Wrap: =false
+                            Y: =DataCardKey9.Y
+                            ZIndex: =5
+
+                    Criado_por_DataCard1 As typedDataCard.comboBoxViewCard:
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="Author"
+                        Default: =ThisItem.'Criado por'
+                        DisplayMode: =DisplayMode.Disabled
+                        DisplayName: =DataSourceInfo([@Lista_Cia_Katlyn],DataSourceInfo.DisplayName,"Author")
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =50
+                        Required: =false
+                        Update: =DataCardValue11.Selected
+                        Visible: =false
+                        Width: =405
+                        X: =2
+                        Y: =2
+                        ZIndex: =1
+
+                        DataCardKey11 As label:
+                            AutoHeight: =true
+                            Height: =34
+                            Text: ="Criado_por"
+                            Width: =Parent.Width - 60
+                            Wrap: =false
+                            X: =30
+                            Y: =10
+                            ZIndex: =1
+
+                        DataCardValue11 As combobox:
+                            BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                            DefaultSelectedItems: =Parent.Default
+                            DisplayFields: =["Claims"]
+                            DisplayMode: =Parent.DisplayMode
+                            Items: =Choices([@Lista_Cia_Katlyn].'Criado por')
+                            PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                            SearchFields: =["Claims"]
+                            SearchItems: =Choices(Lista_Cia_Katlyn.'Criado por',DataCardValue11.SearchText)
+                            SelectMultiple: =false
+                            Width: =Parent.Width - 60
+                            X: =33
+                            Y: =46
+                            ZIndex: =2
+
+                        ErrorMessage10 As label:
+                            AutoHeight: =true
+                            Height: =10
+                            Live: =Live.Assertive
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Text: =Parent.Error
+                            Visible: =Parent.DisplayMode=DisplayMode.Edit
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardValue11.Y + DataCardValue11.Height
+                            ZIndex: =3
+
+                        StarVisible10 As label:
+                            Align: =Align.Center
+                            Height: =DataCardKey11.Height
+                            Text: ="*"
+                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            Width: =30
+                            Wrap: =false
+                            Y: =DataCardKey11.Y
+                            ZIndex: =4
+
+                    Modificado_DataCard1 As typedDataCard.textualViewCard:
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="Modified"
+                        Default: =ThisItem.Modificado
+                        DisplayMode: =DisplayMode.Disabled
+                        DisplayName: =DataSourceInfo([@Lista_Cia_Katlyn],DataSourceInfo.DisplayName,"Modified")
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =40
+                        Required: =false
+                        Visible: =false
+                        Width: =405
+                        X: =0
+                        Y: =3
+                        ZIndex: =1
+
+                        DataCardKey13 As label:
+                            AutoHeight: =true
+                            Height: =34
+                            Text: =Parent.DisplayName
+                            Width: =Parent.Width - 60
+                            Wrap: =false
+                            X: =30
+                            Y: =10
+                            ZIndex: =1
+
+                        DataCardValue13 As label:
+                            AutoHeight: =true
+                            DisplayMode: =Parent.DisplayMode
+                            Height: =27
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Text: =Parent.Default
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardKey13.Y + DataCardKey13.Height + 5
+                            ZIndex: =2
+
+                    Modificado_por_DataCard1 As typedDataCard.comboBoxViewCard:
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="Editor"
+                        Default: =ThisItem.'Modificado por'
+                        DisplayMode: =DisplayMode.Disabled
+                        DisplayName: =DataSourceInfo([@Lista_Cia_Katlyn],DataSourceInfo.DisplayName,"Editor")
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =50
+                        Required: =false
+                        Update: =DataCardValue14.Selected
+                        Visible: =false
+                        Width: =405
+                        X: =1
+                        Y: =3
+                        ZIndex: =1
+
+                        DataCardKey14 As label:
+                            AutoHeight: =true
+                            Height: =34
+                            Text: =Parent.DisplayName
+                            Width: =Parent.Width - 60
+                            Wrap: =false
+                            X: =30
+                            Y: =10
+                            ZIndex: =1
+
+                        DataCardValue14 As combobox:
+                            BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                            DefaultSelectedItems: =Parent.Default
+                            DisplayFields: =["Claims"]
+                            DisplayMode: =Parent.DisplayMode
+                            Items: =Choices([@Lista_Cia_Katlyn].'Modificado por')
+                            PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                            SearchFields: =["Claims"]
+                            SearchItems: =Choices(Lista_Cia_Katlyn.'Modificado por',DataCardValue14.SearchText)
+                            SelectMultiple: =false
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardKey14.Y + DataCardKey14.Height + 5
+                            ZIndex: =2
+
+                        ErrorMessage11 As label:
+                            AutoHeight: =true
+                            Height: =10
+                            Live: =Live.Assertive
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Text: =Parent.Error
+                            Visible: =Parent.DisplayMode=DisplayMode.Edit
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardValue14.Y + DataCardValue14.Height
+                            ZIndex: =3
+
+                        StarVisible11 As label:
+                            Align: =Align.Center
+                            Height: =DataCardKey14.Height
+                            Text: ="*"
+                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            Width: =30
+                            Wrap: =false
+                            Y: =DataCardKey14.Y
+                            ZIndex: =4
+
+                    Criado_DataCard1 As typedDataCard.textualViewCard:
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="Created"
+                        Default: =ThisItem.Criado
+                        DisplayMode: =DisplayMode.Disabled
+                        DisplayName: =DataSourceInfo([@Lista_Cia_Katlyn],DataSourceInfo.DisplayName,"Created")
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =40
+                        Required: =false
+                        Visible: =false
+                        Width: =405
+                        X: =2
+                        Y: =3
+                        ZIndex: =1
+
+                        DataCardKey12 As label:
+                            AutoHeight: =true
+                            Height: =34
+                            Text: =Parent.DisplayName
+                            Width: =Parent.Width - 60
+                            Wrap: =false
+                            X: =30
+                            Y: =10
+                            ZIndex: =1
+
+                        DataCardValue12 As label:
+                            AutoHeight: =true
+                            DisplayMode: =Parent.DisplayMode
+                            Height: =27
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Text: =Parent.Default
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardKey12.Y + DataCardKey12.Height + 5
+                            ZIndex: =2
+
+                    Email_DataCard1 As typedDataCard.textualEditCard:
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="Email"
+                        Default: =ThisItem.Email
+                        DisplayMode: =Parent.DisplayMode
+                        DisplayName: =DataSourceInfo([@Lista_Cia_Katlyn],DataSourceInfo.DisplayName,"Email")
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =50
+                        MaxLength: =DataSourceInfo([@Lista_Cia_Katlyn], DataSourceInfo.MaxLength, "Email")
+                        Required: =false
+                        Update: =DataCardValue7.Text
+                        Width: =405
+                        X: =1
+                        Y: =0
+                        ZIndex: =4
+
+                        DataCardKey7 As label:
+                            AutoHeight: =true
+                            Height: =34
+                            Text: =Parent.DisplayName
+                            Width: =Parent.Width - 60
+                            Wrap: =false
+                            X: =30
+                            Y: =10
+                            ZIndex: =1
+
+                        DataCardValue7 As text:
+                            BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                            Default: =Parent.Default
+                            DelayOutput: =true
+                            DisplayMode: =Parent.DisplayMode
+                            MaxLength: =Parent.MaxLength
+                            PaddingLeft: =5
+                            RadiusBottomLeft: =0
+                            RadiusBottomRight: =0
+                            RadiusTopLeft: =0
+                            RadiusTopRight: =0
+                            Tooltip: =Parent.DisplayName
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardKey7.Y + DataCardKey7.Height + 5
+                            ZIndex: =2
+
+                        ErrorMessage7 As label:
+                            AutoHeight: =true
+                            Height: =10
+                            Live: =Live.Assertive
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Text: =Parent.Error
+                            Visible: =Parent.DisplayMode=DisplayMode.Edit
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardValue7.Y + DataCardValue7.Height
+                            ZIndex: =3
+
+                        StarVisible7 As label:
+                            Align: =Align.Center
+                            Height: =DataCardKey7.Height
+                            Text: ="*"
+                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            Width: =30
+                            Wrap: =false
+                            Y: =DataCardKey7.Y
+                            ZIndex: =4
+
+                    Data_nascimento_DataCard1 As typedDataCard.dateEditCard:
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="Data_nascimento"
+                        Default: =ThisItem.Data_nascimento
+                        DisplayMode: =Parent.DisplayMode
+                        DisplayName: =DataSourceInfo([@Lista_Cia_Katlyn],DataSourceInfo.DisplayName,"Data_nascimento")
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =50
+                        Required: =false
+                        Update: =DataCardValue2.SelectedDate
+                        Width: =405
+                        X: =2
+                        Y: =0
+                        ZIndex: =4
+
+                        DataCardKey2 As label:
+                            AutoHeight: =true
+                            Height: =34
+                            Text: =Parent.DisplayName
+                            Width: =Parent.Width - 60
+                            Wrap: =false
+                            X: =30
+                            Y: =10
+                            ZIndex: =1
+
+                        DataCardValue2 As datepicker:
+                            BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                            DefaultDate: =Parent.Default
+                            DisplayMode: =Parent.DisplayMode
+                            EndYear: =Year(Today())+100
+                            IsEditable: =true
+                            PaddingBottom: =0
+                            PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                            StartYear: =1899
+                            Tooltip: =Parent.DisplayName
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardKey2.Y + DataCardKey2.Height + 5
+                            ZIndex: =2
+
+                        ErrorMessage2 As label:
+                            AutoHeight: =true
+                            Height: =10
+                            Live: =Live.Assertive
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Text: =Parent.Error
+                            Visible: =Parent.DisplayMode=DisplayMode.Edit
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardValue2.Y + DataCardValue2.Height
+                            ZIndex: =3
+
+                        StarVisible2 As label:
+                            Align: =Align.Center
+                            Height: =DataCardKey2.Height
+                            Text: ="*"
+                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            Width: =30
+                            Wrap: =false
+                            Y: =DataCardKey2.Y
+                            ZIndex: =4
+
+                    CPF_DataCard1 As typedDataCard.numberEditCard:
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="CPF"
+                        Default: =ThisItem.CPF
+                        DisplayMode: =Parent.DisplayMode
+                        DisplayName: =DataSourceInfo([@Lista_Cia_Katlyn],DataSourceInfo.DisplayName,"CPF")
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =50
+                        Required: =false
+                        Update: =Value(DataCardValue3.Text)
+                        Width: =405
+                        X: =0
+                        Y: =1
+                        ZIndex: =4
+
+                        DataCardKey3 As label:
+                            AutoHeight: =true
+                            Height: =34
+                            Text: =Parent.DisplayName
+                            Width: =Parent.Width - 60
+                            Wrap: =false
+                            X: =30
+                            Y: =10
+                            ZIndex: =1
+
+                        DataCardValue3 As text:
+                            BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                            Default: =Parent.Default
+                            DelayOutput: =true
+                            DisplayMode: =Parent.DisplayMode
+                            Format: =TextFormat.Number
+                            OnChange: |
+                                =If(
+                                    !IsBlank(Value(DataCardValue3.Text)) && !IsEmpty(Filter(Lista_Cia_Katlyn, CPF = Value(DataCardValue3.Text))),
+                                    Notify("A conta já existe. Você pode fazer login.", NotificationType.Warning),
+                                    Navigate(Login, ScreenTransition.Fade))
+                            PaddingLeft: =5
+                            RadiusBottomLeft: =0
+                            RadiusBottomRight: =0
+                            RadiusTopLeft: =0
+                            RadiusTopRight: =0
+                            Tooltip: =Parent.DisplayName
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardKey3.Y + DataCardKey3.Height + 5
+                            ZIndex: =2
+
+                        ErrorMessage3 As label:
+                            AutoHeight: =true
+                            Height: =10
+                            Live: =Live.Assertive
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Text: =Parent.Error
+                            Visible: =Parent.DisplayMode=DisplayMode.Edit
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardValue3.Y + DataCardValue3.Height
+                            ZIndex: =3
+
+                        StarVisible3 As label:
+                            Align: =Align.Center
+                            Height: =DataCardKey3.Height
+                            Text: ="*"
+                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            Width: =30
+                            Wrap: =false
+                            Y: =DataCardKey3.Y
+                            ZIndex: =4
+
+                    Celular_DataCard1 As typedDataCard.numberEditCard:
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="Celular"
+                        Default: =ThisItem.Celular
+                        DisplayMode: =Parent.DisplayMode
+                        DisplayName: =DataSourceInfo([@Lista_Cia_Katlyn],DataSourceInfo.DisplayName,"Celular")
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =50
+                        Required: =false
+                        Update: =Value(DataCardValue4.Text)
+                        Width: =405
+                        X: =1
+                        Y: =1
+                        ZIndex: =4
+
+                        DataCardKey4 As label:
+                            AutoHeight: =true
+                            Height: =34
+                            Text: =Parent.DisplayName
+                            Width: =Parent.Width - 60
+                            Wrap: =false
+                            X: =30
+                            Y: =10
+                            ZIndex: =1
+
+                        DataCardValue4 As text:
+                            BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                            Default: =Parent.Default
+                            DelayOutput: =true
+                            DisplayMode: =Parent.DisplayMode
+                            Format: =TextFormat.Number
+                            PaddingLeft: =5
+                            RadiusBottomLeft: =0
+                            RadiusBottomRight: =0
+                            RadiusTopLeft: =0
+                            RadiusTopRight: =0
+                            Tooltip: =Parent.DisplayName
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardKey4.Y + DataCardKey4.Height + 5
+                            ZIndex: =2
+
+                        ErrorMessage4 As label:
+                            AutoHeight: =true
+                            Height: =10
+                            Live: =Live.Assertive
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Text: =Parent.Error
+                            Visible: =Parent.DisplayMode=DisplayMode.Edit
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardValue4.Y + DataCardValue4.Height
+                            ZIndex: =3
+
+                        StarVisible4 As label:
+                            Align: =Align.Center
+                            Height: =DataCardKey4.Height
+                            Text: ="*"
+                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            Width: =30
+                            Wrap: =false
+                            Y: =DataCardKey4.Y
+                            ZIndex: =4
+
+                    Cidade_Estado_DataCard1 As typedDataCard.textualEditCard:
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="Cidade"
+                        Default: =ThisItem.Cidade_Estado
+                        DisplayMode: =Parent.DisplayMode
+                        DisplayName: =DataSourceInfo([@Lista_Cia_Katlyn],DataSourceInfo.DisplayName,"Cidade")
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =50
+                        MaxLength: =DataSourceInfo([@Lista_Cia_Katlyn], DataSourceInfo.MaxLength, "Cidade")
+                        Required: =false
+                        Update: =DataCardValue5.Text
+                        Width: =405
+                        X: =2
+                        Y: =1
+                        ZIndex: =4
+
+                        DataCardKey5 As label:
+                            AutoHeight: =true
+                            Height: =34
+                            Text: =Parent.DisplayName
+                            Width: =Parent.Width - 60
+                            Wrap: =false
+                            X: =30
+                            Y: =10
+                            ZIndex: =1
+
+                        DataCardValue5 As text:
+                            BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                            Default: =Parent.Default
+                            DelayOutput: =true
+                            DisplayMode: =Parent.DisplayMode
+                            MaxLength: =Parent.MaxLength
+                            PaddingLeft: =5
+                            RadiusBottomLeft: =0
+                            RadiusBottomRight: =0
+                            RadiusTopLeft: =0
+                            RadiusTopRight: =0
+                            Tooltip: =Parent.DisplayName
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardKey5.Y + DataCardKey5.Height + 5
+                            ZIndex: =2
+
+                        ErrorMessage5 As label:
+                            AutoHeight: =true
+                            Height: =10
+                            Live: =Live.Assertive
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Text: =Parent.Error
+                            Visible: =Parent.DisplayMode=DisplayMode.Edit
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardValue5.Y + DataCardValue5.Height
+                            ZIndex: =3
+
+                        StarVisible5 As label:
+                            Align: =Align.Center
+                            Height: =DataCardKey5.Height
+                            Text: ="*"
+                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            Width: =30
+                            Wrap: =false
+                            Y: =DataCardKey5.Y
+                            ZIndex: =4
+
+                    Endereco_DataCard1 As typedDataCard.textualEditCard:
+                        BorderStyle: =BorderStyle.Solid
+                        DataField: ="Endereco"
+                        Default: =ThisItem.Endereco
+                        DisplayMode: =Parent.DisplayMode
+                        DisplayName: =DataSourceInfo([@Lista_Cia_Katlyn],DataSourceInfo.DisplayName,"Endereco")
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =50
+                        MaxLength: =DataSourceInfo([@Lista_Cia_Katlyn], DataSourceInfo.MaxLength, "Endereco")
+                        Required: =true
+                        Update: =DataCardValue6.Text
+                        Width: =405
+                        X: =0
+                        Y: =2
+                        ZIndex: =4
+
+                        DataCardKey6 As label:
+                            AutoHeight: =true
+                            Height: =34
+                            Text: =Parent.DisplayName
+                            Width: =Parent.Width - 60
+                            Wrap: =false
+                            X: =30
+                            Y: =10
+                            ZIndex: =1
+
+                        DataCardValue6 As text:
+                            BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                            Default: =Parent.Default
+                            DelayOutput: =true
+                            DisplayMode: =Parent.DisplayMode
+                            MaxLength: =Parent.MaxLength
+                            PaddingLeft: =5
+                            RadiusBottomLeft: =0
+                            RadiusBottomRight: =0
+                            RadiusTopLeft: =0
+                            RadiusTopRight: =0
+                            Tooltip: =Parent.DisplayName
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardKey6.Y + DataCardKey6.Height + 5
+                            ZIndex: =2
+
+                        ErrorMessage6 As label:
+                            AutoHeight: =true
+                            Height: =10
+                            Live: =Live.Assertive
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Text: =Parent.Error
+                            Visible: =Parent.DisplayMode=DisplayMode.Edit
+                            Width: =Parent.Width - 60
+                            X: =30
+                            Y: =DataCardValue6.Y + DataCardValue6.Height
+                            ZIndex: =3
+
+                        StarVisible6 As label:
+                            Align: =Align.Center
+                            Height: =DataCardKey6.Height
+                            Text: ="*"
+                            Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                            Width: =30
+                            Wrap: =false
+                            Y: =DataCardKey6.Y
+                            ZIndex: =4
+
+    Container5_2 As groupContainer.horizontalAutoLayoutContainer:
+        Fill: =RGBA(130, 141, 158, 1)
+        Height: =68
+        LayoutMode: =LayoutMode.Auto
+        Width: =1366
+        ZIndex: =2
+
+        Container6_1 As groupContainer.manualLayoutContainer:
+            Fill: =RGBA(175, 191, 224, 1)
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            ZIndex: =1
+
+            Image1_1 As image:
+                Height: =72
+                Image: =Wikimania2023_Animated_Sticker_Airplane
+                Width: =147
+                Y: =4
+                ZIndex: =1
+
+            Label1_1 As label:
+                Align: =Align.Center
+                Color: =RGBA(255, 255, 255, 1)
+                Font: =Font.'Patrick Hand'
+                Height: =64
+                Size: =25
+                Text: ="Airplane CIA"
+                Width: =194
+                X: =1164
+                Y: =8
+                ZIndex: =2
+
+    Container5_3 As groupContainer.horizontalAutoLayoutContainer:
+        Fill: =RGBA(175, 191, 224, 1)
+        Height: =68
+        LayoutMode: =LayoutMode.Auto
+        Width: =1366
+        Y: =700
+        ZIndex: =3
+
+        Container2 As groupContainer.manualLayoutContainer:
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            ZIndex: =1
+
+            Button1 As button:
+                Fill: =RGBA(50, 86, 160, 1)
+                OnSelect: |-
+                    =Patch(
+                        Lista_Cia_Katlyn,
+                        {
+                            Nome_completo: DataCardValue1.Text,
+                            Email: DataCardValue7.Text,
+                            Data_nascimento: DataCardValue2.SelectedDate,
+                            CPF: Value(DataCardValue3.Text),
+                            Celular: Value(DataCardValue4.Text),
+                            Cidade_Estado: DataCardValue5.Text,
+                            Endereco: DataCardValue6.Text,
+                            Foto_perfil: Image4.Image
+                        }
+                    );
+                    Navigate(Dados)
+                Text: ="Confirmar"
+                X: =616
+                Y: =14
+                ZIndex: =1
+
